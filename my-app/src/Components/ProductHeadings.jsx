@@ -5,7 +5,7 @@ import { Link } from "react-router-dom" ;
 import { Box } from "@chakra-ui/react";
 
 const ProductHeadings = ({productPageName ,anotherPage}) => {
-  console.log("hello world")
+  // console.log("hello world")
     return (
       <div> 
         <div className="productNavigationBar">
