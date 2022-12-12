@@ -53,9 +53,9 @@ const ProductPage = () => {
          }
         </div>
         <hr className='horizatalRule1'/>
-    {/* All code same   ----------------Product all pages above  */}
     
     </Box>
+    {/* All code same   ----------------Product all pages above  */}
    
     </Box>
   )
