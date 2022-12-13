@@ -1,9 +1,10 @@
 import React from 'react' 
 import "./ProductPage.css"
-import {Box} from "@chakra-ui/react" 
+import {Box , Text} from "@chakra-ui/react" 
 import { ProductHeadings } from '../Components/ProductHeadings' 
 import { AllProductPages, ResponsiveAllProductPages } from '../Components/AllProductPages'
 import { Sorting } from '../Components/Sorting'
+import { Filter } from '../Components/Filter'
 
 
 
@@ -78,8 +79,16 @@ const ProductPage = () => {
     
      <Box id='filterMainBox_&_DisplayData' style={{border:"1px solid red" ,width:"92%" , margin:"auto" , height:"200vh" , display:"flex" , justifyContent:"space-between" }}>
        
-       <Box id='FilterMainBox' style={{border:"1px solid green" , height:"100vh" , width:"30%"   }}></Box>
-       <Box id='DisplayDataBox' style={{border:"1px solid green" , height:"200vh" , width:"68%"}} ></Box>
+       {/*  Filter component---------------------------------------------------------- */}
+       <Box id='FilterMainBox' style={{border:"0.1px solid #e7e9ee" , height:"100vh" , width:"20%"   }}>
+         
+         <Box>
+         <Filter />
+           
+          </Box>
+
+       </Box>
+       <Box id='DisplayDataBox' style={{border:"1px solid green" , height:"200vh" , width:"78%"}} ></Box>
 
      </Box>
 
