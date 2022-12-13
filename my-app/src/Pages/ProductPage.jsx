@@ -118,7 +118,7 @@ const ProductPage = () => {
      <Box id='filterMainBox_&_DisplayData' style={{border:"1px solid red" ,width:"92%" , margin:"auto" , height:"200vh" , display:"flex" , justifyContent:"space-between" }}>
        
        {/*  Filter component---------------------------------------------------------- */}
-       <Box id='FilterMainBox' style={{border:"0.1px solid #e7e9ee" , height:"100vh" , width:"17%"   }}>
+       <Box id='FilterMainBox' shadow="md" style={{border:"0.1px solid #e7e9ee" , height:"100vh" , width:"17%" ,  }}>
          
          <Box>
          <Filter />
@@ -140,7 +140,12 @@ const ProductPage = () => {
             })} */}
 
             
-           
+           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="Lapi"  weight="4Kg" price="40" des="Its an dummy" id="1" />
+
+           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="Lapi"  weight="4Kg" price="40" des="Its an dummy" id="1" />
+
+           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="Lapi"  weight="4Kg" price="40" des="Its an dummy" id="1" />
+
           </SimpleGrid>
 
          

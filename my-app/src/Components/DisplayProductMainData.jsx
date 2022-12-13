@@ -1,5 +1,7 @@
 import { Box, Heading , Text } from '@chakra-ui/react'
 import React from 'react'
+import "./ProductHeadings.css"
+
 
 const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
     let style = {
@@ -10,7 +12,7 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
 
       
  return (
-    <Box shadow="2xl" w={{base:"90vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "25vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "459px",}} style={style}  >
+    <Box shadow="base" className='hoverProductDiv' w={{base:"90vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "22vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "459px",}} style={style}  >
       
        <div id='productDataImages' style={{ height:"auto"}}>
         <img src={src} alt={name}/>
