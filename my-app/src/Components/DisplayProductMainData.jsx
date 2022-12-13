@@ -1,5 +1,6 @@
 import { Box, Heading , Img, Text } from '@chakra-ui/react'
 import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
 import "./ProductHeadings.css"
 
@@ -11,16 +12,10 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
       position:"relative" , 
     }
 
-    const [] = useState("")
-     
-   
-    const handleChange = ()=>{
-      console.log("helloWorld")
-      alert("hello")
-      
-    }
+    
+
     const imageData = [
-      {id:1 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6457/6457397_sd.jpg;maxHeight=200;maxWidth=300"},{id:1 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6503/6503094_sd.jpg;maxHeight=200;maxWidth=300"},{id:1 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6386/6386391_sd.jpg;maxHeight=200;maxWidth=300"},
+      {id:1 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6457/6457397_sd.jpg;maxHeight=200;maxWidth=300"},{id:2 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6503/6503094_sd.jpg;maxHeight=200;maxWidth=300"},{id:3 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6386/6386391_sd.jpg;maxHeight=200;maxWidth=300"},
     ]
 
       
@@ -29,9 +24,10 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
       
        <div id='productDataImages' style={{ height:"auto"}} >
         <img src={src} alt={name}/>
+
             <Box style={{display:"flex" , justifyContent:"space-evenly"}}>
             {imageData.map((item)=>{
-              return (<img key={item.id} src={item.src} alt={item.id} width="40px" height="40px" onMouseOver={handleChange} />)
+              return (<img key={item.id} src={item.src} alt="hello" width="40px" height="40px"  />)
             })}
             </Box>
        </div>
