@@ -1,3 +1,4 @@
+import { StarIcon } from '@chakra-ui/icons'
 import { Box , Checkbox, Text } from '@chakra-ui/react'
 import React from 'react' 
 import { Modalfilter } from './Modalfilter'
@@ -65,7 +66,37 @@ const Filter = () => {
         color:"Black" , 
         size:"3" , 
     },
-]
+]  
+    
+    const filterReviewData = [
+        {
+            id:"1"  ,   
+            review:"5" , 
+            size:"7" , 
+        },
+        {
+            id:"2"  ,   
+            review:"4" , 
+            size:"7" , 
+        },
+        {
+            id:"3"  ,   
+            review:"3" , 
+            size:"7" , 
+        },
+        {
+            id:"4"  ,   
+            review:"2" , 
+            size:"7" , 
+        },
+        {
+            id:"5"  ,   
+            review:"1" , 
+            size:"7" , 
+        },
+        
+        
+    ]
    
 
 
@@ -84,9 +115,9 @@ const Filter = () => {
         </Box>
         <Modalfilter />
         
+            {/* Checkboxes are here ---------depend upon Color- ------- */}
         <hr  style={{marginTop:"3vh"}}/>
         
-            {/* Checkboxes are here ---------depend upon Color- ------- */}
         <Text fontSize='17px' fontWeight="500" mb={4} mt={3} color="#1d252c">Color</Text> 
             <Box style={{display:"flex" , flexDirection:"column" }} mb={1}>
         {filterColorData.length > 0 &&  filterColorData.map((item)=>{
@@ -95,6 +126,22 @@ const Filter = () => {
         })}
 
         </Box>
+
+          {/* Checkboxes are here ---------depend upon Rating- ------- */}
+          <hr  style={{marginTop:"3vh"}}/>
+        
+        <Text fontSize='17px' fontWeight="500" mb={4} mt={3} color="#1d252c">Rating</Text> 
+            <Box style={{display:"flex" , flexDirection:"column" }} mb={1}>
+        {filterReviewData.length > 0 &&  filterReviewData.map((item)=>{
+             return (
+             <Checkbox key={item.id} ><Text fontSize='17px' fontWeight="400" color="#1d252c">
+                {item.review} 
+                <span>({item.size})</span></Text></Checkbox> )
+        })}
+  
+  <StarIcon/>
+        </Box>
+          
 
 
 
