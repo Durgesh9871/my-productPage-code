@@ -1,12 +1,13 @@
 import React from 'react' 
 import "./ProductPage.css"
-import {Box , Img, Text} from "@chakra-ui/react" 
+import {Box , Img, SimpleGrid, Text} from "@chakra-ui/react" 
 import { ProductHeadings } from '../Components/ProductHeadings' 
 import { AllProductPages, ResponsiveAllProductPages } from '../Components/AllProductPages'
 import { Sorting } from '../Components/Sorting'
 import { Filter } from '../Components/Filter'
 import { Link } from 'react-router-dom'
-import Carousel from "better-react-carousel"
+// import Carousel from "better-react-carousel" 
+import { DisplayProductMainData } from '../Components/DisplayProductMainData'
 
 
 
@@ -123,11 +124,26 @@ const ProductPage = () => {
          <Filter />
           </Box>
        </Box>
-           
-
+             
+ {/*   Display product data is started from here --------------------------Main Data */}
        <Box id='DisplayDataBox' style={{border:"1px solid green" , height:"200vh" , width:"81%"}} >
          
-         {/*  carosel data --------- */} 
+       <SimpleGrid columns={{base:1, sm: 1, md: 2, lg: 3,xl: 3,'2xl': 3,}} justifyItems="center" spacingY={{base:"32px", sm: "34px", md: "34px", lg: "34px",xl: "34px",'2xl': "32px",}} >
+            {/* {dataIsLoading && arr.map((_,id)=>{
+              return (<ProductSkeleton key={id}/>)
+            })}
+            
+            {allProductData.length > 0 && allProductData.map((item)=>{
+              return (
+               <Link to={`/product/${item.id}`} key={item.id} > <ProductMainData  src={item.imgUrl} name={item.name} weight={item.weight} price={item.price} des={item.des} /></Link>
+              )
+            })} */}
+
+            
+           
+          </SimpleGrid>
+
+         
         
        </Box>
 
