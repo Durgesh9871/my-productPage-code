@@ -68,12 +68,17 @@ const ProductPage = () => {
 {/*  Sorting menu bar -------------------------------------------------- */}
     <Sorting />
    
-
 </div>
         <hr className='horizatalRule1'/>
-    
     </Box>
-    {/* All code same   ----------------Product all pages above  */}
+    {/* All code same   ----------------Product all pages above  */}  
+
+    
+    {/*  Filtering and display data starts here ----------------------------------------------- */}
+    
+    
+
+    
    
     </Box>
   )
