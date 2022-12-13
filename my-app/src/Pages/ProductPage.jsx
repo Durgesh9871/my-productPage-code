@@ -126,9 +126,9 @@ const ProductPage = () => {
        </Box>
              
  {/*   Display product data is started from here --------------------------Main Data */}
-       <Box id='DisplayDataBox' style={{border:"1px solid green" , height:"200vh" , width:"81%"}} >
+       <Box id='DisplayDataBox' style={{border:"1px solid green" , height:"200vh" , width:"82%"}} >
          
-       <SimpleGrid columns={{base:1, sm: 1, md: 2, lg: 3,xl: 3,'2xl': 3,}} justifyItems="center" spacingY={{base:"32px", sm: "34px", md: "34px", lg: "34px",xl: "34px",'2xl': "32px",}} >
+       <SimpleGrid columns={{base:1, sm: 1, md: 2, lg: 3,xl: 3,'2xl': 3,}} justifyItems="center" >
             {/* {dataIsLoading && arr.map((_,id)=>{
               return (<ProductSkeleton key={id}/>)
             })}

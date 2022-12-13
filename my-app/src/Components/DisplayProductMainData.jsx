@@ -5,14 +5,15 @@ import "./ProductHeadings.css"
 
 const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
     let style = {
-     
-      
       position:"relative" , 
+     
     }
+      
+    
 
       
  return (
-    <Box shadow="base" className='hoverProductDiv' w={{base:"90vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "22vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "459px",}} style={style}  >
+    <Box shadow="base" className='hoverProductDiv' w={{base:"90vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "459px",}} style={style}  >
       
        <div id='productDataImages' style={{ height:"auto"}}>
         <img src={src} alt={name}/>

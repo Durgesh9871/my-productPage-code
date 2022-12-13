@@ -34,7 +34,7 @@
 /*  Product single data ------------css --------- */
 
 .hoverProductDiv:hover{
-     transition: box-shadow 0.2s;
-    box-shadow: 0 0 11px hsla(0, 1%, 51%, 0.429);
+     transition: box-shadow .1s;
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
