@@ -1,5 +1,6 @@
 import { Box , Checkbox, Text } from '@chakra-ui/react'
-import React from 'react'
+import React from 'react' 
+import { Modalfilter } from './Modalfilter'
 
 const Filter = () => {
     
@@ -28,25 +29,27 @@ const Filter = () => {
     
 ]
    
+const handleChange =(e)=>{
+    console.log(e.target.value , "value")
+}
 
   return (
     <Box>
-        <Box style={{display:"" ,border:"1px solid black" , width:"90%" , margin:"auto" , height:"200px" , flexDirection:"column" ,justifyContent:"flex-start" , textAlign:"left"}}>
-        <Text fontSize='17px' fontWeight="500" mb={3} color="#1d252c">Brand</Text> 
+        <Box style={{display:"" ,border:"1px  black" , width:"90%" , margin:"auto" , height:"200px"  , textAlign:"left"}}>
+        <Text fontSize='17px' fontWeight="500" mb={4} mt={3} color="#1d252c">Brand</Text> 
          
          {/* Checkboxes are here  */}
-           
+           <Box style={{display:"flex" , flexDirection:"column"}}>
         { filterNameData.map((item)=>{
-             <Checkbox><Text fontSize='17px' fontWeight="400" color="#1d252c">Microsoft <span>(34)</span></Text></Checkbox>
+             return (
+             <Checkbox key={item.id}><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
         })}
 
+        <Modalfilter/>
+        </Box>
        
 
-         <Checkbox><Text fontSize='17px' fontWeight="400" color="#1d252c">Microsoft <span>(34)</span></Text></Checkbox>
-
-         <Checkbox><Text fontSize='17px' fontWeight="400" color="#1d252c">Microsoft <span>(34)</span></Text></Checkbox>
-
-         <Checkbox><Text fontSize='17px' fontWeight="400" color="#1d252c">Microsoft <span>(34)</span></Text></Checkbox>
+        
 
 
   
