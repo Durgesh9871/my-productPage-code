@@ -1,5 +1,6 @@
 import { Box, Heading , Img, Text } from '@chakra-ui/react'
 import React from 'react'
+import { useState } from 'react'
 import "./ProductHeadings.css"
 
 
@@ -8,22 +9,31 @@ import "./ProductHeadings.css"
 const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
     let style = {
       position:"relative" , 
-     
     }
+
+    const [] = useState("")
+     
    
     const handleChange = ()=>{
       console.log("helloWorld")
+      alert("hello")
       
     }
-    
+    const imageData = [
+      {id:1 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6457/6457397_sd.jpg;maxHeight=200;maxWidth=300"},{id:1 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6503/6503094_sd.jpg;maxHeight=200;maxWidth=300"},{id:1 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6386/6386391_sd.jpg;maxHeight=200;maxWidth=300"},
+    ]
 
       
  return (
     <Box shadow="base" className='hoverProductDiv' w={{base:"90vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "459px",}} style={style}  >
       
-       <div id='productDataImages' style={{ height:"auto"}} onMouseOver={handleChange}>
+       <div id='productDataImages' style={{ height:"auto"}} >
         <img src={src} alt={name}/>
-      
+            <Box style={{display:"flex" , justifyContent:"space-evenly"}}>
+            {imageData.map((item)=>{
+              return (<img key={item.id} src={item.src} alt={item.id} width="40px" height="40px" onMouseOver={handleChange} />)
+            })}
+            </Box>
        </div>
        
        <div id='productDataDesc' style={{border:"2px  #EBECEE" ,height:"35%" , padding:"10px 10px 10px 10px"}}>
