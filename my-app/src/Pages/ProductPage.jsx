@@ -3,6 +3,12 @@ import "./ProductPage.css"
 import {Box} from "@chakra-ui/react" 
 import { ProductHeadings } from '../Components/ProductHeadings' 
 import { AllProductPages } from '../Components/AllProductPages'
+import { Sorting } from '../Components/Sorting'
+
+
+
+
+
 
 const ProductPage = () => {
 
@@ -43,7 +49,8 @@ const ProductPage = () => {
    <Box style={{width:"92%" , border:"2px  red" , margin:"auto"}}>
    <ProductHeadings productPageName="Laptops" anotherPage="Laptop & Computer Deals" />
    
-   <div id="productFilterFish" style={{display:"flex" }}>
+   <div id="productFilterFishLine" style={{display:"flex" , justifyContent:"space-between" }}>
+    <div style={{display:"flex" }} >
          {
           ProductPagesData.map((item)=>{
             return (
@@ -51,7 +58,13 @@ const ProductPage = () => {
             )
           })
          }
-        </div>
+   </div>
+
+{/*  Sorting menu bar -------------------------------------------------- */}
+    <Sorting />
+   
+
+</div>
         <hr className='horizatalRule1'/>
     
     </Box>

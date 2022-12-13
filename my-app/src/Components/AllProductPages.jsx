@@ -18,10 +18,10 @@ const AllProductPages = ({ src , text , check}) => {
   return (
     <div style={style} className="AllProductPages">
         <Image
-  borderRadius='full'
+  
   boxSize='32px'
   src={src}
-  alt='Dan Abramov'/>
+  alt='Diffrent Pages'/>
   <Text fontWeight={600} fontSize="15px" ml="6px">{text}</Text>
   
     </div>
