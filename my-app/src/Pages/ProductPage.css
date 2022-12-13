@@ -12,10 +12,16 @@
  
 }
 
+
+/*  For responsiveness code----------------------- */
 #allPagesLink{
     display: flex;
     /* border: 2px solid red; */
 }
+#ResponsiveAllProductPages{
+    display: none;
+}
+
 /*  Media Queries----------------------------------------------------- */
 
 
@@ -23,5 +29,8 @@
     #allPagesLink{
      display: none;
      /* border: 2px solid red; */
+    }
+    #ResponsiveAllProductPages{
+        display: flex;
     }
  }

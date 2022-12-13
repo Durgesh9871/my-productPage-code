@@ -12,7 +12,7 @@ const Sorting = () => {
        <Menu>
   {({ isOpen }) => (
     <>
-      <MenuButton isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
+      <MenuButton isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />} color="#585858" width={{base:"138px", sm: "140px", md: "140px", lg: "140px",xl: "140px",'2xl': "140px",}} >
         {isOpen ? 'Sort by Price' : changeText}
       </MenuButton>
       <MenuList>

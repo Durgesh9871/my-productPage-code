@@ -2,7 +2,7 @@ import React from 'react'
 import "./ProductPage.css"
 import {Box} from "@chakra-ui/react" 
 import { ProductHeadings } from '../Components/ProductHeadings' 
-import { AllProductPages } from '../Components/AllProductPages'
+import { AllProductPages, ResponsiveAllProductPages } from '../Components/AllProductPages'
 import { Sorting } from '../Components/Sorting'
 
 
@@ -54,12 +54,16 @@ const ProductPage = () => {
          {
           ProductPagesData.map((item)=>{
             return (
-              <AllProductPages key={item.id} src={item.src} text={item.text} check={item.check}/>
+              <AllProductPages key={item.id} src={item.src} text={item.text} check={item.check} />
             )
           })
          }
    </div>
-   
+
+   <div id="ResponsiveAllProductPages">
+          <ResponsiveAllProductPages  data={ProductPagesData}  />
+    </div>
+
 
 {/*  Sorting menu bar -------------------------------------------------- */}
     <Sorting />
