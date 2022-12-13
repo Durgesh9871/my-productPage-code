@@ -24,7 +24,7 @@ const AllProductPages = ({ src , text , check}) => {
   boxSize='32px'
   src={src}
   alt='Diffrent Pages'/>
-  <Text fontWeight={600} fontSize="15px" ml="6px">{text}</Text>
+  <Text fontWeight={500} fontSize="15px" ml="6px">{text}</Text>
   
     </div>
 
@@ -54,7 +54,7 @@ const ResponsiveAllProductPages = ({data})=>{
             alt={item.text}
             mr='12px'
           />
-          <span style={{fontSize:"15px" ,color:"#4B4F54" , fontWeight:"600"}}>{item.text}</span>
+          <span style={{fontSize:"15px" ,color:"#4B4F54" , fontWeight:"500"}}>{item.text}</span>
         </MenuItem>
         )
       })}

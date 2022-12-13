@@ -76,7 +76,10 @@ const ProductPage = () => {
     
     {/*  Filtering and display data starts here ----------------------------------------------- */}
     
-    
+     <Box id='filterMainBox_&_DisplayData' style={{border:"2px solid red" ,width:"92%" , margin:"auto" , height:"200vh"}}>
+
+
+     </Box>
 
     
    
