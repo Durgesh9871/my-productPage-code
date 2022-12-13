@@ -1,6 +1,8 @@
-import { Box, Heading , Text } from '@chakra-ui/react'
+import { Box, Heading , Img, Text } from '@chakra-ui/react'
 import React from 'react'
 import "./ProductHeadings.css"
+
+
 
 
 const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
@@ -8,15 +10,20 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
       position:"relative" , 
      
     }
+   
+    const handleChange = ()=>{
+      console.log("helloWorld")
       
+    }
     
 
       
  return (
     <Box shadow="base" className='hoverProductDiv' w={{base:"90vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "459px",}} style={style}  >
       
-       <div id='productDataImages' style={{ height:"auto"}}>
+       <div id='productDataImages' style={{ height:"auto"}} onMouseOver={handleChange}>
         <img src={src} alt={name}/>
+      
        </div>
        
        <div id='productDataDesc' style={{border:"2px  #EBECEE" ,height:"35%" , padding:"10px 10px 10px 10px"}}>
