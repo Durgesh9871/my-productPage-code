@@ -80,7 +80,7 @@ const ProductPage = () => {
      <Box id='filterMainBox_&_DisplayData' style={{border:"1px solid red" ,width:"92%" , margin:"auto" , height:"200vh" , display:"flex" , justifyContent:"space-between" }}>
        
        {/*  Filter component---------------------------------------------------------- */}
-       <Box id='FilterMainBox' style={{border:"0.1px solid #e7e9ee" , height:"100vh" , width:"20%"   }}>
+       <Box id='FilterMainBox' style={{border:"0.1px solid #e7e9ee" , height:"100vh" , width:"17%"   }}>
          
          <Box>
          <Filter />
@@ -88,7 +88,7 @@ const ProductPage = () => {
           </Box>
 
        </Box>
-       <Box id='DisplayDataBox' style={{border:"1px solid green" , height:"200vh" , width:"78%"}} ></Box>
+       <Box id='DisplayDataBox' style={{border:"1px solid green" , height:"200vh" , width:"81%"}} ></Box>
 
      </Box>
 
