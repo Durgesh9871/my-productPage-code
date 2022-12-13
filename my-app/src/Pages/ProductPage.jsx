@@ -1,10 +1,12 @@
 import React from 'react' 
 import "./ProductPage.css"
-import {Box , Text} from "@chakra-ui/react" 
+import {Box , Img, Text} from "@chakra-ui/react" 
 import { ProductHeadings } from '../Components/ProductHeadings' 
 import { AllProductPages, ResponsiveAllProductPages } from '../Components/AllProductPages'
 import { Sorting } from '../Components/Sorting'
 import { Filter } from '../Components/Filter'
+import { Link } from 'react-router-dom'
+import Carousel from "better-react-carousel"
 
 
 
@@ -41,7 +43,42 @@ const ProductPage = () => {
   }
 
   ]
-
+  
+  const bannerSlider = [
+    {
+      id: "1",
+      image: "https://d2407na1z3fc0t.cloudfront.net/Slider/banner_63630e9d6ba0e",
+    },
+    {
+      id: "2",
+      image: "https://d2407na1z3fc0t.cloudfront.net/Slider/banner_62a882919ddbf",
+    },
+  
+    {
+      id: "3",
+      image: "https://d2407na1z3fc0t.cloudfront.net/Slider/banner_620b7b6d14949",
+    },
+    {
+      id: "4",
+      image: "https://d2407na1z3fc0t.cloudfront.net/Slider/banner_620b797c88952",
+    },
+    {
+      id: "5",
+      image: "https://d2407na1z3fc0t.cloudfront.net/Slider/banner_620b79d5c017f",
+    },
+    {
+      id: "6",
+      image: "https://d2407na1z3fc0t.cloudfront.net/Slider/banner_620b7a04f421e",
+    },
+    {
+      id: "7",
+      image: "https://d2407na1z3fc0t.cloudfront.net/Slider/banner_620b7a8d9a432",
+    },
+    {
+      id: "8",
+      image: "https://d2407na1z3fc0t.cloudfront.net/Slider/banner_620b7acabe3b2",
+    },
+  ];
 
   return (
     <Box>
@@ -84,11 +121,15 @@ const ProductPage = () => {
          
          <Box>
          <Filter />
-           
           </Box>
-
        </Box>
-       <Box id='DisplayDataBox' style={{border:"1px solid green" , height:"200vh" , width:"81%"}} ></Box>
+           
+
+       <Box id='DisplayDataBox' style={{border:"1px solid green" , height:"200vh" , width:"81%"}} >
+         
+         {/*  carosel data --------- */} 
+        
+       </Box>
 
      </Box>
 
