@@ -1,5 +1,7 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure ,Text, Box, Checkbox } from '@chakra-ui/react'
-import React from 'react'
+import React from 'react' ; 
+import "./ProductHeadings.css" ; 
+
 
 const Modalfilter = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -83,10 +85,10 @@ const Modalfilter = () => {
 
  
   return (
-    <Box>
-      <Text onClick={onOpen} style={{cursor:"pointer"}}>Open Modal</Text>
+    <Box >
+      <Text className="modelHover" onClick={onOpen} style={{cursor:"pointer" , fontWeight:"500"}} >Show More</Text>
 
-      <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+      <Modal blockScrollOnMount={true} isOpen={isOpen} onClose={onClose} size="3xl">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
@@ -96,7 +98,7 @@ const Modalfilter = () => {
               You can scroll the content behind the modal
             </Text>
             {/*  here is all text ----------------------------------------------- */}
-            <Box style={{display:"flex" , flexDirection:"column"}}>
+            <Box style={{display:"grid" , gridTemplateColumns:"repeat(3,1fr)" , gap: "20px" }}>
         { filterNameData.map((item)=>{
              return (
              <Checkbox key={item.id} value={item.name} ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
@@ -109,10 +111,10 @@ const Modalfilter = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
+            <Button   mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant='ghost'>Secondary Action</Button>
+            <Button  colorScheme='blue'>Secondary Action</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -8,13 +8,14 @@
 
 
 }
-.HomeHover{
+.HomeHover , .modelHover{
     color: #266de8;
 
     
 }
-.HomeHover:hover{
+.HomeHover:hover , .modelHover:hover {
     color:  #0e4bb4 ; 
+    
 }
 .horizontalRule{
     color: #f0f1f2;

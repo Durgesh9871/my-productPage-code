@@ -37,16 +37,18 @@ const Filter = () => {
         <Text fontSize='17px' fontWeight="500" mb={4} mt={3} color="#1d252c">Brand</Text> 
          
          {/* Checkboxes are here  */}
-           <Box style={{display:"flex" , flexDirection:"column"}}>
+           <Box style={{display:"flex" , flexDirection:"column" }} mb={1}>
         { filterNameData.map((item)=>{
              return (
              <Checkbox key={item.id} ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
         })}
 
-        <Modalfilter/>
         </Box>
-       
-
+        <Modalfilter />
+        
+        <hr  style={{marginTop:"3vh"}}/>
+        
+        <Text fontSize='17px' fontWeight="500" mb={4} mt={3} color="#1d252c">Color</Text> 
         
 
 
