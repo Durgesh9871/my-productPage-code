@@ -29,9 +29,7 @@ const Filter = () => {
     
 ]
    
-const handleChange =(e)=>{
-    console.log(e.target.value , "value")
-}
+
 
   return (
     <Box>
@@ -42,7 +40,7 @@ const handleChange =(e)=>{
            <Box style={{display:"flex" , flexDirection:"column"}}>
         { filterNameData.map((item)=>{
              return (
-             <Checkbox key={item.id}><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
+             <Checkbox key={item.id} ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
         })}
 
         <Modalfilter/>
