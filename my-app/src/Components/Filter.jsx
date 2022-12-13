@@ -70,29 +70,29 @@ const Filter = () => {
     
     const filterReviewData = [
         {
-            id:"1"  ,   
-            review:"5" , 
-            size:"7" , 
+            id:1  ,   
+            review: 5 , 
+            size:5 , 
         },
         {
-            id:"2"  ,   
-            review:"4" , 
-            size:"7" , 
+            id:2  ,   
+            review:4 , 
+            size:6 , 
         },
         {
-            id:"3"  ,   
-            review:"3" , 
-            size:"7" , 
+            id:3  ,   
+            review:3 , 
+            size:7 , 
         },
         {
-            id:"4"  ,   
-            review:"2" , 
-            size:"7" , 
+            id:4  ,   
+            review:2 , 
+            size:2 , 
         },
         {
-            id:"5"  ,   
-            review:"1" , 
-            size:"7" , 
+            id:5  ,   
+            review:1 , 
+            size:"No Item" , 
         },
         
         
@@ -135,11 +135,19 @@ const Filter = () => {
         {filterReviewData.length > 0 &&  filterReviewData.map((item)=>{
              return (
              <Checkbox key={item.id} ><Text fontSize='17px' fontWeight="400" color="#1d252c">
-                {item.review} 
+              {Array(5)
+            .fill('')
+            .map((_, i) => (
+              <StarIcon
+                key={i}
+                color={i < (item.review) ? 'teal.500' : 'gray.300'}
+              />
+            ))}
+                 
                 <span>({item.size})</span></Text></Checkbox> )
         })}
   
-  <StarIcon/>
+  
         </Box>
           
 
