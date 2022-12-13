@@ -99,7 +99,7 @@ const Modalfilter = () => {
             </Text>
             {/*  here is all text ----------------------------------------------- */}
             <Box style={{display:"grid" , gridTemplateColumns:"repeat(3,1fr)" , gap: "20px" }}>
-        { filterNameData.map((item)=>{
+        {filterNameData.length > 0 &&  filterNameData.map((item)=>{
              return (
              <Checkbox key={item.id} value={item.name} ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
         })}

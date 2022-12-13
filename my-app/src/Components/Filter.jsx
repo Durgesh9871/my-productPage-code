@@ -28,7 +28,7 @@ const Filter = () => {
     },
     
 ] 
-  
+
    const filterColorData = [
     {
         id:"1"  ,   
@@ -74,9 +74,9 @@ const Filter = () => {
         <Box style={{display:"" ,border:"1px  black" , width:"90%" , margin:"auto" , height:"200px"  , textAlign:"left"}}>
         <Text fontSize='17px' fontWeight="500" mb={4} mt={3} color="#1d252c">Brand</Text> 
          
-         {/* Checkboxes are here  */}
+         {/* Checkboxes are here ---------depend upon Models ------- */}
            <Box style={{display:"flex" , flexDirection:"column" }} mb={1}>
-        { filterNameData.map((item)=>{
+        {filterNameData.length > 0 &&  filterNameData.map((item)=>{
              return (
              <Checkbox key={item.id} ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
         })}
@@ -86,8 +86,16 @@ const Filter = () => {
         
         <hr  style={{marginTop:"3vh"}}/>
         
+            {/* Checkboxes are here ---------depend upon Color- ------- */}
         <Text fontSize='17px' fontWeight="500" mb={4} mt={3} color="#1d252c">Color</Text> 
-        
+            <Box style={{display:"flex" , flexDirection:"column" }} mb={1}>
+        {filterColorData.length > 0 &&  filterColorData.map((item)=>{
+             return (
+             <Checkbox key={item.id} ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.color} <span>({item.size})</span></Text></Checkbox> )
+        })}
+
+        </Box>
+
 
 
   
