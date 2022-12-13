@@ -27,6 +27,44 @@ const Filter = () => {
         size:"5" , 
     },
     
+] 
+  
+   const filterColorData = [
+    {
+        id:"1"  ,   
+        color:"Silver" , 
+        size:"7" , 
+    },
+    {
+        id:"2"  ,   
+        color:"Rose Gold" , 
+        size:"1" , 
+    },
+    {
+        id:"3"  ,   
+        color:"Blue" , 
+        size:"2" , 
+    },
+    {
+        id:"4"  ,   
+        color:"White" , 
+        size:"2" , 
+    },
+    {
+        id:"5"  ,   
+        color:"Green" , 
+        size:"3" , 
+    },
+    {
+        id:"6"  ,   
+        color:"Tan" , 
+        size:"2" , 
+    },
+    {
+        id:"7"  ,   
+        color:"Black" , 
+        size:"3" , 
+    },
 ]
    
 
