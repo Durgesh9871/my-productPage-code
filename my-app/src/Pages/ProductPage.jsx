@@ -49,8 +49,8 @@ const ProductPage = () => {
    <Box style={{width:"92%" , border:"2px  red" , margin:"auto"}}>
    <ProductHeadings productPageName="Laptops" anotherPage="Laptop & Computer Deals" />
    
-   <div id="productFilterFishLine" style={{display:"flex" , justifyContent:"space-between" }}>
-    <div style={{display:"flex" }} >
+   <div id="productAllPagesLink" style={{display:"flex" , justifyContent:"space-between" }}>
+    <div id='allPagesLink' >
          {
           ProductPagesData.map((item)=>{
             return (
@@ -59,6 +59,7 @@ const ProductPage = () => {
           })
          }
    </div>
+   
 
 {/*  Sorting menu bar -------------------------------------------------- */}
     <Sorting />

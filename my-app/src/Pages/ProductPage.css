@@ -12,3 +12,16 @@
  
 }
 
+#allPagesLink{
+    display: flex;
+    /* border: 2px solid red; */
+}
+/*  Media Queries----------------------------------------------------- */
+
+
+@media  (min-width: 300px) and (max-width: 800px)  {
+    #allPagesLink{
+     display: none;
+     /* border: 2px solid red; */
+    }
+ }
