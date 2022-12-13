@@ -6,7 +6,7 @@ import "./ProductHeadings.css"
 const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
     let style = {
      
-      borderRadius:"12px", 
+      
       position:"relative" , 
     }
 
