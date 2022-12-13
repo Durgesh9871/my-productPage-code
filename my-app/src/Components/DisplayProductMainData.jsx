@@ -38,7 +38,7 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
  return (
     <Box shadow="base" className='hoverProductDiv' w={{base:"90vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "459px",}} style={style}  >
       
-       <div id='productDataImages' style={{ height:"auto" ,border:"2px solid red"}} onMouseOver={handleChange}   >
+       <div id='productDataImages' style={{ height:"auto" }} onMouseOver={handleChange}   >
         {/* <img src={src} alt={name}/> */}
 
         <Carousel hideArrow={true} loop={true} showDots={true}   autoplay={value} dotColorActive="#266de8" >
