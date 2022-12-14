@@ -88,15 +88,13 @@ const Modalfilter = () => {
     <Box >
       <Text className="modelHover" onClick={onOpen} style={{cursor:"pointer" , fontWeight:"500"}} >Show More</Text>
 
-      <Modal blockScrollOnMount={true} isOpen={isOpen} onClose={onClose} size="3xl">
+      <Modal blockScrollOnMount={true} isOpen={isOpen} onClose={onClose} size={{base:"none", sm: "3xl", md: "3xl", lg: "3xl" ,xl: "3xl",'2xl': "3xl",}}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Brand</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text fontWeight='bold' mb='1rem'>
-              You can scroll the content behind the modal
-            </Text>
+           
             {/*  here is all text ----------------------------------------------- */}
             <Box style={{display:"grid" , gridTemplateColumns:"repeat(3,1fr)" , gap: "20px" }}>
         {filterNameData.length > 0 &&  filterNameData.map((item)=>{
@@ -114,7 +112,7 @@ const Modalfilter = () => {
             <Button   mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button  colorScheme='blue'>Secondary Action</Button>
+            <Button  colorScheme='blue'>Apply</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
