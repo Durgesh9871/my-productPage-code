@@ -55,14 +55,14 @@ const DisplayProductMainData = ({src , name , weight ,price , des,model ,id , re
     
 
      
-// const handle = ()=>{
-//   // console.log(effect)
-//   setEffect(true)
-// }
-// const close = ()=>{
-//   // console.log(effect)
-//   setEffect(false)
-// }
+const handle = ()=>{
+  // console.log(effect)
+  setEffect(true)
+}
+const close = ()=>{
+  // console.log(effect)
+  setEffect(false)
+}
 
    
   
@@ -88,32 +88,38 @@ const DisplayProductMainData = ({src , name , weight ,price , des,model ,id , re
        
 
        {/*  Products details are here ------------------- */}
-       <div id='productDataDesc'  style={{border:"2px solid  #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" }} >
+       <div id='productDataDesc' onMouseOut={close} onMouseOver={handle}  style={{border:"2px solid  #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" }} >
           
           {/*  wishlist on hover---------------------------------------- */}
-      <Box style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}> <FiHeart/> <Text ml={2}>WISHLIST</Text> </Box>
+    { effect && (<Box style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}> <FiHeart/> <Text ml={2}>WISHLIST</Text> </Box>)}
 
       {/*  reviws star on hover ----------------------------------------------- */}
-      <Box style={{display:"flex" , }}>
+     {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
          <Box>
-          {color}
+         <Heading fontSize="15.5px" fontWeight="600" color="#727272" textAlign="left">{color}</Heading>
          </Box>
          <Box >
+        
          {Array(5)
             .fill('')
             .map((_, i) => (
+              
+            
               <StarIcon
                 key={i}
                 color={i < (review) ? 'teal.500' : 'gray.300'} 
                 width="12px" height="12px"
               />
+             
             ))}
          </Box>
         
-         </Box>
+         </Box> }
 
-         <Heading fontSize="15.5px" fontWeight="600" color="#727272" textAlign="left">{model}</Heading>
-         <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  >{name}</Text>
+         {/*  Ends here hover ------------------------------------ */}
+
+       {!effect &&  <Heading fontSize="15.5px" fontWeight="600" color="#727272" textAlign="left">{model}</Heading> }
+        {!effect && <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  >{name}</Text> }
          
           <Heading fontSize='18px' fontWeight="600" color="#4A4A54" mt={1.5}  textAlign="left">${price}</Heading>
            
