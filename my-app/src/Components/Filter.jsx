@@ -104,7 +104,7 @@ const Filter = () => {
 
   return (
     <Box>
-        <Box className='hoverFilterMainBox' style={{display:"" ,border:"1px  black" , width:"90%" , margin:"auto" , height:"200px"  , textAlign:"left"}}>
+        <Box className='hoverFilterMainBox' style={{display:"" ,border:"1px   black" , width:"90%" , margin:"auto" , height:"auto"  , textAlign:"left"}}>
         <Text fontSize='17px' fontWeight="500" mb={4} mt={3} color="#1d252c">Brand</Text> 
          
          {/* Checkboxes are here ---------depend upon Models ------- */}
