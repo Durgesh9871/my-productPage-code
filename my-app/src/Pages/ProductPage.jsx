@@ -1,4 +1,4 @@
-import React from 'react' 
+import React,{useEffect} from 'react' 
 import "./ProductPage.css"
 import {Box , Img, SimpleGrid, Text} from "@chakra-ui/react" 
 import { ProductHeadings } from '../Components/ProductHeadings' 
@@ -8,7 +8,8 @@ import { Filter } from '../Components/Filter'
 import { Link } from 'react-router-dom'
 // import Carousel from "better-react-carousel" 
 import { DisplayProductMainData } from '../Components/DisplayProductMainData'
-
+import {shallowEqual, useDispatch , useSelector} from "react-redux"
+import { getDataProduct } from '../Redux/action'
 
 
 
@@ -44,8 +45,24 @@ const ProductPage = () => {
   }
 
   ]
+   
+
+  //  fetch product data is here ---------------------------------------------------------
+  const {isLaptopError ,isLaptopLoading,productArrayLaptop} = useSelector((state) => {
+    return {
+      isLaptopLoading: state.isLaptopLoading ,
+      productArrayLaptop:state.productArrayLaptop ,
+      isLaptopError :state.isLaptopError ,
+    }
+}, shallowEqual)   
+
+  const dispatch = useDispatch() 
   
+  useEffect(()=>{
+      dispatch(getDataProduct())
+  },[dispatch ,productArrayLaptop.length])
  
+  // fetch product data ENDS here ---------------------------------------------------------
 
   return (
     <Box>
@@ -81,7 +98,7 @@ const ProductPage = () => {
     
     {/*  Filtering and display data starts here ----------------------------------------------- */}
     
-     <Box id='filterMainBox_&_DisplayData' style={{border:"1px solid red" ,width:"92%" , margin:"auto" , height:"200vh" , display:"flex" , justifyContent:"space-between" }}>
+     <Box id='filterMainBox_&_DisplayData' style={{border:"1px solid red" ,width:"92%" , margin:"auto" , height:"auto" , display:"flex" , justifyContent:"space-between" }}>
        
         {/* Filter component---------------------------------------------------------- */}
        <Box id='FilterMainBox' height={{base:"none", sm: "124vh", md: "120vh", lg: "120vh",xl: "120vh",'2xl': "100vh"}} width={{base:"none", sm: "43%", md: "24%", lg: "17%",xl: "17%",'2xl': "17%"}} shadow="md" style={{border:"0.1px solid #e7e9ee"}}>
@@ -92,7 +109,7 @@ const ProductPage = () => {
        </Box> 
              
  {/*   Display product data is started from here --------------------------Main Data */}
-       <Box id='DisplayDataBox' style={{border:"1px  green" , height:"200vh" , width:"82%"}} >
+       <Box id='DisplayDataBox' style={{border:"1px  green" , height:"auto" , width:"82%"}} >
          
        <SimpleGrid columns={{base:1, sm: 1, md: 2, lg: 3,xl: 3,'2xl': 3,}} spacingY={10}  >
             {/* {dataIsLoading && arr.map((_,id)=>{
@@ -104,20 +121,16 @@ const ProductPage = () => {
                <Link to={`/product/${item.id}`} key={item.id} > <ProductMainData  src={item.imgUrl} name={item.name} weight={item.weight} price={item.price} des={item.des} /></Link>
               )
             })} */}
+            {productArrayLaptop.length > 0 && productArrayLaptop.map((item)=>{
+              return (
+            <DisplayProductMainData key= {item.id} src={item.Images} name={item.title} model={item.brand}    price={item.price}    review={item.rating}  realPrice={item.realPrice}/>
+
+              )
+            })}
 
             
-           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black " model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1"  review="4" color="red" realPrice="60"/>
 
-           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black" model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1" review="5" color="red" realPrice="80" />
-
-           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black" model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1" review="3" color="red" realPrice="100" />
-            
-
-           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black " model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1"  review="4" color="red" realPrice="60"/>
-
-<DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black" model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1" review="5" color="red" realPrice="80" />
-
-<DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black" model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1" review="3" color="red" realPrice="100" />
+        
 
 
           </SimpleGrid>

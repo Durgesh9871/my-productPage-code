@@ -12,7 +12,7 @@ import { StarIcon } from '@chakra-ui/icons'
 
 
 
-const DisplayProductMainData = ({src , name , weight ,price , des,model ,id , review ,color,realPrice})=>{
+const DisplayProductMainData = ({src , name  ,price ,model , review ,realPrice})=>{
     let style = {
       position:"relative" , 
     }
@@ -24,7 +24,7 @@ const DisplayProductMainData = ({src , name , weight ,price , des,model ,id , re
       {id:1 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6457/6457397_sd.jpg;maxHeight=200;maxWidth=300"},{id:2 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6503/6503094_sd.jpg;maxHeight=200;maxWidth=300"},{id:3 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6386/6386391_sd.jpg;maxHeight=200;maxWidth=300"},
     ]
 
-    
+   
     //  here is carousel is started---------------------------------------------
     
     const handleChange = ()=>{
@@ -72,8 +72,8 @@ const closeProductHover = ()=>{
   const handle = ()=>{
     setWishlistColor(!wishlistColor)
   }
-  const total = +(realPrice) * 100 
-  const spend = +(price) * 100 
+  const total = Math.floor(+(realPrice) * 100 )
+  const spend = Math.floor(+(price) * 100 )
   const amount =  Math.floor((spend/total)*100)
   const ans = 100 - amount 
 
@@ -85,17 +85,17 @@ const closeProductHover = ()=>{
 //  x * 100 - y*100 = num/100
       
  return (
-    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"320px", sm: "320px", md: "324px", lg: "324px" ,xl: "330px",'2xl': "330px",}} style={style}  >
+    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"320px", sm: "320px", md: "324px", lg: "324px" ,xl: "330px",'2xl': "355px",}}  style={style}  >
       
       {/*  Corousel images are here --------------------------------------------------------- */}
        <div id='productDataImages' style={{ height:"auto", }} onMouseOver={handleChange}  >
         {/* <img src={src} alt={name}/> */}
 
         <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={false} dotColorActive="#266de8" >
-          {imageData.map((img) => (
+          {src.map((img) => (
             <Carousel.Item key={img.id}>
               <Link>
-                <Img w="full" src={img.src}   width="" margin="auto"/>
+                <Img w="full" src={img.imageFront}   width="230px" margin="auto"/>
               </Link>
             </Carousel.Item>
           ))}
