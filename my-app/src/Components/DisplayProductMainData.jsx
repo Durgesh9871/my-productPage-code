@@ -55,17 +55,19 @@ const DisplayProductMainData = ({src , name , weight ,price , des,model ,id , re
     
 
      
-const handle = ()=>{
+const handleProductHover = ()=>{
   // console.log(effect)
   setEffect(true)
 }
-const close = ()=>{
+const closeProductHover = ()=>{
   // console.log(effect)
   setEffect(false)
 }
 
    
-  
+  const handle = ()=>{
+    alert("hello")
+  }
  
       
  return (
@@ -88,10 +90,10 @@ const close = ()=>{
        
 
        {/*  Products details are here ------------------- */}
-       <div id='productDataDesc' onMouseOut={close} onMouseOver={handle}  style={{border:"2px   #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" ,cursor:'pointer' }} >
+       <div id='productDataDesc' onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" ,cursor:'pointer' }} >
           
           {/*  wishlist on hover---------------------------------------- */}
-    { effect && (<Box style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}> <FiHeart/> <Text ml={2}>WISHLIST</Text> </Box>)}
+    { effect && (<Box style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}> <FiHeart color="red"  onClick={handle} /> <Text ml={2}>WISHLIST</Text> </Box>)}
 
       {/*  reviws star on hover ----------------------------------------------- */}
      {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
