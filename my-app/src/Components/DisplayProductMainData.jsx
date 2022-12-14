@@ -97,12 +97,12 @@ const closeProductHover = ()=>{
        <div id='productDataDesc' onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" ,cursor:'pointer' }} >
           
           {/*  wishlist on hover---------------------------------------- */}
-    { effect && (<Box onClick={handle} style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}>{wishlistColor ? <AiFillHeart color="red"  /> : <FiHeart  /> } <Text ml={2}>WISHLIST</Text> </Box>)}
+    { effect && (<Box onClick={handle} style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}>{wishlistColor ? <AiFillHeart color="red"  /> : <FiHeart color="red" /> } <Text ml={2}>WISHLIST</Text> </Box>)}
 
       {/*  reviws star on hover ----------------------------------------------- */}
      {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
          <Box>
-         <Heading fontSize="15.5px" fontWeight="600" color="#727272" textAlign="left">{model}</Heading>
+         <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">{model}</Heading>
          </Box>
          <Box >
         
@@ -124,7 +124,7 @@ const closeProductHover = ()=>{
 
          {/*  Ends here hover ------------------------------------ */}
 
-       {!effect &&  <Heading fontSize="15.5px" fontWeight="600" color="#727272" textAlign="left">{model}</Heading> }
+       {!effect &&  <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">{model}</Heading> }
         {!effect && <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  >{name}</Text> }
          
          <Box style={{display:'flex' , alignItems:"center"}}>
