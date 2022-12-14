@@ -128,7 +128,7 @@ const ProductPage = () => {
  {/*   Display product data is started from here --------------------------Main Data */}
        <Box id='DisplayDataBox' style={{border:"1px  green" , height:"200vh" , width:"82%"}} >
          
-       <SimpleGrid columns={{base:1, sm: 1, md: 2, lg: 3,xl: 3,'2xl': 3,}} justifyItems="center" >
+       <SimpleGrid columns={{base:1, sm: 1, md: 2, lg: 3,xl: 3,'2xl': 3,}}  >
             {/* {dataIsLoading && arr.map((_,id)=>{
               return (<ProductSkeleton key={id}/>)
             })}
@@ -140,11 +140,11 @@ const ProductPage = () => {
             })} */}
 
             
-           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="Lapi"  weight="4Kg" price="40" des="Its an dummy" id="1" />
+           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black " model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1"  />
 
-           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="Lapi"  weight="4Kg" price="40" des="Its an dummy" id="1" />
+           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black" model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1" />
 
-           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="Lapi"  weight="4Kg" price="40" des="Its an dummy" id="1" />
+           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black" model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1" />
 
           </SimpleGrid>
 

@@ -38,3 +38,12 @@
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
+
+.control{
+    --max-lines : 1 ; 
+
+     display: -webkit-box;
+     overflow: hidden;
+     -webkit-box-orient: vertical;
+     -webkit-line-clamp: var(--max-lines);
+}

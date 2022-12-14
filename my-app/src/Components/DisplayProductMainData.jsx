@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
+const DisplayProductMainData = ({src , name , weight ,price , des,model ,id})=>{
     let style = {
       position:"relative" , 
     }
@@ -21,9 +21,6 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
     ]
 
     //  here is carousel is started---------------------------------------------
-    // const handleChange = ()=>{
-    //   setValue(1500)
-    // }
 
     const handleChange = ()=>{
       setValue(1500)
@@ -40,8 +37,6 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
     }
    },[value])
 
-    
-
    const myDot = ({isActive})=>{
    return ( <span
     style={{
@@ -51,15 +46,17 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
       width: isActive ? "7px" :"6px " ,
       borderRadius:"50%" , 
       background: isActive ? "#266de8" :"#ccc" , 
-      
-     
-
-
     }}
   ></span> )
    }
-   
    //  here is carousel is started---------------------------------------------
+      
+    
+
+     
+
+
+   
   
  
       
@@ -82,8 +79,9 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
        </div>
        
        <div id='productDataDesc' style={{border:"2px  #EBECEE" ,height:"35%" , padding:"10px 10px 10px 10px"}}>
-         <Heading fontSize="15px" fontWeight="600" color="#4A4A54">{name}</Heading>
-         <Text fontSize='14px' fontWeight="500" color="#727272" overflow="hidden" mt={3} mb={3}>{des}</Text>
+         <Heading fontSize="15px" fontWeight="600" color="#4A4A54">{model}</Heading>
+         <Text fontSize='14px' className='control' fontWeight="500" color="#727272" overflow="hidden" mt={3} mb={3}>{name}</Text>
+         
           <Heading fontSize='14px' fontWeight="500" color="#4A4A54" mt={3} mb={3}>{weight}</Heading>
            
            {/* main div of mrp price ------------------------ */}
