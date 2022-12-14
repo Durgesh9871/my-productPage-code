@@ -72,25 +72,36 @@ const closeProductHover = ()=>{
   const handle = ()=>{
     setWishlistColor(!wishlistColor)
   }
- 
+  const total = +(realPrice) * 100 
+  const spend = +(price) * 100 
+  const amount = total-spend  
+  const ans = Math.floor(amount/100)
+
+  // console.log(ans)
+
+//  const x = total 
+//  const y = buy 
+//  x * 100 - y*100 = num/100
       
  return (
-    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "400px",}} style={style} margin="auto"  >
+    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "340px",}} style={style} margin="auto"  >
       
+      {/*  Corousel images are here --------------------------------------------------------- */}
        <div id='productDataImages' style={{ height:"auto", }} onMouseOver={handleChange}  >
         {/* <img src={src} alt={name}/> */}
 
-        <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={value} dotColorActive="#266de8" >
+        <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={false} dotColorActive="#266de8" >
           {imageData.map((img) => (
             <Carousel.Item key={img.id}>
               <Link>
-                <Img w="full" src={img.src} />
+                <Img w="full" src={img.src}   width="" margin="auto"/>
               </Link>
             </Carousel.Item>
           ))}
         </Carousel>
 
        </div>
+       {/* corousel images ends here ----------------------------------------------------------- */}
        
 
        {/*  Products details are here ------------------- */}
