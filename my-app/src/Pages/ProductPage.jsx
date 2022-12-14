@@ -106,11 +106,11 @@ const ProductPage = () => {
             })} */}
 
             
-           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black " model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1"  review="4" color="red" />
+           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black " model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1"  review="4" color="red" realPrice="60"/>
 
-           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black" model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1" review="5" color="red" />
+           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black" model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1" review="5" color="red" realPrice="80" />
 
-           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black" model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1" review="3" color="red" />
+           <DisplayProductMainData src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/pol_6501269-MMT-545157-0523-f4752dee-6c11-484d-a6ae-dadbcae80c2d.jpg;maxHeight=302;maxWidth=504" name="HP - Spectre x360 2-in-1 13.5' 3K2K Touch-Screen Laptop - Intel Evo Core i7 - 16GB Memory - 1TB SSD - Pen Included - Nightfall Black" model="Macbook"  weight="4Kg" price="40" des="Its an dummy" id="1" review="3" color="red" realPrice="100" />
 
           </SimpleGrid>
 
