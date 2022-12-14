@@ -50,5 +50,18 @@
 }
 
 
-/*  hover effect of product divs-------------------------------- */ 
+/*  responsive of filter div----------------------- */
+.hoverProductDiv{
+    margin: auto;
+}
+@media  (min-width: 300px) and (max-width: 480px)  {
+        .hoverFilterMainBox{
+            display: none;
+            
+        }
+        .hoverProductDiv{
+            margin-left: -45px;
+        }
+}
+/*  hiding filter div --------------------------------------------------- */
 
