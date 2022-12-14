@@ -84,7 +84,7 @@ const ProductPage = () => {
      <Box id='filterMainBox_&_DisplayData' style={{border:"1px solid red" ,width:"92%" , margin:"auto" , height:"200vh" , display:"flex" , justifyContent:"space-between" }}>
        
         {/* Filter component---------------------------------------------------------- */}
-       <Box id='FilterMainBox' shadow="md" style={{border:"0.1px solid #e7e9ee" , height:"100vh" , width:"17%" ,  }}>
+       <Box id='FilterMainBox' height={{base:"100vh", sm: "124vh", md: "120vh", lg: "120vh",xl: "120vh",'2xl': "100vh"}} width={{base:"17%", sm: "43%", md: "24%", lg: "17%",xl: "17%",'2xl': "17%"}} shadow="md" style={{border:"0.1px solid #e7e9ee"}}>
          
          <Box>
          <Filter />

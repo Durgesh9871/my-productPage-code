@@ -85,7 +85,7 @@ const closeProductHover = ()=>{
 //  x * 100 - y*100 = num/100
       
  return (
-    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "340px",}} style={style} margin="auto"  >
+    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"434px", sm: "324px", md: "324px", lg: "324px" ,xl: "330px",'2xl': "330px",}} style={style} margin="auto"  >
       
       {/*  Corousel images are here --------------------------------------------------------- */}
        <div id='productDataImages' style={{ height:"auto", }} onMouseOver={handleChange}  >
