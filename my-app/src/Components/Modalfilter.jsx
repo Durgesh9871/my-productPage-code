@@ -88,7 +88,7 @@ const Modalfilter = () => {
     <Box >
       <Text className="modelHover" onClick={onOpen} style={{cursor:"pointer" , fontWeight:"500"}} >Show More</Text>
 
-      <Modal blockScrollOnMount={true} isOpen={isOpen} onClose={onClose} size={{base:"none", sm: "3xl", md: "3xl", lg: "3xl" ,xl: "3xl",'2xl': "3xl",}}>
+      <Modal blockScrollOnMount={true} isOpen={isOpen} onClose={onClose} size={{base:"none", sm: "md", md: "xl", lg: "3xl" ,xl: "3xl",'2xl': "3xl",}}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Brand</ModalHeader>
