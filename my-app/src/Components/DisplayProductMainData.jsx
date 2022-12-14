@@ -74,13 +74,14 @@ const closeProductHover = ()=>{
   }
   const total = +(realPrice) * 100 
   const spend = +(price) * 100 
-  const amount = total-spend  
-  const ans = Math.floor(amount/100)
+  const amount =  Math.floor((spend/total)*100)
+  const ans = 100 - amount 
 
   console.log(ans)
 
 //  const x = total 
 //  const y = buy 
+//  y/x * 100 
 //  x * 100 - y*100 = num/100
       
  return (
