@@ -5,7 +5,7 @@ import { useState } from 'react'
 import "./ProductHeadings.css"
 import Carousel from "better-react-carousel";
 import { Link } from 'react-router-dom'
-import {FiHeart} from "react-icons/fi"
+import {AiFillHeart} from "react-icons/ai"
 import { StarIcon } from '@chakra-ui/icons'
 
 
@@ -93,7 +93,7 @@ const closeProductHover = ()=>{
        <div id='productDataDesc' onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" ,cursor:'pointer' }} >
           
           {/*  wishlist on hover---------------------------------------- */}
-    { effect && (<Box style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}> <FiHeart color="red"  onClick={handle} /> <Text ml={2}>WISHLIST</Text> </Box>)}
+    { effect && (<Box style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}> <AiFillHeart color="red"  onClick={handle} /> <Text ml={2}>WISHLIST</Text> </Box>)}
 
       {/*  reviws star on hover ----------------------------------------------- */}
      {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
