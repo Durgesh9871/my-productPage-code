@@ -15,14 +15,13 @@ import { StarIcon } from '@chakra-ui/icons'
 const DisplayProductMainData = ({src , name  ,price ,model , review ,realPrice})=>{
     let style = {
       position:"relative" , 
+    
     }
  const [value , setValue] = useState(false)
     const [effect , setEffect] = useState(false)
     const [wishlistColor , setWishlistColor] = useState(false)
 
-    const imageData = [
-      {id:1 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6457/6457397_sd.jpg;maxHeight=200;maxWidth=300"},{id:2 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6503/6503094_sd.jpg;maxHeight=200;maxWidth=300"},{id:3 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6386/6386391_sd.jpg;maxHeight=200;maxWidth=300"},
-    ]
+    
 
    
     //  here is carousel is started---------------------------------------------
@@ -85,15 +84,15 @@ const closeProductHover = ()=>{
 //  x * 100 - y*100 = num/100
       
  return (
-    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"320px", sm: "320px", md: "324px", lg: "324px" ,xl: "330px",'2xl': "355px",}}  style={style}  >
+    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"320px", sm: "320px", md: "324px", lg: "324px" ,xl: "330px",'2xl': "365px",}}  style={style}  >
       
       {/*  Corousel images are here --------------------------------------------------------- */}
        <div id='productDataImages' style={{ height:"auto", }} onMouseOver={handleChange}  >
         {/* <img src={src} alt={name}/> */}
 
-        <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={false} dotColorActive="#266de8" >
-          {src.map((img) => (
-            <Carousel.Item key={img.id}>
+        <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={value} dotColorActive="#266de8" >
+          {src.map((img,i) => (
+            <Carousel.Item key={i}>
               <Link>
                 <Img w="full" src={img.imageFront}   width="230px" margin="auto"/>
               </Link>
@@ -106,10 +105,10 @@ const closeProductHover = ()=>{
        
 
        {/*  Products details are here ------------------- */}
-       <div id='productDataDesc' onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" ,cursor:'pointer' }} >
+       <Box id='productDataDesc' position="absolute" bottom="20px" onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"auto" , padding:"10px 10px 10px 10px" ,cursor:'pointer'  }}w={{base:"79vw", sm: "54vw", md: "31vw", lg: "22vw" ,xl: "22vw",'2xl': "22vw",}}>
           
           {/*  wishlist on hover---------------------------------------- */}
-    { effect && (<Box onClick={handle} style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}>{wishlistColor ? <AiFillHeart color="red"  /> : <FiHeart color="red" /> } <Text ml={2}>WISHLIST</Text> </Box>)}
+    { effect && (<Box marginBottom="5px" ><Box onClick={handle} style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}>{wishlistColor ? <AiFillHeart color="red"  /> : <FiHeart color="red" /> } <Text ml={2}>WISHLIST</Text> </Box> </Box>)}
 
       {/*  reviws star on hover ----------------------------------------------- */}
      {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
@@ -146,7 +145,7 @@ const closeProductHover = ()=>{
           </Box>
           
             
-       </div>
+       </Box>
 
         
        
