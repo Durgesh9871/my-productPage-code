@@ -4,10 +4,11 @@ import axios from "axios"
 
 
 const getDataProduct =()=> (dispatch)=>{
-        dispatch(GETPRODUCTLAPTOPDATA_REQUEST()) 
+        dispatch({type:GETPRODUCTLAPTOPDATA_REQUEST}) 
         return axios.get(` http://localhost:8080/Laptop`)
-        .then((res)=> dispatch(GETPRODUCTLAPTOPDATA_SUCCESS(res.data))) 
-        .catch(()=> GETPRODUCTLAPTOPDATA_FAILURE())
+        .then((res)=> dispatch({type:GETPRODUCTLAPTOPDATA_SUCCESS , payload:res.data})) 
+        .catch(()=> dispatch({type:GETPRODUCTLAPTOPDATA_FAILURE}))
 }
 
 export {getDataProduct}
+
