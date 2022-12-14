@@ -77,7 +77,7 @@ const closeProductHover = ()=>{
   const amount =  Math.floor((spend/total)*100)
   const ans = 100 - amount 
 
-  console.log(ans)
+  // console.log(ans)
 
 //  const x = total 
 //  const y = buy 
@@ -142,7 +142,7 @@ const closeProductHover = ()=>{
          <Box style={{display:'flex' , alignItems:"center"}}>
           <Heading fontSize='18px' fontWeight="600" color="#303030" mt={1.5}  textAlign="left">${price}</Heading>
           <Text as='del' fontSize='18px' className='control' mt={1.5} ml={3} fontWeight="600" color="#727272" textAlign="left">${realPrice}</Text>
-          <Text  fontSize='14px' className='control' mt={1.5} ml={2} fontWeight="600" color="#e1a26f" textAlign="left">(45% off)</Text>
+          <Text  fontSize='14px' className='control' mt={1.5} ml={2} fontWeight="600" color="#e1a26f" textAlign="left">({ans}% off)</Text>
           </Box>
           
             
