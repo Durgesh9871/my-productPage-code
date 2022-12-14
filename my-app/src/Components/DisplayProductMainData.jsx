@@ -69,7 +69,7 @@ const close = ()=>{
  
       
  return (
-    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "459px",}} style={style} margin="auto"  >
+    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "390px",}} style={style} margin="auto"  >
       
        <div id='productDataImages' style={{ height:"auto" }} onMouseOver={handleChange}  >
         {/* <img src={src} alt={name}/> */}
@@ -88,7 +88,7 @@ const close = ()=>{
        
 
        {/*  Products details are here ------------------- */}
-       <div id='productDataDesc' onMouseOut={close} onMouseOver={handle}  style={{border:"2px solid  #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" }} >
+       <div id='productDataDesc' onMouseOut={close} onMouseOver={handle}  style={{border:"2px   #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" }} >
           
           {/*  wishlist on hover---------------------------------------- */}
     { effect && (<Box style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}> <FiHeart/> <Text ml={2}>WISHLIST</Text> </Box>)}
@@ -96,7 +96,7 @@ const close = ()=>{
       {/*  reviws star on hover ----------------------------------------------- */}
      {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
          <Box>
-         <Heading fontSize="15.5px" fontWeight="600" color="#727272" textAlign="left">{color}</Heading>
+         <Heading fontSize="15.5px" fontWeight="600" color="#727272" textAlign="left">{model}</Heading>
          </Box>
          <Box >
         
