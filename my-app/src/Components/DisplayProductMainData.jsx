@@ -20,10 +20,17 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
       {id:1 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6457/6457397_sd.jpg;maxHeight=200;maxWidth=300"},{id:2 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6503/6503094_sd.jpg;maxHeight=200;maxWidth=300"},{id:3 , src:"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6386/6386391_sd.jpg;maxHeight=200;maxWidth=300"},
     ]
 
+    //  here is carousel is started---------------------------------------------
+    // const handleChange = ()=>{
+    //   setValue(1500)
+    // }
+
     const handleChange = ()=>{
       setValue(1500)
       
-    }
+} 
+    
+      
    useEffect(()=>{
     const id = setTimeout(()=>{
       setValue(false)
@@ -33,15 +40,36 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
     }
    },[value])
 
+    
+
+   const myDot = ({isActive})=>{
+   return ( <span
+    style={{
+      display: 'inline-block',
+
+      height : isActive ? "7.5px" :"6px" , 
+      width: isActive ? "7px" :"6px " ,
+      borderRadius:"50%" , 
+      background: isActive ? "#266de8" :"#ccc" , 
+      
+     
+
+
+    }}
+  ></span> )
+   }
+   
+   //  here is carousel is started---------------------------------------------
+  
  
       
  return (
-    <Box shadow="base" className='hoverProductDiv' w={{base:"90vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "459px",}} style={style}  >
+    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "43.5vw", lg: "25vw" ,xl: "25vw",'2xl': "23vw",}} h={{base:"434px", sm: "65vh", md: "74vh", lg: "415px" ,xl: "459px",'2xl': "459px",}} style={style} margin="auto"  >
       
-       <div id='productDataImages' style={{ height:"auto" }} onMouseOver={handleChange}   >
+       <div id='productDataImages' style={{ height:"auto" }} onMouseOver={handleChange}  >
         {/* <img src={src} alt={name}/> */}
 
-        <Carousel hideArrow={true} loop={true} showDots={true}   autoplay={value} dotColorActive="#266de8" >
+        <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={value} dotColorActive="#266de8" >
           {imageData.map((img) => (
             <Carousel.Item key={img.id}>
               <Link>
@@ -51,11 +79,6 @@ const DisplayProductMainData = ({src , name , weight ,price , des ,id})=>{
           ))}
         </Carousel>
 
-            {/* <Box style={{display:"flex" , justifyContent:"space-evenly"}}>
-            {imageData.map((item)=>{
-              return (<img key={item.id} src={item.src} alt="hello" width="40px" height="40px"  />)
-            })}
-            </Box> */}
        </div>
        
        <div id='productDataDesc' style={{border:"2px  #EBECEE" ,height:"35%" , padding:"10px 10px 10px 10px"}}>

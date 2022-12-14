@@ -117,16 +117,16 @@ const ProductPage = () => {
     
      <Box id='filterMainBox_&_DisplayData' style={{border:"1px solid red" ,width:"92%" , margin:"auto" , height:"200vh" , display:"flex" , justifyContent:"space-between" }}>
        
-       {/*  Filter component---------------------------------------------------------- */}
+        {/* Filter component---------------------------------------------------------- */}
        <Box id='FilterMainBox' shadow="md" style={{border:"0.1px solid #e7e9ee" , height:"100vh" , width:"17%" ,  }}>
          
          <Box>
          <Filter />
           </Box>
-       </Box>
+       </Box> 
              
  {/*   Display product data is started from here --------------------------Main Data */}
-       <Box id='DisplayDataBox' style={{border:"1px solid green" , height:"200vh" , width:"82%"}} >
+       <Box id='DisplayDataBox' style={{border:"1px  green" , height:"200vh" , width:"82%"}} >
          
        <SimpleGrid columns={{base:1, sm: 1, md: 2, lg: 3,xl: 3,'2xl': 3,}} justifyItems="center" >
             {/* {dataIsLoading && arr.map((_,id)=>{
