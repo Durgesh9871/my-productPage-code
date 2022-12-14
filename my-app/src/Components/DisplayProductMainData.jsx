@@ -85,11 +85,13 @@ const DisplayProductMainData = ({src , name , weight ,price , des,model ,id})=>{
 
        </div>
        
-       <div id='productDataDesc'  style={{border:"2px solid  #EBECEE" ,height:"35%" , padding:"10px 10px 10px 10px" }} >
-         <Heading fontSize="15px" fontWeight="600" color="#4A4A54" textAlign="left">{model}</Heading>
-         <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  mt={1} mb={2}>{name}</Text>
+       <div id='productDataDesc'  style={{border:"2px solid  #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" }} >
+        
+
+         <Heading fontSize="15.5px" fontWeight="600" color="#727272" textAlign="left">{model}</Heading>
+         <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  >{name}</Text>
          
-          <Heading fontSize='14px' fontWeight="500" color="#4A4A54" mt={3} mb={3} textAlign="left">${price}</Heading>
+          <Heading fontSize='18px' fontWeight="600" color="#4A4A54" mt={1.5}  textAlign="left">${price}</Heading>
            
           
             
