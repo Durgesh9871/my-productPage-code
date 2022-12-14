@@ -89,15 +89,9 @@ const DisplayProductMainData = ({src , name , weight ,price , des,model ,id})=>{
          <Heading fontSize="15px" fontWeight="600" color="#4A4A54" textAlign="left">{model}</Heading>
          <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  mt={1} mb={2}>{name}</Text>
          
-          <Heading fontSize='14px' fontWeight="500" color="#4A4A54" mt={3} mb={3} textAlign="left">{weight}</Heading>
+          <Heading fontSize='14px' fontWeight="500" color="#4A4A54" mt={3} mb={3} textAlign="left">${price}</Heading>
            
-           {/* main div of mrp price ------------------------ */}
-           <Box id='productDescDisplayFlex'   w={{base:"84vw", sm: "50vw", md: "40.5vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} style={{display:"flex", border:"2px  red" , justifyContent:"space-between", alignItems:"center" ,position:"absolute" }} bottom={{base:"22px", sm: "25px", md: "25px", lg: "25px" ,xl: "22px",'2xl': "25px",}}>
-            
-           <div><Heading fontSize='17px' fontWeight="600" color="#D11243">MRP:{price}</Heading></div>
-           
-            
-           </Box>
+          
             
        </div>
 
