@@ -5,11 +5,12 @@ import { useState } from 'react'
 import "./ProductHeadings.css"
 import Carousel from "better-react-carousel";
 import { Link } from 'react-router-dom'
+import {FiHeart} from "react-icons/fi"
+import { StarIcon } from '@chakra-ui/icons'
 
 
 
-
-const DisplayProductMainData = ({src , name , weight ,price , des,model ,id})=>{
+const DisplayProductMainData = ({src , name , weight ,price , des,model ,id , review ,color})=>{
     let style = {
       position:"relative" , 
     }
@@ -85,8 +86,31 @@ const DisplayProductMainData = ({src , name , weight ,price , des,model ,id})=>{
 
        </div>
        
+
+       {/*  Products details are here ------------------- */}
        <div id='productDataDesc'  style={{border:"2px solid  #EBECEE" ,height:"25%" , padding:"10px 10px 10px 10px" }} >
+          
+          {/*  wishlist on hover---------------------------------------- */}
+      <Box style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}> <FiHeart/> <Text ml={2}>WISHLIST</Text> </Box>
+
+      {/*  reviws star on hover ----------------------------------------------- */}
+      <Box style={{display:"flex" , }}>
+         <Box>
+          {color}
+         </Box>
+         <Box >
+         {Array(5)
+            .fill('')
+            .map((_, i) => (
+              <StarIcon
+                key={i}
+                color={i < (review) ? 'teal.500' : 'gray.300'} 
+                width="12px" height="12px"
+              />
+            ))}
+         </Box>
         
+         </Box>
 
          <Heading fontSize="15.5px" fontWeight="600" color="#727272" textAlign="left">{model}</Heading>
          <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  >{name}</Text>
