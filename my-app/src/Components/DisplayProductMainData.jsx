@@ -1,4 +1,4 @@
-import { Box, Heading , Img, Text } from '@chakra-ui/react'
+import { Box, Heading , Img, Skeleton, SkeletonText, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -12,7 +12,7 @@ import { StarIcon } from '@chakra-ui/icons'
 
 
 
-const DisplayProductMainData = ({src , name  ,price ,model , review ,realPrice})=>{
+const DisplayProductMainData = ({src , name  ,price ,model , review ,realPrice ,isLaptopLoading})=>{
     let style = {
       position:"relative" , 
     
@@ -84,9 +84,12 @@ const closeProductHover = ()=>{
 //  x * 100 - y*100 = num/100
       
  return (
+      
+
     <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"320px", sm: "320px", md: "324px", lg: "324px" ,xl: "330px",'2xl': "365px",}}  style={style}  >
       
       {/*  Corousel images are here --------------------------------------------------------- */}
+      <Skeleton isLoaded={isLaptopLoading}    >
        <div id='productDataImages' style={{ height:"auto", }} onMouseOver={handleChange}  >
         {/* <img src={src} alt={name}/> */}
 
@@ -94,21 +97,23 @@ const closeProductHover = ()=>{
           {src.map((img,i) => (
             <Carousel.Item key={i}>
               <Link>
-                <Img w="full" src={img.imageFront}   width="230px" margin="auto"/>
+                <Img w="full" src={img.imageFront}  height="200px"  width="230px" margin="auto"/>
               </Link>
             </Carousel.Item>
           ))}
         </Carousel>
 
        </div>
+        </Skeleton>
        {/* corousel images ends here ----------------------------------------------------------- */}
        
 
        {/*  Products details are here ------------------- */}
-       <Box id='productDataDesc' position="absolute" bottom="20px" onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"auto" , padding:"10px 10px 10px 10px" ,cursor:'pointer'  }}w={{base:"79vw", sm: "54vw", md: "31vw", lg: "22vw" ,xl: "22vw",'2xl': "22vw",}}>
+       <SkeletonText mt='4' noOfLines={3} spacing='5' skeletonHeight='4'  isLoaded={isLaptopLoading} animation="none">
+    <Box id='productDataDesc' position="absolute" bottom="20px" onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"auto" , padding:"10px 10px 10px 10px" ,cursor:'pointer'  }}w={{base:"79vw", sm: "54vw", md: "31vw", lg: "22vw" ,xl: "22vw",'2xl': "22vw",}}>
           
           {/*  wishlist on hover---------------------------------------- */}
-    { effect && (<Box marginBottom="5px" ><Box onClick={handle} style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}>{wishlistColor ? <AiFillHeart color="red"  /> : <FiHeart color="red" /> } <Text ml={2}>WISHLIST</Text> </Box> </Box>)}
+    { effect && (<Box onClick={handle} style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" }}>{wishlistColor ? <AiFillHeart color="red"  /> : <FiHeart color="red" /> } <Text ml={2}>WISHLIST</Text> </Box> )}
 
       {/*  reviws star on hover ----------------------------------------------- */}
      {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
@@ -146,10 +151,11 @@ const closeProductHover = ()=>{
           
             
        </Box>
-
+       </SkeletonText>
         
        
     </Box>
+   
  )
 }
 

@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react' 
 import "./ProductPage.css"
-import {Box , Img, SimpleGrid, Text} from "@chakra-ui/react" 
+import {Box , Img, SimpleGrid, Skeleton, Text} from "@chakra-ui/react" 
 import { ProductHeadings } from '../Components/ProductHeadings' 
 import { AllProductPages, ResponsiveAllProductPages } from '../Components/AllProductPages'
 import { Sorting } from '../Components/Sorting'
@@ -123,13 +123,13 @@ const ProductPage = () => {
             })} */}
             {productArrayLaptop.length > 0 && productArrayLaptop.map((item)=>{
               return (
-            <DisplayProductMainData key= {item.id} src={item.Images} name={item.title} model={item.brand}    price={item.price}    review={item.rating}  realPrice={item.realPrice}/>
-
+            <DisplayProductMainData key= {item.id} src={item.Images} name={item.title} model={item.brand}    price={item.price}    review={item.rating}  realPrice={item.realPrice} isLaptopLoading={isLaptopLoading}/>
+            
               )
             })}
 
             
-
+        
         
 
 
