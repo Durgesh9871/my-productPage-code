@@ -74,36 +74,49 @@ const Filter = () => {
       id: "1",
       color: "Silver",
       size: "7",
+      value:"Silver" ,
     },
     {
       id: "2",
       color: "Rose Gold",
       size: "1",
+      value:"Rose%20Gold" ,
+
     },
     {
       id: "3",
       color: "Blue",
       size: "2",
+      value:"Blue" ,
+
     },
     {
       id: "4",
       color: "White",
       size: "2",
+      value:"White" ,
+
     },
     {
       id: "5",
       color: "Green",
       size: "3",
+      value:"Green" ,
+
     },
     {
       id: "6",
       color: "Tan",
       size: "2",
+      value:"Tan" ,
+
     },
     {
       id: "7",
       color: "Black",
       size: "3",
+      value:"Black" ,
+
     },
   ];
 
