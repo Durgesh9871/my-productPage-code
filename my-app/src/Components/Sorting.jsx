@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react" ;
 import { ChevronDownIcon } from '@chakra-ui/icons'
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 
@@ -15,7 +15,16 @@ const Sorting = () => {
     const handleSort = (e)=>{
       setSort(e.target.value)
   }
+   
+  useEffect(()=>{
+    let params = {} 
+     params.sort = sort 
+    // sort &&  (params.sort = sort )
+     setSearchParams(params) 
+    
 
+
+  },[setSearchParams ,sort])
     
   return (
     <div>
@@ -27,8 +36,8 @@ const Sorting = () => {
       </MenuButton>
       <MenuList>
         <MenuItem  onClick={()=>setChangeText("Sort by Price")}>All</MenuItem>
-        <MenuItem  value="asc"  name="sortBy" onChange={handleSort} onClick={()=>setChangeText("Ascending")}>Price Low to High</MenuItem>
-        <MenuItem value="desc"  name="sortBy" onChange={handleSort} onClick={()=>setChangeText("Descending")}>Price High to Low</MenuItem>
+        <MenuItem  value="asc"  name="sortBy"  onClick={handleSort}>Price Low to High</MenuItem>
+        <MenuItem value="desc"  name="sortBy"  onClick={handleSort}>Price High to Low</MenuItem>
       </MenuList>
     </>
   )}

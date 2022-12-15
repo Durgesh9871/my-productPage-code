@@ -5,7 +5,7 @@ import { ProductHeadings } from '../Components/ProductHeadings'
 import { AllProductPages, ResponsiveAllProductPages } from '../Components/AllProductPages'
 import { Sorting } from '../Components/Sorting'
 import { Filter } from '../Components/Filter'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useSearchParams } from 'react-router-dom'
 // import Carousel from "better-react-carousel" 
 import { DisplayProductMainData } from '../Components/DisplayProductMainData'
 import {shallowEqual, useDispatch , useSelector} from "react-redux"
@@ -22,6 +22,10 @@ const ProductPage = () => {
   const [pageNext , setPageNext] = useState(false)
 const [pagePre , setPagePre] = useState(false)
 const [paginationData , setPaginationData] = useState([])
+
+// sorting and filtering part ------------------------------------------
+const location = useLocation()
+const [searchParams] = useSearchParams()
 
 
   let ProductPagesData = [
@@ -71,12 +75,29 @@ const PaginationFunction = ()=>{
 }, shallowEqual)   
 
   const dispatch = useDispatch() 
+
+  useEffect(()=>{
+    if(productArrayLaptop.length === 0 || location){
+      const sortBy = searchParams.get("sort")
+      const getLaptopParams = {
+        params:{
+          // category : searchParams.getAll('category') ,
+          _sort:sortBy && "price" ,
+          _order : sortBy
+        }
+      }
+      dispatch(getDataProduct(getLaptopParams,page))
+     
+    }
+  },[ page , location.search ])
+
+
   
   useEffect(()=>{
     PaginationFunction()
-      dispatch(getDataProduct(page))
+  },[page])
+     
 
-  },[dispatch ,page,productArrayLaptop.length])
  
   // fetch product data ENDS here ---------------------------------------------------------
    
