@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react' 
 import "./ProductPage.css"
-import {Box , Img, SimpleGrid, Skeleton, Text} from "@chakra-ui/react" 
+import {Box , Button, Img, SimpleGrid, Skeleton, Text} from "@chakra-ui/react" 
 import { ProductHeadings } from '../Components/ProductHeadings' 
 import { AllProductPages, ResponsiveAllProductPages } from '../Components/AllProductPages'
 import { Sorting } from '../Components/Sorting'
@@ -10,12 +10,16 @@ import { Link } from 'react-router-dom'
 import { DisplayProductMainData } from '../Components/DisplayProductMainData'
 import {shallowEqual, useDispatch , useSelector} from "react-redux"
 import { getDataProduct } from '../Redux/action'
+import { useState } from 'react'
 
 
 
 
 
 const ProductPage = () => {
+  const [page , setPage] = useState(1)
+  const [pageNext , setPageNext] = useState(false)
+const [pagePre , setPagePre] = useState(false)
 
   let ProductPagesData = [
     {id:"1" ,
@@ -59,11 +63,30 @@ const ProductPage = () => {
   const dispatch = useDispatch() 
   
   useEffect(()=>{
-      dispatch(getDataProduct())
-  },[dispatch ,productArrayLaptop.length])
+      dispatch(getDataProduct(page))
+  },[dispatch ,page,productArrayLaptop.length])
  
   // fetch product data ENDS here ---------------------------------------------------------
+   
+  //  pagination logic starts  ----------------------------------------------> 
+     
+     const handleNextPage = (data)=>{
+      setPageNext(true)
+      setPage(page+data)
+      setTimeout(()=>{
+        setPageNext(false)
+      },400)
+      
+     }
+     const handlePreviosPage = (data)=>{
+      setPagePre(true)
+      setPage(page+data)
+      setTimeout(()=>{
+        setPagePre(false)
+      },400)
+     }
 
+  //  pagination logic ends --------------------------------------------------> 
   return (
     <Box>
    <hr className='horizatalRule'/> 
@@ -138,11 +161,24 @@ const ProductPage = () => {
          
         
        </Box>
+    {/* Display product data ends here ---------------------------------- */}
 
      </Box>
 
-    
-   
+    {/*  Filtering and display ends here --------------------------------------------------- */}
+       
+       {/*  Pagination starts from here ----------------------------------------------------- */}
+       
+       <Box style={{display:"flex" , justifyContent:"center"}}  padding="80px" >
+       <Button onClick={()=>handlePreviosPage(-1)} isLoading={pagePre}   ml="3"  pl={{base:"50px", sm: "19px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}} pr={{base:"50px", sm: "19px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}}> 
+      <Text fontSize="22px" fontWeight="400" >Previous</Text></Button>
+       <Button ml="3" fontSize="22px" fontWeight="400"> {page} </Button>
+       <Button onClick={()=>handleNextPage(1)} isLoading={pageNext}  ml="3"  pl={{base:"35px", sm: "16px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}} pr={{base:"35px", sm: "16px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}}  > 
+      <Text fontSize="22px" fontWeight="400">Next</Text> </Button>
+     </Box>
+
+     {/* pagination ends here ----------------------------------------------- */}
+       
     </Box>
   )
 }

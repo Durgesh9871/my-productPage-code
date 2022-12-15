@@ -3,9 +3,9 @@ import {GETPRODUCTLAPTOPDATA_REQUEST ,GETPRODUCTLAPTOPDATA_SUCCESS,GETPRODUCTLAP
 import axios from "axios"
 
 
-const getDataProduct =()=> (dispatch)=>{
+const getDataProduct =(page)=>(dispatch)=>{
         dispatch({type:GETPRODUCTLAPTOPDATA_REQUEST}) 
-        return axios.get(` http://localhost:8080/Laptop`)
+        return axios.get(`https://long-pear-giraffe-gown.cyclic.app/api/Laptop?_limit=9&_page=${page}`)
         .then((res)=> dispatch({type:GETPRODUCTLAPTOPDATA_SUCCESS , payload:res.data})) 
         .catch(()=> dispatch({type:GETPRODUCTLAPTOPDATA_FAILURE}))
 }

@@ -97,7 +97,7 @@ const closeProductHover = ()=>{
           {src.map((img,i) => (
             <Carousel.Item key={i}>
               <Link>
-                <Img w="full" src={img.imageFront}  height="200px"  width="230px" margin="auto"/>
+                <Img w="full" src={img.imageFront}  height="200px"  width="260px" margin="auto"/>
               </Link>
             </Carousel.Item>
           ))}
