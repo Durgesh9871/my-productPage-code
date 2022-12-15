@@ -16,6 +16,8 @@ import "./ProductHeadings.css";
 const Filter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [brand, setBrand] = useState(searchParams.getAll("brand") || []);
+  const [color, setColor] = useState(searchParams.getAll("color") || []);
+
   const [sort , setSort ] = useState(searchParams.getAll("sort")[0] || "")
 
   const handleChange = (e) => {
@@ -29,6 +31,17 @@ const Filter = () => {
     setBrand(newCategory);
   };
 
+  const handleChangeColor = (e) => {
+    let newCategory = [...color];
+
+    if (newCategory.includes(e.target.value)) {
+      newCategory.splice(newCategory.indexOf(e.target.value), 1);
+    } else {
+      newCategory.push(e.target.value);
+    }
+    setColor(newCategory);
+  };
+
   const handleSort = (e)=>{
           setSort(e.target.value)
         }
@@ -36,9 +49,10 @@ const Filter = () => {
   useEffect(() => {
     let params = {};
     params.brand = brand;
+    params.color = color ;
     sort &&  (params.sort = sort )
     setSearchParams(params);
-  }, [brand,sort ,  setSearchParams]);
+  }, [brand,color ,sort ,  setSearchParams]);
 
 
   //    alll the filter data using loop -----------------------------------------
@@ -80,7 +94,7 @@ const Filter = () => {
       id: "2",
       color: "Rose Gold",
       size: "1",
-      value:"Rose%20Gold" ,
+      value:"Rose Gold" ,
 
     },
     {
@@ -209,7 +223,7 @@ const Filter = () => {
           {filterColorData.length > 0 &&
             filterColorData.map((item) => {
               return (
-                <Checkbox key={item.id}>
+                <Checkbox key={item.id} value={item.value} onChange={handleChangeColor}  defaultChecked={color.includes(item.value)} >
                   <Text fontSize="17px" fontWeight="400" color="#1d252c">
                     {item.color} <span>({item.size})</span>
                   </Text>

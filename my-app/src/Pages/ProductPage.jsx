@@ -84,6 +84,7 @@ const PaginationFunction = (queryParams)=>{
       const getLaptopParams = {
         params:{
           brand : searchParams.getAll('brand') ,
+          color : searchParams.getAll('color') ,
           _sort:sortBy && "price" ,
           _order : sortBy
          
