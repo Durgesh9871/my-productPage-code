@@ -2,11 +2,21 @@ import React from 'react'
 import {Button, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react" ;
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
 
 
 const Sorting = () => {
+  const [searchParams , setSearchParams] = useSearchParams()
     const [changeText , setChangeText] = useState("Sort by Price")
+    const [sort , setSort ] = useState(searchParams.getAll("sort")[0] || "")
+  
+   
+    const handleSort = (e)=>{
+      setSort(e.target.value)
+  }
 
+    
   return (
     <div>
        <Menu>
@@ -16,9 +26,9 @@ const Sorting = () => {
         {isOpen ? 'Sort by Price' : changeText}
       </MenuButton>
       <MenuList>
-        <MenuItem onClick={()=>setChangeText("Sort by Price")}>All</MenuItem>
-        <MenuItem onClick={()=>setChangeText("Ascending")}>Price Low to High</MenuItem>
-        <MenuItem onClick={()=>setChangeText("Descending")}>Price High to Low</MenuItem>
+        <MenuItem  onClick={()=>setChangeText("Sort by Price")}>All</MenuItem>
+        <MenuItem  value="asc"  name="sortBy" onChange={handleSort} onClick={()=>setChangeText("Ascending")}>Price Low to High</MenuItem>
+        <MenuItem value="desc"  name="sortBy" onChange={handleSort} onClick={()=>setChangeText("Descending")}>Price High to Low</MenuItem>
       </MenuList>
     </>
   )}

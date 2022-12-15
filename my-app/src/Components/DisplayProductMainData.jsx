@@ -76,12 +76,7 @@ const closeProductHover = ()=>{
   const amount =  Math.floor((spend/total)*100)
   const ans = 100 - amount 
 
-  // console.log(ans)
-
-//  const x = total 
-//  const y = buy 
-//  y/x * 100 
-//  x * 100 - y*100 = num/100
+  
       
  return (
       
