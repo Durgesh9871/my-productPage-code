@@ -20,6 +20,8 @@ const ProductPage = () => {
   const [page , setPage] = useState(1)
   const [pageNext , setPageNext] = useState(false)
 const [pagePre , setPagePre] = useState(false)
+const [paginationData , setPaginationData] = useState([])
+
 
   let ProductPagesData = [
     {id:"1" ,
@@ -48,7 +50,14 @@ const [pagePre , setPagePre] = useState(false)
     check:"" , 
   }
 
-  ]
+  ]  
+
+  //  GET ALL DATA FOR PAGINATION FOR SETTING DISABLE BUTTON 
+const PaginationFunction = ()=>{
+  axios.get(`https://tan-real-buffalo.cyclic.app/Fish&SeaFood`)
+  .then((res)=> setPaginationData(res.data))
+  
+}
    
 
   //  fetch product data is here ---------------------------------------------------------
@@ -63,7 +72,9 @@ const [pagePre , setPagePre] = useState(false)
   const dispatch = useDispatch() 
   
   useEffect(()=>{
+    PaginationFunction()
       dispatch(getDataProduct(page))
+
   },[dispatch ,page,productArrayLaptop.length])
  
   // fetch product data ENDS here ---------------------------------------------------------
@@ -85,6 +96,9 @@ const [pagePre , setPagePre] = useState(false)
         setPagePre(false)
       },400)
      }
+
+     const nextPageDisable = Math.ceil(paginationData.length/9)
+     //  console.log('nextPageDisable',nextPageDisable)
 
   //  pagination logic ends --------------------------------------------------> 
   return (
@@ -170,10 +184,10 @@ const [pagePre , setPagePre] = useState(false)
        {/*  Pagination starts from here ----------------------------------------------------- */}
        
        <Box style={{display:"flex" , justifyContent:"center"}}  padding="80px" >
-       <Button onClick={()=>handlePreviosPage(-1)} isLoading={pagePre}   ml="3"  pl={{base:"50px", sm: "19px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}} pr={{base:"50px", sm: "19px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}}> 
-      <Text fontSize="22px" fontWeight="400" >Previous</Text></Button>
+       <Button onClick={()=>handlePreviosPage(-1)} isLoading={pagePre} disabled={page==1}   ml="3"  pl={{base:"50px", sm: "19px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}} pr={{base:"50px", sm: "19px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}}> 
+      <Text fontSize="22px" fontWeight="400"  >Previous</Text></Button>
        <Button ml="3" fontSize="22px" fontWeight="400"> {page} </Button>
-       <Button onClick={()=>handleNextPage(1)} isLoading={pageNext}  ml="3"  pl={{base:"35px", sm: "16px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}} pr={{base:"35px", sm: "16px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}}  > 
+       <Button onClick={()=>handleNextPage(1)} isLoading={pageNext} disabled={page == nextPageDisable}  ml="3"  pl={{base:"35px", sm: "16px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}} pr={{base:"35px", sm: "16px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}}  > 
       <Text fontSize="22px" fontWeight="400">Next</Text> </Button>
      </Box>
 
