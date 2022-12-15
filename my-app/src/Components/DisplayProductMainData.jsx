@@ -90,7 +90,7 @@ const closeProductHover = ()=>{
        <div id='productDataImages' style={{ height:"auto", }} onMouseOver={handleChange}  >
         {/* <img src={src} alt={name}/> */}
 
-        <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={value} dotColorActive="#266de8" >
+        <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={"none"} dotColorActive="#266de8" >
           {src.map((img,i) => (
             <Carousel.Item key={i}>
               <Link>
