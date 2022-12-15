@@ -12,7 +12,7 @@ import {shallowEqual, useDispatch , useSelector} from "react-redux"
 import { getDataProduct } from '../Redux/action'
 import { useState } from 'react' 
 import axios from 'axios'
-
+import {ChevronLeftIcon, ChevronRightIcon} from "@chakra-ui/icons"
 
 
 
@@ -132,11 +132,12 @@ const PaginationFunction = ()=>{
         <hr className='horizatalRule1'/>
     </Box>
     {/* All code same   ----------------Product all pages above  */}  
-
+     
+     
     
     {/*  Filtering and display data starts here ----------------------------------------------- */}
     
-     <Box id='filterMainBox_&_DisplayData' style={{border:"1px solid red" ,width:"92%" , margin:"auto" , height:"auto" , display:"flex" , justifyContent:"space-between" }}>
+     <Box id='filterMainBox_&_DisplayData' style={{border:"1px  red" ,width:"92%" , margin:"auto" , height:"auto" , display:"flex" , justifyContent:"space-between" }}>
        
         {/* Filter component---------------------------------------------------------- */}
        <Box id='FilterMainBox' height={{base:"none", sm: "124vh", md: "120vh", lg: "120vh",xl: "120vh",'2xl': "100vh"}} width={{base:"none", sm: "43%", md: "24%", lg: "17%",xl: "17%",'2xl': "17%"}} shadow="md" style={{border:"0.1px solid #e7e9ee"}}>
@@ -185,11 +186,11 @@ const PaginationFunction = ()=>{
        {/*  Pagination starts from here ----------------------------------------------------- */}
        
        <Box style={{display:"flex" , justifyContent:"right"}}  padding="60px" >
-       <Button onClick={()=>handlePreviosPage(-1)} isLoading={pagePre} disabled={page==1}   ml="3"  pl={{base:"50px", sm: "13px", md: "13px", lg: "13px",xl: "13px",'2xl': "13px"}}  pr={{base:"50px", sm: "13px", md: "13px", lg: "13px",xl: "13px",'2xl': "13px"}} > 
-      <Text fontSize="22px" fontWeight="400"  >Previous</Text></Button>
+       <Button onClick={()=>handlePreviosPage(-1)} isLoading={pagePre} disabled={page==1}   ml="3"  pl={{base:"41px", sm: "10px", md: "10px", lg: "10px",xl: "10px",'2xl': "10px"}} pr={{base:"35px", sm: "10px", md: "10px", lg: "10px",xl: "10px",'2xl': "10px"}} > 
+      <Text fontSize="22px" fontWeight="400"><ChevronLeftIcon fontSize="26px" ml="-8px" p="0"/>Prev</Text></Button>
        <Button ml="3" fontSize="22px" fontWeight="400"> {page} </Button>
-       <Button onClick={()=>handleNextPage(1)} isLoading={pageNext} disabled={page == nextPageDisable}  ml="3"   > 
-      <Text fontSize="22px" fontWeight="400">Next</Text> </Button>
+       <Button onClick={()=>handleNextPage(1)} isLoading={pageNext} disabled={page == nextPageDisable}  ml="3" pl={{base:"41px", sm: "10px", md: "10px", lg: "10px",xl: "10px",'2xl': "10px"}} pr={{base:"35px", sm: "2px", md: "2px", lg: "2px",xl: "2px",'2xl': "2px"}}  > 
+      <Text fontSize="22px" fontWeight="400">Next <ChevronRightIcon fontSize="26px" ml="-8px" p="0"/></Text> </Button>
      </Box>
 
      {/* pagination ends here ----------------------------------------------- */}
