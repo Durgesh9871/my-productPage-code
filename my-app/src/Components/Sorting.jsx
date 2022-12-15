@@ -7,24 +7,24 @@ import { useSearchParams } from 'react-router-dom';
 
 
 const Sorting = () => {
+  const [changeText , setChangeText] = useState("Sort by Price")
   const [searchParams , setSearchParams] = useSearchParams()
-    const [changeText , setChangeText] = useState("Sort by Price")
     const [sort , setSort ] = useState(searchParams.getAll("sort")[0] || "")
-  
+    
    
     const handleSort = (e)=>{
       setSort(e.target.value)
-  }
+    }
+   
    
   useEffect(()=>{
     let params = {} 
-     params.sort = sort 
-    // sort &&  (params.sort = sort )
+   sort &&  (params.sort = sort )
      setSearchParams(params) 
     
+    },[setSearchParams ,sort])
 
-
-  },[setSearchParams ,sort])
+  // const changeText = {tru}
     
   return (
     <div>
@@ -35,7 +35,7 @@ const Sorting = () => {
         {isOpen ? 'Sort by Price' : changeText}
       </MenuButton>
       <MenuList>
-        <MenuItem  onClick={()=>setChangeText("Sort by Price")}>All</MenuItem>
+        <MenuItem  onClick={()=>setSort("")}>All</MenuItem>
         <MenuItem  value="asc"  name="sortBy"  onClick={handleSort}>Price Low to High</MenuItem>
         <MenuItem value="desc"  name="sortBy"  onClick={handleSort}>Price High to Low</MenuItem>
       </MenuList>
