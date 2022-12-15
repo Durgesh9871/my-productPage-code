@@ -17,6 +17,8 @@ const Filter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [brand, setBrand] = useState(searchParams.getAll("brand") || []);
   const [color, setColor] = useState(searchParams.getAll("color") || []);
+  const [rating, setRating] = useState(searchParams.getAll("rating") || []);
+
 
   const [sort , setSort ] = useState(searchParams.getAll("sort")[0] || "")
 
@@ -42,6 +44,18 @@ const Filter = () => {
     setColor(newCategory);
   };
 
+  const handleChangeReview = (e) => {
+    let newCategory = [...rating];
+
+    if (newCategory.includes(e.target.value)) {
+      newCategory.splice(newCategory.indexOf(e.target.value), 1);
+    } else {
+      newCategory.push(e.target.value);
+    }
+    setRating(newCategory);
+   
+  };
+
   const handleSort = (e)=>{
           setSort(e.target.value)
         }
@@ -50,9 +64,10 @@ const Filter = () => {
     let params = {};
     params.brand = brand;
     params.color = color ;
+    params.rating = rating 
     sort &&  (params.sort = sort )
     setSearchParams(params);
-  }, [brand,color ,sort ,  setSearchParams]);
+  }, [brand,color ,sort ,rating,  setSearchParams]);
 
 
   //    alll the filter data using loop -----------------------------------------
@@ -242,7 +257,9 @@ const Filter = () => {
           {filterReviewData.length > 0 &&
             filterReviewData.map((item) => {
               return (
-                <Checkbox key={item.id}>
+                <Checkbox key={item.id}  value={item.review}
+                onChange={handleChangeReview}
+                defaultChecked={rating.includes(item.value)}>
                   <Text fontSize="17px" fontWeight="400" color="#1d252c">
                     {Array(5)
                       .fill("")

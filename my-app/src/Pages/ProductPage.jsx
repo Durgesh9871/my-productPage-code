@@ -85,6 +85,7 @@ const PaginationFunction = (queryParams)=>{
         params:{
           brand : searchParams.getAll('brand') ,
           color : searchParams.getAll('color') ,
+          rating : searchParams.getAll('rating') ,
           _sort:sortBy && "price" ,
           _order : sortBy
          
