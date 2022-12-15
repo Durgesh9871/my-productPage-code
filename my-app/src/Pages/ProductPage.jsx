@@ -81,14 +81,15 @@ const PaginationFunction = ()=>{
       const sortBy = searchParams.get("sort")
       const getLaptopParams = {
         params:{
-          // category : searchParams.getAll('category') ,
-          _sort:sortBy && "price" ,
-          _order : sortBy
+          
+          _sort:sortBy && "price"  ,
+          _order : sortBy 
         }
       }
       dispatch(getDataProduct(getLaptopParams,page))
      
     }
+    // const price = parseFloat(response.price);
   },[ page , location.search ])
 
 

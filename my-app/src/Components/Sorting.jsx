@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 
 
 const Sorting = () => {
-  const [changeText , setChangeText] = useState("Sort by Price")
+  // const [changeText , setChangeText] = useState("Sort by Price")
   const [searchParams , setSearchParams] = useSearchParams()
     const [sort , setSort ] = useState(searchParams.getAll("sort")[0] || "")
     
@@ -24,7 +24,7 @@ const Sorting = () => {
     
     },[setSearchParams ,sort])
 
-  // const changeText = {tru}
+  const changeText = (sort == "asc" && "Ascending"  || sort == "desc" && "Descending"  || "Sort by Price") 
     
   return (
     <div>
@@ -32,7 +32,7 @@ const Sorting = () => {
   {({ isOpen }) => (
     <>
       <MenuButton isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />} color="#585858" width={{base:"138px", sm: "140px", md: "140px", lg: "140px",xl: "140px",'2xl': "140px",}} >
-        {isOpen ? 'Sort by Price' : changeText}
+        {changeText}
       </MenuButton>
       <MenuList>
         <MenuItem  onClick={()=>setSort("")}>All</MenuItem>
