@@ -1,6 +1,6 @@
 import { StarIcon } from '@chakra-ui/icons'
 import { Box , Checkbox, Text } from '@chakra-ui/react'
-import React from 'react' 
+import React, { useEffect, useState } from 'react' 
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { Modalfilter } from './Modalfilter' 
@@ -9,11 +9,11 @@ import "./ProductHeadings.css" ;
 
 const Filter = () => {
     const [searchParams , setSearchParams] = useSearchParams()
-    const [category , setCategory] = useState(searchParams.getAll('category') || [])
+    const [brand , setBrand] = useState(searchParams.getAll('brand') || [])
       
 
    const handleChange = (e)=>{
-    let newCategory = [...category] 
+    let newCategory = [...brand] 
 
     if(newCategory.includes(e.target.value)){
      newCategory.splice(newCategory.indexOf(e.target.value) , 1)
@@ -21,10 +21,17 @@ const Filter = () => {
     else{
          newCategory.push(e.target.value)
     }
-    setCategory(newCategory)
+    setBrand(newCategory)
    }
 
-   
+   useEffect(()=>{
+    let params = {} 
+     params.brand = brand 
+     setSearchParams(params) 
+    
+    },[brand,setSearchParams ])
+
+
     
 //    alll the filter data using loop -----------------------------------------
     const filterNameData = [
@@ -133,14 +140,15 @@ const Filter = () => {
         <Text fontSize='17px' fontWeight="500" mb={4} mt={3} color="#1d252c">Brand</Text> 
          
          {/* Checkboxes are here ---------depend upon Models ------- */}
-           <Box style={{display:"flex" , flexDirection:"column" }} mb={1}>
+           {/* <Box style={{display:"flex" , flexDirection:"column" }} mb={1}>
         {filterNameData.length > 0 &&  filterNameData.map((item)=>{
              return (
-             <Checkbox key={item.id} value={item.value} onChange={handleChange}  ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
+             <Checkbox key={item.id}  value={item.value} onChange={handleChange}  ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
         })}
 
-        </Box>
-        <Modalfilter />
+        </Box> */}
+        <Checkbox value="Microsoft" onChange={handleChange}>Microsoft</Checkbox>
+        {/* <Modalfilter /> */}
         
             {/* Checkboxes are here ---------depend upon Color- ------- */}
         <hr  style={{marginTop:"3vh"}}/>

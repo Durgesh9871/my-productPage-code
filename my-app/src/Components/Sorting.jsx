@@ -8,8 +8,8 @@ import { useSearchParams } from 'react-router-dom';
 
 const Sorting = () => {
   // const [changeText , setChangeText] = useState("Sort by Price")
-  const [searchParams , setSearchParams] = useSearchParams()
-    const [sort , setSort ] = useState(searchParams.getAll("sort")[0] || "")
+  // const [searchParams , setSearchParams] = useSearchParams()
+    const [sort , setSort ] = useState("")
     
    
     const handleSort = (e)=>{
@@ -17,12 +17,12 @@ const Sorting = () => {
     }
    
    
-  useEffect(()=>{
-    let params = {} 
-   sort &&  (params.sort = sort )
-     setSearchParams(params) 
+  // useEffect(()=>{
+  //   let params = {} 
+  //  sort &&  (params.sort = sort )
+  //    setSearchParams(params) 
     
-    },[setSearchParams ,sort])
+  //   },[setSearchParams ,sort])
 
   const changeText = (sort == "asc" && "Ascending"  || sort == "desc" && "Descending"  || "Sort by Price") 
     
