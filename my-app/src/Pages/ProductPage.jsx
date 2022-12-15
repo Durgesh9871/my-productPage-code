@@ -25,8 +25,8 @@ const [paginationData , setPaginationData] = useState([])
 
 // sorting and filtering part ------------------------------------------
 const location = useLocation()
-const [searchParams ] = useSearchParams()
-// const [searchParams] = useSearchParams()
+const [searchParams] = useSearchParams()
+// const [searchParamsSort] = useSearchParams()
 // console.log("searchParamsCategory" ,searchParams.getAll('category'))
 
 
@@ -79,32 +79,34 @@ const PaginationFunction = ()=>{
   const dispatch = useDispatch() 
 
   // useEffect(()=>{
-  //   if( location || productArrayLaptop.length === 0){
-  //     // const sortBy = searchParams.get("sort")
+  //   if(productArrayLaptop.length === 0 || location ){
+  //     const sortBy = searchParamsSort.get("sort")
   //     const getLaptopParams = {
   //       params:{
-  //         category : 'HP'
+  //         // brand : searchParamsFilter.getAll('brand') ,
+  //         _sort:sortBy && "price" ,
+  //         _order : sortBy
          
   //       }
   //     }
-  //     dispatch(getDataProduct(getLaptopParams))
-     
+  //     dispatch(getDataProduct(getLaptopParams,page))
   //   }
-  //   // const price = parseFloat(response.price);
-  // },[  location.search ])
+  // },[ location.search,page])
   
   useEffect(()=>{
     if(productArrayLaptop.length === 0 || location ){
-      // const sortBy = searchParams.get("sort")
+      // const sortBy = searchParamsSort.get("sort")
       const getLaptopParams = {
         params:{
           brand : searchParams.getAll('brand') ,
+          // _sort:sortBy && "price" ,
+          // _order : sortBy
          
         }
       }
-      dispatch(getDataProduct(getLaptopParams))
+      dispatch(getDataProduct(getLaptopParams,page))
     }
-  },[ location.search,productArrayLaptop.length ,dispatch])
+  },[ location.search,page])
 
   
   useEffect(()=>{
