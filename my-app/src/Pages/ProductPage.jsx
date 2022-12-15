@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom'
 import { DisplayProductMainData } from '../Components/DisplayProductMainData'
 import {shallowEqual, useDispatch , useSelector} from "react-redux"
 import { getDataProduct } from '../Redux/action'
-import { useState } from 'react'
+import { useState } from 'react' 
+import axios from 'axios'
 
 
 
@@ -183,11 +184,11 @@ const PaginationFunction = ()=>{
        
        {/*  Pagination starts from here ----------------------------------------------------- */}
        
-       <Box style={{display:"flex" , justifyContent:"center"}}  padding="80px" >
-       <Button onClick={()=>handlePreviosPage(-1)} isLoading={pagePre} disabled={page==1}   ml="3"  pl={{base:"50px", sm: "19px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}} pr={{base:"50px", sm: "19px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}}> 
+       <Box style={{display:"flex" , justifyContent:"right"}}  padding="60px" >
+       <Button onClick={()=>handlePreviosPage(-1)} isLoading={pagePre} disabled={page==1}   ml="3"  pl={{base:"50px", sm: "13px", md: "13px", lg: "13px",xl: "13px",'2xl': "13px"}}  pr={{base:"50px", sm: "13px", md: "13px", lg: "13px",xl: "13px",'2xl': "13px"}} > 
       <Text fontSize="22px" fontWeight="400"  >Previous</Text></Button>
        <Button ml="3" fontSize="22px" fontWeight="400"> {page} </Button>
-       <Button onClick={()=>handleNextPage(1)} isLoading={pageNext} disabled={page == nextPageDisable}  ml="3"  pl={{base:"35px", sm: "16px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}} pr={{base:"35px", sm: "16px", md: "12px", lg: "12px",xl: "12px",'2xl': "12px"}}  > 
+       <Button onClick={()=>handleNextPage(1)} isLoading={pageNext} disabled={page == nextPageDisable}  ml="3"   > 
       <Text fontSize="22px" fontWeight="400">Next</Text> </Button>
      </Box>
 
