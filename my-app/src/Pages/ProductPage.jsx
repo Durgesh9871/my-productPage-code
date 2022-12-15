@@ -26,8 +26,7 @@ const [paginationData , setPaginationData] = useState([])
 // sorting and filtering part ------------------------------------------
 const location = useLocation()
 const [searchParams] = useSearchParams()
-// const [searchParamsSort] = useSearchParams()
-// console.log("searchParamsCategory" ,searchParams.getAll('category'))
+
 
 
   let ProductPagesData = [
@@ -60,9 +59,10 @@ const [searchParams] = useSearchParams()
   ]  
 
   //  GET ALL DATA FOR PAGINATION FOR SETTING DISABLE BUTTON 
-const PaginationFunction = ()=>{
-  axios.get(`https://tan-real-buffalo.cyclic.app/Fish&SeaFood`)
+const PaginationFunction = (queryParams)=>{
+  axios.get(`https://long-pear-giraffe-gown.cyclic.app/api/Laptop`,queryParams)
   .then((res)=> setPaginationData(res.data))
+  
   
 }
    
@@ -77,41 +77,26 @@ const PaginationFunction = ()=>{
 })   
 
   const dispatch = useDispatch() 
-
-  // useEffect(()=>{
-  //   if(productArrayLaptop.length === 0 || location ){
-  //     const sortBy = searchParamsSort.get("sort")
-  //     const getLaptopParams = {
-  //       params:{
-  //         // brand : searchParamsFilter.getAll('brand') ,
-  //         _sort:sortBy && "price" ,
-  //         _order : sortBy
-         
-  //       }
-  //     }
-  //     dispatch(getDataProduct(getLaptopParams,page))
-  //   }
-  // },[ location.search,page])
   
   useEffect(()=>{
-    if(productArrayLaptop.length === 0 || location ){
-      // const sortBy = searchParamsSort.get("sort")
+    if(location || productArrayLaptop.length === 0  ){
+      const sortBy = searchParams.get("sort")
       const getLaptopParams = {
         params:{
           brand : searchParams.getAll('brand') ,
-          // _sort:sortBy && "price" ,
-          // _order : sortBy
+          _sort:sortBy && "price" ,
+          _order : sortBy
          
         }
       }
+      PaginationFunction(getLaptopParams)
+
       dispatch(getDataProduct(getLaptopParams,page))
     }
   },[ location.search,page])
 
   
-  useEffect(()=>{
-    PaginationFunction()
-  },[page])
+  // console.log(paginationData.length)
      
 
  
@@ -177,7 +162,7 @@ const PaginationFunction = ()=>{
      <Box id='filterMainBox_&_DisplayData' style={{border:"1px  red" ,width:"92%" , margin:"auto" , height:"auto" , display:"flex" , justifyContent:"space-between" }}>
        
         {/* Filter component---------------------------------------------------------- */}
-       <Box id='FilterMainBox' height={{base:"none", sm: "124vh", md: "120vh", lg: "120vh",xl: "120vh",'2xl': "100vh"}} width={{base:"none", sm: "43%", md: "24%", lg: "17%",xl: "17%",'2xl': "17%"}} shadow="md" style={{border:"0.1px solid #e7e9ee"}}>
+       <Box id='FilterMainBox' height="auto" width={{base:"none", sm: "43%", md: "24%", lg: "17%",xl: "17%",'2xl': "17%"}} shadow="md" style={{border:"0.1px solid #e7e9ee"}}>
          
          <Box>
          <Filter />

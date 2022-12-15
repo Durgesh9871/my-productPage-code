@@ -16,6 +16,7 @@ import "./ProductHeadings.css";
 const Filter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [brand, setBrand] = useState(searchParams.getAll("brand") || []);
+  const [sort , setSort ] = useState(searchParams.getAll("sort")[0] || "")
 
   const handleChange = (e) => {
     let newCategory = [...brand];
@@ -28,11 +29,17 @@ const Filter = () => {
     setBrand(newCategory);
   };
 
+  const handleSort = (e)=>{
+          setSort(e.target.value)
+        }
+
   useEffect(() => {
     let params = {};
     params.brand = brand;
+    sort &&  (params.sort = sort )
     setSearchParams(params);
-  }, [brand, setSearchParams]);
+  }, [brand,sort ,  setSearchParams]);
+
 
   //    alll the filter data using loop -----------------------------------------
   const filterNameData = [
@@ -139,22 +146,21 @@ const Filter = () => {
           margin: "auto",
           height: "auto",
           textAlign: "left",
+          
         }}
       >
         {/* Checkboxes are here ---------depend upon sorting ------- */}
         <Text fontSize="17px" fontWeight="500" mb={4} mt={3} color="#1d252c">
-          Sorting
+          Sort by Price
         </Text>
-        <RadioGroup defaultValue="2">
-          <Stack spacing={5} direction="row">
-            <Radio colorScheme="red" value="1">
-              Radio
-            </Radio>
-            <Radio colorScheme="green" value="2">
-              Radio
-            </Radio>
-          </Stack>
-        </RadioGroup>
+        <Box>
+        <input type="radio" value="asc"  name="sortBy" defaultChecked={sort === 'asc'}   onChange={handleSort}   />
+        <label> <Text display="inline-block">Low to High</Text> </label>
+          
+          <br />
+        <input type="radio" value="desc"  name="sortBy" defaultChecked={sort === 'desc'}   onChange={handleSort}  />
+          <label> <Text display="inline-block">High to low</Text> </label>
+        </Box>
 
         {/* Checkboxes are here ---------depend upon Models ------- */}
         <Text fontSize="17px" fontWeight="500" mb={4} mt={3} color="#1d252c">
@@ -168,6 +174,7 @@ const Filter = () => {
                   key={item.id}
                   value={item.value}
                   onChange={handleChange}
+                  defaultChecked={brand.includes(item.value)}
                 >
                   <Text fontSize="17px" fontWeight="400" color="#1d252c">
                     {item.name} <span>({item.size})</span>
