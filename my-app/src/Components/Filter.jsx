@@ -1,32 +1,55 @@
 import { StarIcon } from '@chakra-ui/icons'
 import { Box , Checkbox, Text } from '@chakra-ui/react'
 import React from 'react' 
+import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { Modalfilter } from './Modalfilter' 
 import "./ProductHeadings.css" ; 
 
 
 const Filter = () => {
-    
+    const [searchParams , setSearchParams] = useSearchParams()
+    const [category , setCategory] = useState(searchParams.getAll('category') || [])
+      
+
+   const handleChange = (e)=>{
+    let newCategory = [...category] 
+
+    if(newCategory.includes(e.target.value)){
+     newCategory.splice(newCategory.indexOf(e.target.value) , 1)
+    }
+    else{
+         newCategory.push(e.target.value)
+    }
+    setCategory(newCategory)
+   }
+
    
+    
+//    alll the filter data using loop -----------------------------------------
     const filterNameData = [
         {
         id:"1"  ,   
         name:"Microsoft" , 
+        value:"Microsoft" ,
         size:"5" , 
     },
     {
         id:"2"  ,   
         name:"HP" , 
+        value:"HP" ,
         size:"5" , 
     },
     {
         id:"3"  ,   
         name:"ASUS" , 
+        value:"ASUS" ,
         size:"5" , 
     },
     {
         id:"4"  ,   
         name:"Dell" , 
+        value:"Dell" ,
         size:"5" , 
     },
     
@@ -100,7 +123,7 @@ const Filter = () => {
         
     ]
        
-  
+     
 
 
   return (
@@ -113,7 +136,7 @@ const Filter = () => {
            <Box style={{display:"flex" , flexDirection:"column" }} mb={1}>
         {filterNameData.length > 0 &&  filterNameData.map((item)=>{
              return (
-             <Checkbox key={item.id} ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
+             <Checkbox key={item.id} value={item.value} onChange={handleChange}  ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
         })}
 
         </Box>
