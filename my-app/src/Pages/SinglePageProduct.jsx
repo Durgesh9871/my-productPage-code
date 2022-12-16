@@ -8,15 +8,15 @@ const SinglePageProduct = () => {
         <hr className='horizatalRule' style={{marginBottom: "10px"}} />
         {/* <br /> */}
         {/*  Main Box of Single Page ------------------------------------------------ */}
-        <Box className='SingleProductMain' shadow="2xl"  mt="10px" background='#ffffff' style={{border:"2px  red" , height:"200vh"  , width:"90%" , margin:"auto" , display:"flex" ,justifyContent:"space-between"  }}>
+        <Box className='SingleProductMain' shadow="2xl"  mt="10px" background='#ffffff' style={{border:"1px solid red" , height:"200vh"  , width:"90%" , margin:"auto" , display:"flex" ,justifyContent:"space-between"  }}>
 
         {/* Image Data Main box ---------------------------------------------------- */}
-        <Box className='SingleProductMainImage' width="40%" style={{border:"2px  yellow" , height:"200vh"}}>
+        <Box className='SingleProductMainImage' width="40%" style={{border:"1px solid  yellow" , height:"200vh"}}>
         <ImageData />
         </Box>
 
         {/* Single Page Info Main Div ----------------------------------------------------- */}
-        <Box className='SingleProductMainData' width="58%" style={{border:"2px  grey" ,height:"200vh"}}>
+        <Box className='SingleProductMainData' width="58%" style={{border:"1px solid  grey" ,height:"200vh"}}>
 
         </Box>
         </Box>
