@@ -150,7 +150,7 @@ const PaginationFunction = (queryParams)=>{
 
 
 {/*  Sorting menu bar -------------------------------------------------- */}
-    <Sorting />
+    {/* <Sorting /> */}
    
 </div>
         <hr className='horizatalRule1'/>
