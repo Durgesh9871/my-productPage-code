@@ -264,8 +264,9 @@ const clearAllFilterItem = ()=>{
            
           })} 
           </Box>
-           
-      
+                       
+                      
+         
     
 
         {/* Checkboxes are here ---------depend upon sorting ------- */}
