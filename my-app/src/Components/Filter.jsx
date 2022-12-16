@@ -275,11 +275,17 @@ const clearAllFilterItem = ()=>{
           Sort by Price
         </Text>
         <Box>
-        <input type="radio" value="asc"  name="sortBy" defaultChecked={sort === 'asc'}   onChange={handleSort}   />
+        <input type="radio" value="asc"  name="sortBy" defaultChecked={sort === 'asc'}   onChange= 
+           {handleSort}   />
+        <label> <Text display="inline-block">All</Text> </label>
+        <br />
+        <input type="radio" value="asc"  name="sortBy" defaultChecked={sort === 'asc'}   onChange= 
+           {handleSort}   />
         <label> <Text display="inline-block">Low to High</Text> </label>
           
           <br />
-        <input type="radio" value="desc"  name="sortBy" defaultChecked={sort === 'desc'}   onChange={handleSort}  />
+        <input type="radio" value="desc"  name="sortBy" defaultChecked={sort === 'desc'}   onChange= 
+          {handleSort}  />
           <label> <Text display="inline-block">High to low</Text> </label>
         </Box>
 
