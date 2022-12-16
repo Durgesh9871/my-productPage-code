@@ -128,6 +128,7 @@ const clearAllFilterItem = ()=>{
     setAllFilter(obj)
   }, [brand,color ,sort ,rating, setSearchParams]);
 
+  
 
   //    alll the filter data using loop -----------------------------------------
   const filterNameData = [
