@@ -11,12 +11,12 @@ const SinglePageProduct = () => {
         <Box className='SingleProductMain' shadow="2xl"  mt="10px" background='#ffffff' style={{border:"1px solid red" , height:"200vh"  , width:"90%" , margin:"auto" , display:"flex" ,justifyContent:"space-between"  }}>
 
         {/* Image Data Main box ---------------------------------------------------- */}
-        <Box className='SingleProductMainImage' mt={5} width="40%" style={{border:"1px solid  yellow" , height:"200vh"}}>
+        <Box className='SingleProductMainImage' mt={5} width="40vw" style={{border:"1px solid  yellow" , height:"200vh"}}>
         <ImageData />
         </Box>
 
         {/* Single Page Info Main Div ----------------------------------------------------- */}
-        <Box className='SingleProductMainData' mt={5} width="58%" style={{border:"1px solid  grey" ,height:"200vh"}}>
+        <Box className='SingleProductMainData' mt={5} width="55vw" style={{border:"1px solid  grey" ,height:"200vh"}}>
 
         </Box>
         </Box>
