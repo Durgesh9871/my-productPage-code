@@ -166,7 +166,7 @@ const PaginationFunction = (queryParams)=>{
         {/* Filter component---------------------------------------------------------- */}
        <Box id='FilterMainBox' height="auto" width={{base:"none", sm: "43%", md: "24%", lg: "17%",xl: "17%",'2xl': "17%"}} shadow="md" style={{border:"0.1px solid #e7e9ee"}}>
          
-         <Box>
+         <Box >
          <Filter />
           </Box>
        </Box> 

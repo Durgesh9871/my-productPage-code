@@ -5,6 +5,7 @@ import {
   Checkbox,
   Text,
 } from "@chakra-ui/react";
+import { all } from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
@@ -17,14 +18,17 @@ const Filter = () => {
   const [color, setColor] = useState(searchParams.getAll("color") || []);
   const [rating, setRating] = useState(searchParams.getAll("rating") || []);
   const [allFilter , setAllFilter ] = useState([])
-//  const [render , setRender] = useState("bhdbhj")
+//  const [total , setTotal] = useState(1)
 
   const [sort , setSort ] = useState(searchParams.getAll("sort")[0] || "")
 
 
-  const handleChange = (e ) => {
+  const handleChange = (e) => {
     let newCategory = [...brand];
-       
+    //    console.log("brand---" ,newCategory.includes("Microsoft") , brand)
+    //  console.log('e' , e.target.value)
+    //  let abc = e?.target?.value || e 
+    //  console.log(abc)
    
     if (newCategory.includes(e.target.value)) {
       newCategory.splice(newCategory.indexOf(e.target.value), 1);
@@ -65,18 +69,28 @@ const Filter = () => {
    
   };
 // console.log('allFilter' , allFilter)
-console.log('allFilter' , allFilter)
+// console.log('allFilter' , allFilter)
  
 const remove = (item)=>{
-  const array = [...brand]
-  if(array.includes(item)){
-    array.splice(array.indexOf(item),1)
-  }
-  setBrand(array)
- 
-  // setRender(!render)
+  const arrayBrand = [...brand ]
+  const arrayColor = [...color] 
+  const arrayRating = [...rating]
 
-  console.log("brand" ,brand)
+  if(arrayBrand.includes(item)){
+    arrayBrand.splice(arrayBrand.indexOf(item),1)
+  }
+  else if(arrayColor.includes(item)){
+    arrayColor.splice(arrayColor.indexOf(item),1)
+  }
+ else if(arrayRating.includes(item)){
+    arrayRating.splice(arrayRating.indexOf(item),1)
+  }
+
+
+  setBrand(arrayBrand)
+  setColor(arrayColor) 
+  setRating(arrayRating)
+ 
 }
 
 
@@ -84,7 +98,7 @@ const remove = (item)=>{
 
   const handleSort = (e)=>{
           setSort(e.target.value)
-        }
+    }
 
   useEffect(() => {
     let obj = [...brand ,...color , ...rating]
@@ -94,7 +108,6 @@ const remove = (item)=>{
     params.rating = rating 
     sort &&  (params.sort = sort )
     setSearchParams(params);
-    // obj.push([...brand])
 
     setAllFilter(obj)
   }, [brand,color ,sort ,rating,  setSearchParams]);
@@ -182,27 +195,28 @@ const remove = (item)=>{
   const filterReviewData = [
     {
       id: 1,
-      review: 5,
+      value: "5",
       size: 5,
+
     },
     {
       id: 2,
-      review: 4,
+      value: "4",
       size: 6,
     },
     {
       id: 3,
-      review: 3,
+      value: "3",
       size: 7,
     },
     {
       id: 4,
-      review: 2,
+      value: "2",
       size: 2,
     },
     {
       id: 5,
-      review: 1,
+      value: "1",
       size: "No Item",
     },
   ];
@@ -224,8 +238,9 @@ const remove = (item)=>{
           
          
         
-            
+        
           { allFilter.length > 0 && allFilter.map((item,i)=>{
+
             return(<Button key={i} onClick={()=>remove(item)}>{item}</Button>)
            
           })} 
@@ -261,7 +276,8 @@ const remove = (item)=>{
                   key={item.id}
                   value={item.value}
                   onChange={handleChange}
-                  defaultChecked={brand.includes(item.value)}
+                
+                  isChecked={brand.includes(item.value)}
                 >
                   <Text fontSize="17px" fontWeight="400" color="#1d252c">
                     {item.name} <span>({item.size})</span>
@@ -270,6 +286,8 @@ const remove = (item)=>{
               );
             })}
         </Box>
+        {/* <input type="checkbox" value="Microsoft" checked={brand.includes("Microsoft")} onChange={handleChange} />  */}
+        <label >Microsoft</label>
 
         <Modalfilter brand={brand} handleChange={handleChange}/>
 
@@ -283,7 +301,7 @@ const remove = (item)=>{
           {filterColorData.length > 0 &&
             filterColorData.map((item) => {
               return (
-                <Checkbox key={item.id} value={item.value} onChange={handleChangeColor}  defaultChecked={color.includes(item.value)} >
+                <Checkbox key={item.id} value={item.value} onChange={handleChangeColor}  isChecked={color.includes(item.value)} >
                   <Text fontSize="17px" fontWeight="400" color="#1d252c">
                     {item.color} <span>({item.size})</span>
                   </Text>
@@ -302,16 +320,16 @@ const remove = (item)=>{
           {filterReviewData.length > 0 &&
             filterReviewData.map((item) => {
               return (
-                <Checkbox key={item.id}  value={item.review}
+                <Checkbox key={item.id}  value={item.value}
                 onChange={handleChangeReview}
-                defaultChecked={rating.includes(item.value)}>
+                isChecked={rating.includes(item.value)}  >
                   <Text fontSize="17px" fontWeight="400" color="#1d252c">
                     {Array(5)
                       .fill("")
                       .map((_, i) => (
                         <StarIcon
                           key={i}
-                          color={i < item.review ? "teal.500" : "gray.300"}
+                          color={i < item.value ? "teal.500" : "gray.300"}
                         />
                       ))}
 
