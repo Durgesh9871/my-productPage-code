@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { Modalfilter } from "./Modalfilter";
 import "./ProductHeadings.css";
+import {CloseIcon} from "@chakra-ui/icons"
 
 const Filter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -237,17 +238,17 @@ const remove = (item)=>{
       >
           
          
-        
-        
+      { allFilter.length > 0 && <Text fontSize="17px" fontWeight="500" mb={1} mt={3} color="#1d252c">
+         Filters
+        </Text>  }
+        <Box style={{display:"inline-block" , border:"2px  red" , height:"auto" ,fontSize:"14px"}}>
           { allFilter.length > 0 && allFilter.map((item,i)=>{
 
-            return(<Button key={i} onClick={()=>remove(item)}>{item}</Button>)
+            return(<div style={{display:"inline-block" , border:"2px solid #f0f1f2" ,borderRadius:"8px" ,marginRight:"10px" ,marginTop:"10px" ,padding:"3px"}}  key={i} width="auto" ml="4px">{item} <CloseIcon fontSize="9px" marginLeft="7px"  onClick={()=>remove(item)} cursor="pointer" /></div>)
            
           })} 
-               {/* {item.length > 0 && item.map((el)=>{
-              console.log(el)
-              return (<Button>{el}</Button>)
-             }) } */}
+          </Box>
+           
       
     
 
