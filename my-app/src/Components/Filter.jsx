@@ -17,67 +17,69 @@ const Filter = () => {
   const [color, setColor] = useState(searchParams.getAll("color") || []);
   const [rating, setRating] = useState(searchParams.getAll("rating") || []);
   const [allFilter , setAllFilter ] = useState([])
-
+//  const [render , setRender] = useState("bhdbhj")
 
   const [sort , setSort ] = useState(searchParams.getAll("sort")[0] || "")
 
 
-  const handleChange = (e) => {
+  const handleChange = (e ) => {
     let newCategory = [...brand];
-    // let filter = [...allFilter]
        
-    // if(filter.includes(e.target.value)){
-      // filter.splice(filter.indexOf(e.target.value), 1);
-    //  }
-
+   
     if (newCategory.includes(e.target.value)) {
       newCategory.splice(newCategory.indexOf(e.target.value), 1);
     } else {
       newCategory.push(e.target.value);
-      // filter.push(e.target.value);
+      
     }
     setBrand(newCategory);
-    // setAllFilter(filter)
+    
   };
 
   const handleChangeColor = (e) => {
     let newCategory = [...color];
-    // let filter = [...allFilter]
-
-    // if(filter.includes(e.target.value)){
-    //   filter.splice(filter.indexOf(e.target.value), 1);
-    //  }
 
     if (newCategory.includes(e.target.value)) {
       newCategory.splice(newCategory.indexOf(e.target.value), 1);
     } else {
       newCategory.push(e.target.value);
-      // filter.push(e.target.value);
+     
     }
     setColor(newCategory);
-    // setAllFilter(filter)
+
   };
 
   const handleChangeReview = (e) => {
     let newCategory = [...rating];
-    //  let filter = [...allFilter]
-    //  if(filter.includes(e.target.value)){
-    //    filter.splice(filter.indexOf(e.target.value), 1);
-    //   }
+    
       if (newCategory.includes(e.target.value)) {
         newCategory.splice(newCategory.indexOf(e.target.value), 1);
       }
     
     else {
       newCategory.push(e.target.value);
-      // filter.push(e.target.value);
+      
     }
     setRating(newCategory);
-    // setAllFilter(filter)
+  
    
   };
 // console.log('allFilter' , allFilter)
-// console.log('allFilter' , allFilter)
+console.log('allFilter' , allFilter)
+ 
+const remove = (item)=>{
+  const array = [...brand]
+  if(array.includes(item)){
+    array.splice(array.indexOf(item),1)
+  }
+  setBrand(array)
+ 
+  // setRender(!render)
+
+  console.log("brand" ,brand)
+}
+
+
 
 
   const handleSort = (e)=>{
@@ -208,7 +210,7 @@ const Filter = () => {
   return (
     <Box>
       <Box
-        className="hoverFilterMainBox"
+        className="hoverFilterMainBox" 
         style={{
           display: "",
           border: "1px   black",
@@ -224,7 +226,7 @@ const Filter = () => {
         
             
           { allFilter.length > 0 && allFilter.map((item,i)=>{
-            return(<Text>{item}</Text>)
+            return(<Button key={i} onClick={()=>remove(item)}>{item}</Button>)
            
           })} 
                {/* {item.length > 0 && item.map((el)=>{
@@ -251,7 +253,7 @@ const Filter = () => {
         <Text fontSize="17px" fontWeight="500" mb={4} mt={3} color="#1d252c">
           Brand
         </Text>
-        <Box style={{ display: "flex", flexDirection: "column" }} mb={1}>
+        <Box  style={{ display: "flex", flexDirection: "column" }} mb={1}>
           {filterNameData.length > 0 &&
             filterNameData.map((item) => {
               return (
