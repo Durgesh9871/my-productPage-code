@@ -3,7 +3,7 @@ import React from 'react' ;
 import "./ProductHeadings.css" ; 
 
 
-const Modalfilter = () => {
+const Modalfilter = ({brand ,handleChange}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
   
@@ -99,7 +99,7 @@ const Modalfilter = () => {
             <Box style={{display:"grid" , gridTemplateColumns:"repeat(3,1fr)" , gap: "20px" }}>
         {filterNameData.length > 0 &&  filterNameData.map((item)=>{
              return (
-             <Checkbox key={item.id} value={item.name} ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
+             <Checkbox key={item.id} onChange={handleChange} defaultChecked={brand.includes(item.name)} value={item.name} ><Text fontSize='17px' fontWeight="400" color="#1d252c">{item.name} <span>({item.size})</span></Text></Checkbox> )
         })}
 
        
@@ -112,7 +112,7 @@ const Modalfilter = () => {
             <Button   mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button  colorScheme='blue'>Apply</Button>
+            <Button  colorScheme='blue' onClick={onClose}>Apply</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

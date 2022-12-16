@@ -1,10 +1,8 @@
 import { StarIcon } from "@chakra-ui/icons";
 import {
   Box,
+  Button,
   Checkbox,
-  Radio,
-  RadioGroup,
-  Stack,
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
@@ -18,55 +16,85 @@ const Filter = () => {
   const [brand, setBrand] = useState(searchParams.getAll("brand") || []);
   const [color, setColor] = useState(searchParams.getAll("color") || []);
   const [rating, setRating] = useState(searchParams.getAll("rating") || []);
+  const [allFilter , setAllFilter ] = useState([])
 
 
   const [sort , setSort ] = useState(searchParams.getAll("sort")[0] || "")
 
+
   const handleChange = (e) => {
     let newCategory = [...brand];
+    // let filter = [...allFilter]
+       
+    // if(filter.includes(e.target.value)){
+      // filter.splice(filter.indexOf(e.target.value), 1);
+    //  }
 
     if (newCategory.includes(e.target.value)) {
       newCategory.splice(newCategory.indexOf(e.target.value), 1);
     } else {
       newCategory.push(e.target.value);
+      // filter.push(e.target.value);
     }
     setBrand(newCategory);
+    // setAllFilter(filter)
   };
 
   const handleChangeColor = (e) => {
     let newCategory = [...color];
+    // let filter = [...allFilter]
+
+    // if(filter.includes(e.target.value)){
+    //   filter.splice(filter.indexOf(e.target.value), 1);
+    //  }
 
     if (newCategory.includes(e.target.value)) {
       newCategory.splice(newCategory.indexOf(e.target.value), 1);
     } else {
       newCategory.push(e.target.value);
+      // filter.push(e.target.value);
     }
     setColor(newCategory);
+    // setAllFilter(filter)
   };
 
   const handleChangeReview = (e) => {
     let newCategory = [...rating];
-
-    if (newCategory.includes(e.target.value)) {
-      newCategory.splice(newCategory.indexOf(e.target.value), 1);
-    } else {
+    //  let filter = [...allFilter]
+    //  if(filter.includes(e.target.value)){
+    //    filter.splice(filter.indexOf(e.target.value), 1);
+    //   }
+      if (newCategory.includes(e.target.value)) {
+        newCategory.splice(newCategory.indexOf(e.target.value), 1);
+      }
+    
+    else {
       newCategory.push(e.target.value);
+      // filter.push(e.target.value);
     }
     setRating(newCategory);
+    // setAllFilter(filter)
    
   };
+// console.log('allFilter' , allFilter)
+// console.log('allFilter' , allFilter)
+
 
   const handleSort = (e)=>{
           setSort(e.target.value)
         }
 
   useEffect(() => {
+    let obj = [...brand ,...color , ...rating]
     let params = {};
     params.brand = brand;
     params.color = color ;
     params.rating = rating 
     sort &&  (params.sort = sort )
     setSearchParams(params);
+    // obj.push([...brand])
+
+    setAllFilter(obj)
   }, [brand,color ,sort ,rating,  setSearchParams]);
 
 
@@ -191,6 +219,21 @@ const Filter = () => {
           
         }}
       >
+          
+         
+        
+            
+          { allFilter.length > 0 && allFilter.map((item,i)=>{
+            return(<Text>{item}</Text>)
+           
+          })} 
+               {/* {item.length > 0 && item.map((el)=>{
+              console.log(el)
+              return (<Button>{el}</Button>)
+             }) } */}
+      
+    
+
         {/* Checkboxes are here ---------depend upon sorting ------- */}
         <Text fontSize="17px" fontWeight="500" mb={4} mt={3} color="#1d252c">
           Sort by Price
@@ -226,7 +269,7 @@ const Filter = () => {
             })}
         </Box>
 
-        <Modalfilter />
+        <Modalfilter brand={brand} handleChange={handleChange}/>
 
         {/* Checkboxes are here ---------depend upon Color- ------- */}
         <hr style={{ marginTop: "3vh" }} />
