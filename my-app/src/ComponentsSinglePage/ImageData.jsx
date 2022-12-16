@@ -2,9 +2,9 @@ import React from 'react'
 
 const ImageData = () => {
   return (
-    <div>
+    <Box className="ImageMainBox" >
       hello 
-    </div>
+    </Box>
   )
 }
 
