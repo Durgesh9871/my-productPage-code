@@ -35,3 +35,11 @@
         display: flex;
     }
  }
+
+
+ /*  For clearing filter------------- */
+
+ .clearAllFilter:hover{
+   text-decoration: underline;
+   color : #e11d41
+ }

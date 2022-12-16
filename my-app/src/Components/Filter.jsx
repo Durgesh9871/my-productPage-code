@@ -86,13 +86,21 @@ const remove = (item)=>{
  else if(arrayRating.includes(item)){
     arrayRating.splice(arrayRating.indexOf(item),1)
   }
-
-
   setBrand(arrayBrand)
   setColor(arrayColor) 
   setRating(arrayRating)
  
 }
+
+const clearAllFilterItem = ()=>{
+  setBrand([])
+  setColor([]) 
+  setRating([])
+  setSort("")
+  // setSearchParams()
+}
+
+
 
 
 
@@ -103,6 +111,7 @@ const remove = (item)=>{
 
   useEffect(() => {
     let obj = [...brand ,...color , ...rating]
+    console.log(obj)
     let params = {};
     params.brand = brand;
     params.color = color ;
@@ -111,7 +120,7 @@ const remove = (item)=>{
     setSearchParams(params);
 
     setAllFilter(obj)
-  }, [brand,color ,sort ,rating,  setSearchParams]);
+  }, [brand,color ,sort ,rating, setSearchParams]);
 
 
   //    alll the filter data using loop -----------------------------------------
@@ -238,9 +247,16 @@ const remove = (item)=>{
       >
           
          
-      { allFilter.length > 0 && <Text fontSize="17px" fontWeight="500" mb={1} mt={3} color="#1d252c">
+      { allFilter.length > 0 && (
+        <Box style={{display:"flex" , justifyContent:"space-between"}}>
+      <Text fontSize="17px" fontWeight="500" mb={1} mt={3} color="#1d252c">
          Filters
-        </Text>  }
+        </Text> 
+        <Text fontSize="16px" className="clearAllFilter" fontWeight="500" mb={1} mt={3} color="#ff5172" cursor="pointer" onClick={clearAllFilterItem}>
+         Clear All
+        </Text> 
+        </Box>
+        ) }
         <Box style={{display:"inline-block" , border:"2px  red" , height:"auto" ,fontSize:"14px"}}>
           { allFilter.length > 0 && allFilter.map((item,i)=>{
 
@@ -287,8 +303,8 @@ const remove = (item)=>{
               );
             })}
         </Box>
-        {/* <input type="checkbox" value="Microsoft" checked={brand.includes("Microsoft")} onChange={handleChange} />  */}
-        <label >Microsoft</label>
+      
+        
 
         <Modalfilter brand={brand} handleChange={handleChange}/>
 
