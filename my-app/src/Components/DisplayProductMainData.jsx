@@ -12,7 +12,7 @@ import { StarIcon } from '@chakra-ui/icons'
 
 
 
-const DisplayProductMainData = ({src , name  ,price ,model , review ,realPrice ,isLaptopLoading})=>{
+const DisplayProductMainData = ({src , name  ,price ,model , review ,realPrice ,isLaptopLoading , allData})=>{
     let style = {
       position:"relative" , 
     
@@ -66,10 +66,11 @@ const closeProductHover = ()=>{
   setEffect(false)
 }
 // here wishlist remove----------------------------------------
-
+  
    
   const handle = ()=>{
     setWishlistColor(!wishlistColor)
+    
   }
   const total = Math.floor(+(realPrice) * 100 )
   const spend = Math.floor(+(price) * 100 )
