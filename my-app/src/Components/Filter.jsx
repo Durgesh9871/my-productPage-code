@@ -76,7 +76,8 @@ const remove = (item)=>{
   const arrayBrand = [...brand ]
   const arrayColor = [...color] 
   const arrayRating = [...rating]
-
+  
+  // console.log(item)
   if(arrayBrand.includes(item)){
     arrayBrand.splice(arrayBrand.indexOf(item),1)
   }
@@ -86,6 +87,10 @@ const remove = (item)=>{
  else if(arrayRating.includes(item)){
     arrayRating.splice(arrayRating.indexOf(item),1)
   }
+  else{
+    setSort("")
+  }
+ 
   setBrand(arrayBrand)
   setColor(arrayColor) 
   setRating(arrayRating)
@@ -107,11 +112,12 @@ const clearAllFilterItem = ()=>{
 
   const handleSort = (e)=>{
           setSort(e.target.value)
+          // setAllFilter([...allFilter , sort])
     }
 
   useEffect(() => {
-    let obj = [...brand ,...color , ...rating]
-    console.log(obj)
+    let obj = [...brand ,...color , ...rating ]
+{ sort != "" && obj.push(sort)}
     let params = {};
     params.brand = brand;
     params.color = color ;
@@ -275,16 +281,16 @@ const clearAllFilterItem = ()=>{
           Sort by Price
         </Text>
         <Box>
-        <input type="radio" value="asc"  name="sortBy" defaultChecked={sort === 'asc'}   onChange= 
+        {/* <input type="radio"   name="sortBy"    onChange= 
            {handleSort}   />
-        <label> <Text display="inline-block">All</Text> </label>
-        <br />
-        <input type="radio" value="asc"  name="sortBy" defaultChecked={sort === 'asc'}   onChange= 
+        <label> <Text display="inline-block" >All</Text> </label>
+        <br /> */}
+        <input type="radio" value="asc"  name="sortBy" checked={sort === 'asc'}   onChange= 
            {handleSort}   />
         <label> <Text display="inline-block">Low to High</Text> </label>
           
           <br />
-        <input type="radio" value="desc"  name="sortBy" defaultChecked={sort === 'desc'}   onChange= 
+        <input type="radio" value="desc"  name="sortBy" checked={sort === 'desc'}   onChange= 
           {handleSort}  />
           <label> <Text display="inline-block">High to low</Text> </label>
         </Box>
