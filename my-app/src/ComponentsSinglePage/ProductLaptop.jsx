@@ -1,5 +1,5 @@
 import { AddIcon, MinusIcon, StarIcon } from '@chakra-ui/icons'
-import { Box ,Text , Heading, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel} from '@chakra-ui/react'
+import { Box ,Text , Heading, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, Table, TableCaption, Thead, Tr, Th, Tbody, Td, Tfoot, TableContainer} from '@chakra-ui/react'
 import React from 'react'
 import "./ImageData.css"
 
@@ -46,7 +46,7 @@ const ProductLaptop = () => {
     <h2>
       <AccordionButton>
         <Box as="span" flex='1' textAlign='left'>
-         <Text fontWeight="500" fontSize="24px" pt="12px" pb="12px" pr="24px" >Product Description</Text> 
+         <Text fontWeight="500" fontSize="20px" pt="12px" pb="12px" pr="24px" > Description</Text> 
         </Box>
         <AccordionIcon />
       </AccordionButton>
@@ -60,14 +60,14 @@ const ProductLaptop = () => {
   </AccordionItem>
   
    
-   
+   {/*   Second drop down ----------------------------------------------- */}
   <AccordionItem className='changeColor'>
     {({ isExpanded }) => (
       <>
         <h2>
           <AccordionButton>
             <Box as="span" flex='1' textAlign='left'>
-            <Text fontWeight="500" fontSize="24px" pt="12px" pb="12px" pr="24px" >Product Details</Text> 
+            <Text fontWeight="500" fontSize="22px" pt="12px" pb="12px" pr="24px" >Product Details</Text> 
             </Box>
             {isExpanded ? (
               <MinusIcon fontSize='12px' />
@@ -77,10 +77,42 @@ const ProductLaptop = () => {
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+        <TableContainer>
+  <Table variant='simple'>
+    <TableCaption>Imperial to metric conversion factors</TableCaption>
+    <Thead>
+      <Tr>
+        <Th>To convert</Th>
+        <Th>into</Th>
+        <Th isNumeric>multiply by</Th>
+      </Tr>
+    </Thead>
+    <Tbody>
+      <Tr>
+        <Td>inches</Td>
+        <Td>millimetres (mm)</Td>
+        <Td isNumeric>25.4</Td>
+      </Tr>
+      <Tr>
+        <Td>feet</Td>
+        <Td>centimetres (cm)</Td>
+        <Td isNumeric>30.48</Td>
+      </Tr>
+      <Tr>
+        <Td>yards</Td>
+        <Td>metres (m)</Td>
+        <Td isNumeric>0.91444</Td>
+      </Tr>
+    </Tbody>
+    <Tfoot>
+      <Tr>
+        <Th>To convert</Th>
+        <Th>into</Th>
+        <Th isNumeric>multiply by</Th>
+      </Tr>
+    </Tfoot>
+  </Table>
+</TableContainer>
         </AccordionPanel>
       </>
     )}
