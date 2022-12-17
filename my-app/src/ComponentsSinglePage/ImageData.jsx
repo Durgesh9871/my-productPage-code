@@ -104,7 +104,7 @@ const ImageData = ({image ,allImageData}) => {
       return (
         // console.log("item" ,item)
            
-        <Box key={i} border="1px solid #eef0f3" width={{base:"35%", sm: "35%", md: "30%", lg: "30%",xl: "30%",'2xl': "30%"}} className='ThreeImagesChange' padding="7px" >
+        <Box key={i} border="1px solid #eef0f3" width={{base:"35%", sm: "35%", md: "30%", lg: "25%",xl: "25%",'2xl': "25%"}} className='ThreeImagesChange' padding="7px" >
         <Image onMouseOver={handleChange} cursor="pointer"  src={item.imageFront} alt="image"  width="100%" height="100%" />
         </Box>
       )
@@ -122,8 +122,11 @@ const ImageData = ({image ,allImageData}) => {
         </Box>
 
        {/*  Wish list --------------------------------------------------------- */}
-       <Box onClick={handle} cursor="pointer" position="absolute" top={{base:"12px"}} right={{base:"80px" }} fontSize="25px">{wishlistColor ? <AiFillHeart color="ff5172"  /> : <FiHeart color="ff5172" />}
-         </Box>
+       <Box onClick={handle} cursor="pointer" position="absolute" top={{base:"12px" ,sm: "12px", md: "14px", lg: "10px",xl: "12px",'2xl': "12px"}} right={{base:"10px",sm: "20px", md: "50px" , lg: "65px",xl: "80px",'2xl': "80px" }} fontSize="25px">{wishlistColor ? <AiFillHeart color="ff5172"  /> : <FiHeart color="ff5172" />}
+         </Box>  
+       
+          
+
     </Box>
   )
 }
