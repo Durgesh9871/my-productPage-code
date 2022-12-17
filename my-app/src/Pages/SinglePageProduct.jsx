@@ -21,7 +21,7 @@ useEffect(()=>{
      
      
 
-        console.log(singleData)
+        // console.log(singleData)
      
 
   return (

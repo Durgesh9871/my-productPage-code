@@ -6,20 +6,27 @@ import "./ImageData.css"
 
 const ProductLaptop = ({item}) => {
   console.log('item' , item)
+
+  const total = Math.floor(+(item.realPrice) * 100 )
+  const spend = Math.floor(+(item.price) * 100 )
+  const amount =  Math.floor((spend/total)*100)
+  const ans = 100 - amount 
+
+
   return (
     <Box padding="10px" textAlign="left">
         {/*  Main Heading ------------------------------------ */}
-     <Heading fontSize="18px" fontWeight="500" color="#8f8a8f" >Microsoft</Heading> 
-     <Text fontSize='16px' fontWeight="500" color="#303030" mt="8px" lineHeight="23px" >HP - 15.6' Touch-Screen - Laptop - Intel Core i5 - 12GB Memory - 256GB SSD - Natural Silver 12GB Memory - 256GB SSD - Natural Silver 12GB Memory - 256GB SSD - Natural Silver 12GB Memory - 256GB SSD - Natural Silver</Text> 
+     <Heading fontSize="18px" fontWeight="500" color="#8f8a8f" >{item.brand}</Heading> 
+     <Text fontSize='16px' fontWeight="500" color="#303030" mt="8px" lineHeight="23px" >{item.title}</Text> 
 
      <Text fontSize="15px" color="#26a541" fontWeight="500" mt="12px">Special price</Text>
         
 
         {/*  Price is all here ------------------------------------------- */}
      <Box  mt="6px" style={{display:'flex' , alignItems:"center" } }>
-          <Heading fontSize='28px' fontWeight="600" color="#303030" mt={1.5}  textAlign="left">$200</Heading>
-          <Text as='del' fontSize='18px' className='control' mt={1.5} ml={3} fontWeight="600" color="#8f8a8f" textAlign="left">$300</Text>
-          <Text  fontSize='14px' className='control' mt={1.5} ml={2} fontWeight="600" color="#26a541" textAlign="left">30% off</Text>
+          <Heading fontSize='28px' fontWeight="600" color="#303030" mt={1.5}  textAlign="left">${item.price}</Heading>
+          <Text as='del' fontSize='18px' className='control' mt={1.5} ml={3} fontWeight="600" color="#8f8a8f" textAlign="left">${item.realPrice}</Text>
+          <Text  fontSize='14px' className='control' mt={1.5} ml={2} fontWeight="600" color="#26a541" textAlign="left">{ans}% off</Text>
           </Box>
 
 
@@ -30,12 +37,12 @@ const ProductLaptop = ({item}) => {
         {/*  rating and review logo -------------------------------- */}
         <Box border="1px solid #26a541" mt="6px" background="#26a541" borderRadius="20px" width="45px"  
         style={{display:"flex" ,alignItems:"center" ,justifyContent:"space-evenly"}}>   
-        <Text color="#ffffff" fontSize="16px">4</Text> 
+        <Text color="#ffffff" fontSize="16px">{item.rating}</Text> 
         <StarIcon fontSize="13px" color="#ffffff" />
         </Box>  
 
         {/*  rating and reviews text ------------------- */}
-        <Box color="#8f8a8f" ><Text fontWeight="600" fontSize="17px" ml="6px">4 ratings and 2 reviews</Text></Box>
+        <Box color="#8f8a8f" ><Text fontWeight="600" fontSize="17px" ml="6px">{item.rating} ratings and 2 reviews</Text></Box>
         
         </Box>
 
@@ -53,10 +60,7 @@ const ProductLaptop = ({item}) => {
       </AccordionButton>
     </h2>
     <AccordionPanel pb={4}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
+      {item.description}
     </AccordionPanel>
   </AccordionItem>
   
@@ -84,27 +88,27 @@ const ProductLaptop = ({item}) => {
     <Tbody>
       <Tr>
         <Td>Brand</Td>
-        <Td>Macbook</Td>
+        <Td>{item.brand}</Td>
         
       </Tr>
       <Tr>
         <Td>Color</Td>
-        <Td>Grey</Td>
+        <Td>{item.color}</Td>
        
       </Tr>
       <Tr>
         <Td>MRP</Td>
-        <Td>$322</Td>
+        <Td>${item.realPrice}</Td>
         
       </Tr>
       <Tr>
         <Td>Save</Td>
-        <Td>32%</Td>
+        <Td>{ans}%</Td>
         
       </Tr>
       <Tr>
         <Td>Pay</Td>
-        <Td>$22</Td>
+        <Td>${item.price}</Td>
         
       </Tr>
      
