@@ -1,19 +1,26 @@
 import "./ImageData.css" 
 import { AddIcon, MinusIcon, StarIcon } from '@chakra-ui/icons'
-import { Box ,Text , Heading, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, Table, Tr, Tbody, Td, TableContainer} from '@chakra-ui/react'
-import React from 'react'
+import { Box ,Text , Heading, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, Table, Tr, Tbody, Td, TableContainer, Input, Button} from '@chakra-ui/react'
+import React, { useState } from 'react'
 import {FaUserCircle} from "react-icons/fa"
 
 
 const ProductLaptop = ({item}) => {
   // console.log('item' , item)
+  const [review , setReview] = useState("")
+  const [reviewArr , setReviewArr] = useState([])
 
   const total = Math.floor(+(item.realPrice) * 100 )
   const spend = Math.floor(+(item.price) * 100 )
   const amount =  Math.floor((spend/total)*100)
-  const ans = 100 - amount 
+  const ans = 100 - amount  
 
-
+  const handleReview = ()=>{
+    setReviewArr([...reviewArr , review])
+    setReview("")
+  }
+    // console.log(reviewArr)
+ 
   return (
     <Box padding="10px" textAlign="left">
         {/*  Main Heading ------------------------------------ */}
@@ -133,7 +140,15 @@ const ProductLaptop = ({item}) => {
        {/*  Customere reviews are start from here ------------------------------- */}
           
           <Box mt="30px">
-             <Text fontSize='20px' fontWeight="700" color="#303030"><u> Top Reviews From Our Customers</u></Text>
+             <Text fontSize='20px' fontWeight="700" color="#303030"><u> Top Reviews From Our Customers</u></Text>          
+             {/* addind review --------------------------------- */}
+             <Box display="flex" alignItems="center" >
+             <Input placeholder='Write a customer review' width="210px" mt="20px" mb="10px" value={review} onChange={(e)=> setReview(e.target.value)} /> 
+
+             <Button onClick={handleReview} display="flex" mb="10px" ml="2"  backgroundColor='#fb641b' variant='unstyled' width="60px" mt="20px"  borderRadius="10px" > <Text color="#fffcfa"   fontSize="17px">Share</Text></Button>
+             </Box>
+
+             {/*  Adding review end ------------------------- */}
               {
                 item?.reviews?.map((item , i)=>{
                  return (  
@@ -147,7 +162,22 @@ const ProductLaptop = ({item}) => {
                  )
                    
                 })
-              }
+              } 
+
+               {
+                   reviewArr.length > 0 && reviewArr?.map((item , i)=>{
+                 return (  
+                  <Box mt={5} key={i} >
+                    <Box display="flex">
+                    <FaUserCircle fontSize="16px" color="grey"/>
+                    <Text fontSize='12px' fontWeight="600" color="#8f8a8f" ml={2}>Verified User</Text>
+                    </Box>
+                 <Text  fontSize='15px' fontWeight="500" color="#303030" ml="3" >{item}</Text>
+                 </Box>
+                 )
+                   
+                })
+              } 
 
 
 
