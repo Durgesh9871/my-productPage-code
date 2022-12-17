@@ -1,11 +1,12 @@
+import "./ImageData.css" 
 import { AddIcon, MinusIcon, StarIcon } from '@chakra-ui/icons'
-import { Box ,Text , Heading, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, Table, TableCaption, Thead, Tr, Th, Tbody, Td, Tfoot, TableContainer} from '@chakra-ui/react'
+import { Box ,Text , Heading, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, Table, Tr, Tbody, Td, TableContainer} from '@chakra-ui/react'
 import React from 'react'
-import "./ImageData.css"
+import {FaUserCircle} from "react-icons/fa"
 
 
 const ProductLaptop = ({item}) => {
-  console.log('item' , item)
+  // console.log('item' , item)
 
   const total = Math.floor(+(item.realPrice) * 100 )
   const spend = Math.floor(+(item.price) * 100 )
@@ -126,11 +127,31 @@ const ProductLaptop = ({item}) => {
 </Accordion>
 
 
+  {/*  Product description is ends here ---------------------------------------------- */}
+
+
+       {/*  Customere reviews are start from here ------------------------------- */}
+          
+          <Box mt="30px">
+             <Text fontSize='20px' fontWeight="700" color="#303030"><u> Top Reviews From Our Customers</u></Text>
+              {
+                item?.reviews?.map((item , i)=>{
+                 return (  
+                  <Box mt={5} key={i} >
+                    <Box display="flex">
+                    <FaUserCircle fontSize="16px" color="grey"/>
+                    <Text fontSize='12px' fontWeight="600" color="#8f8a8f" ml={2}>Verified User</Text>
+                    </Box>
+                 <Text  fontSize='15px' fontWeight="500" color="#303030" ml="3" >{item}</Text>
+                 </Box>
+                 )
+                   
+                })
+              }
 
 
 
-
-
+          </Box>
 
 
 

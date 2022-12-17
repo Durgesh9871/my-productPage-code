@@ -130,11 +130,11 @@ const ImageData = ({image ,allImageData}) => {
 
           {/*  Add to cart button ---------------------------------------------  */} 
 
-          <Box border="2px  red" width="76%" height="auto"  display="flex" justifyContent="space-between" margin="auto" flexDirection={{base:"column",sm: "column", md: "row" , lg: "row",xl: "row",'2xl': "row" }}>
+          <Box  border="2px  red" width="76%" height="auto"  display="flex" justifyContent="space-between" margin="auto" alignItems="center" flexDirection={{base:"column",sm: "column", md: "row" , lg: "row",xl: "row",'2xl': "row" }}>
 
-          <Button display="flex"  backgroundColor='#ff9f00' variant='unstyled' width={{base:"35%", sm: "35%", md: "47%", lg: "47%",xl: "47%",'2xl': "47%"}} height="52px"  borderRadius="2px" > <MdShoppingCart  fontSize="22px" color="#fffcfa"/> <Text color="#fffcfa" ml="2"  fontSize="17px">ADD TO CART</Text></Button>
-          
-          <Button display="flex" backgroundColor='#fb641b' variant='unstyled' width={{base:"35%", sm: "35%", md: "47%", lg: "47%",xl: "47%",'2xl': "47%"}}  height="52px"  borderRadius="2px" > <AddIcon  fontSize="16px" color="#fffcfa"/> <Text color="#fffcfa" ml="2"  fontSize="17px">BUY NOW</Text></Button>
+          <Button display="flex" mb="20px"  backgroundColor='#ff9f00' variant='unstyled' width={{base:"105%", sm: "100%", md: "53%", lg: "47%",xl: "47%",'2xl': "47%"}} height="52px"  borderRadius="2px" > <MdShoppingCart  fontSize="22px" color="#fffcfa"/> <Text color="#fffcfa" ml="2"  fontSize="17px">ADD TO CART</Text></Button>
+
+          <Button display="flex" mb="20px"  backgroundColor='#fb641b' variant='unstyled' width={{base:"105%", sm: "100%", md: "43%", lg: "47%",xl: "47%",'2xl': "47%"}}  height="52px"  borderRadius="2px" > <AddIcon  fontSize="16px" color="#fffcfa"/> <Text color="#fffcfa" ml="2"  fontSize="17px">BUY NOW</Text></Button>
 
           </Box>
         
