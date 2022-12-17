@@ -33,7 +33,7 @@ useEffect(()=>{
 
         {/* Image Data Main box ---------------------------------------------------- */}
         <Box className='SingleProductMainImage' mt={5} width="40vw" style={{border:"1px solid  yellow" , height:"auto"}}>
-        <ImageData  allImageData={singleData?.Images && singleData?.Images[0].imageFront}  />
+        <ImageData  allImageData={singleData?.Images && singleData?.Images[0].imageFront} image={singleData?.Images} />
         </Box>
 
         {/* Single Page Info Main Div ----------------------------------------------------- */}

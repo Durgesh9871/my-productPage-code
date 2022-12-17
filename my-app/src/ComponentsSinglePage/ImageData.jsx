@@ -12,12 +12,12 @@ const ImageData = ({image ,allImageData}) => {
     const url = ( allImageData !== undefined && allImageData || "" )
     // console.log("src" ,url)
      
-    useEffect(()=>{
-        setSrc(url)
-    },[src])
-    
+    // useEffect(()=>{
+    //     setSrc(url)
+    // },[src])
 
-    console.log("src" , src)
+
+    // console.log("src" , src)
      
    const handleChange =(e)=>{
         setSrc(e.target.src )
@@ -43,11 +43,11 @@ const ImageData = ({image ,allImageData}) => {
     smallImage: {
         alt: 'Wristwatch by Ted Baker London',
         isFluidWidth: true,
-        src: url  ,
+        src: (src || url)  ,
        
       },
       largeImage: {
-          src : url ,
+          src : (src || url) ,
           width: 1600,
           height: 700 
       } ,
@@ -72,15 +72,15 @@ const ImageData = ({image ,allImageData}) => {
        {/*  diff images three----------------------------- */}
          <Box style={{ height:"10vh" , width:"60%" , display:"flex" ,justifyContent:"center", marginTop:"20px"}}>
            
-          {/* { allImageData?.map((item)=>{
+          { image?.map((item)=>{
       return (
         // console.log("item" ,item)
            
         <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
-        <Image onMouseOver={handleChange} cursor="pointer"  src="https://rukminim1.flixcart.com/image/416/416/kp2y2kw0/computer/y/0/c/na-thin-and-light-laptop-asus-original-imag3ebnzawky4kn.jpeg?q=70" alt="image"  width="100%" height="100%" />
+        <Image onMouseOver={handleChange} cursor="pointer"  src={item.imageFront} alt="image"  width="100%" height="100%" />
         </Box>
       )
-    })} */}
+    })}
 
             {/* <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
                 <Image onMouseOver={handleChange} cursor="pointer"  src="https://rukminim1.flixcart.com/image/416/416/kp2y2kw0/computer/y/0/c/na-thin-and-light-laptop-asus-original-imag3ebnzawky4kn.jpeg?q=70" alt="image"  width="100%" height="100%" />
