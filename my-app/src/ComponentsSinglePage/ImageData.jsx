@@ -1,19 +1,30 @@
+import "./ImageData.css"
 import { Box, Image} from '@chakra-ui/react'
 import React,{useState} from 'react'
 import ReactImageMagnify from 'react-image-magnify' 
-import "./ImageData.css"
+import {AiFillHeart} from "react-icons/ai" ;
+import {FiHeart} from "react-icons/fi"
 
 const ImageData = () => {
     const [src , setSrc ] = useState("https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6510/6510531_sd.jpg;maxHeight=640;maxWidth=550")
+    const [wishlistColor , setWishlistColor] = useState(false)
 
+    
     const handleChange =(e)=>{
         setSrc(e.target.src )
     }
 
+    //  Wish list function ------------------------------------------------
+    const handle = ()=>{
+      setWishlistColor(!wishlistColor)
+      
+    }
+
+
 
 
   return (
-    <Box className="ImageMainBox" style={{display:"flex" , flexDirection:"column" , justifyContent:"center" , alignItems:"center" }} >
+    <Box className="ImageMainBox" style={{display:"flex" , flexDirection:"column" , justifyContent:"center" , alignItems:"center" ,position:"relative"}} >
          
         
         
@@ -47,6 +58,8 @@ const ImageData = () => {
 
          </Box>
 
+       
+
        {/*  diff images three----------------------------- */}
          <Box style={{ height:"10vh" , width:"60%" , display:"flex" ,justifyContent:"center", marginTop:"20px"}}>
             <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
@@ -60,6 +73,9 @@ const ImageData = () => {
             </Box>
         </Box>
 
+       {/*  Wish list --------------------------------------------------------- */}
+       <Box onClick={handle} cursor="pointer" position="absolute" top={{base:"12px"}} right={{base:"80px" }} fontSize="25px">{wishlistColor ? <AiFillHeart color="ff5172"  /> : <FiHeart color="ff5172" />}
+         </Box>
     </Box>
   )
 }
