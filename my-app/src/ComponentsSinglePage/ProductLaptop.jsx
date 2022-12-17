@@ -106,6 +106,8 @@ const ProductLaptop = () => {
         <Td>$22</Td>
         
       </Tr>
+     
+
     </Tbody>
    
   </Table>

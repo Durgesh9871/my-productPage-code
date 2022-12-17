@@ -186,7 +186,7 @@ const PaginationFunction = (queryParams)=>{
             })} */}
             {productArrayLaptop.length > 0 && productArrayLaptop.map((item)=>{
               return (
-            <DisplayProductMainData key= {item.id} src={item.Images} name={item.title} model={item.brand}    price={item.price}    review={item.rating}  realPrice={item.realPrice} isLaptopLoading={isLaptopLoading} allData ={item}/>
+            <DisplayProductMainData key= {item.id} id={item.id} src={item.Images} name={item.title} model={item.brand}    price={item.price}    review={item.rating}  realPrice={item.realPrice} isLaptopLoading={isLaptopLoading} allData ={item}/>
             
               )
             })}
