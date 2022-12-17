@@ -5,12 +5,14 @@ import ReactImageMagnify from 'react-image-magnify'
 import {AiFillHeart} from "react-icons/ai" ;
 import {FiHeart} from "react-icons/fi"
 
-const ImageData = () => {
-    const [src , setSrc ] = useState("https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6510/6510531_sd.jpg;maxHeight=640;maxWidth=550")
+const ImageData = ({image}) => {
+    //  console.log("image" ,image)
+    const [src , setSrc ] = useState(false)
     const [wishlistColor , setWishlistColor] = useState(false)
-
+      const url = src ? src :image 
     
-    const handleChange =(e)=>{
+ 
+   const handleChange =(e)=>{
         setSrc(e.target.src )
     }
 
@@ -19,8 +21,12 @@ const ImageData = () => {
       setWishlistColor(!wishlistColor)
       
     }
-
-
+  
+    // { image?.map((item)=>{
+    //   return (
+    //     console.log("item" ,item)
+    //   )
+    // })}
 
 
   return (
@@ -34,14 +40,14 @@ const ImageData = () => {
     smallImage: {
         alt: 'Wristwatch by Ted Baker London',
         isFluidWidth: true,
-        src:src  ,
+        src:url  ,
        
       },
      
          
    
     largeImage: {
-        src :src ,
+        src :url ,
         width: 1600,
         height: 700 
     } ,
