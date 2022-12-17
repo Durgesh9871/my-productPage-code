@@ -5,3 +5,8 @@
     padding: 3px ;
 }
 
+/*  Media queries for single page -------------------------------------------- */
+
+@media  (min-width: 300px) and (max-width: 480px)  { 
+    
+ }

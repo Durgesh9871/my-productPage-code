@@ -32,7 +32,7 @@ const ImageData = ({image ,allImageData}) => {
          
         
         
-         <Box   style={{border:"2px solid #eef0f3" ,height:"60vh" , width:"76%" ,display:"flex"  ,justifyContent:"center"  }}>
+         <Box width={{base:"200%", sm: "85%", md: "84%", lg: "76%",xl: "76%",'2xl': "76%"}}  style={{border:"2px solid #eef0f3" ,height:"60vh"  ,display:"flex"  ,justifyContent:"center"  }}>
             
          <ReactImageMagnify style={{padding:"20px" }} {...{
     smallImage: {
@@ -50,10 +50,12 @@ const ImageData = ({image ,allImageData}) => {
          
    
     enlargedImagePosition :"beside" ,
-    enlargedImageContainerDimensions: {
+  
+      enlargedImageContainerDimensions: {
         width: "200%",
         height: "150%"
       },
+     
       shouldUsePositiveSpaceLens: true 
       
 }} />
