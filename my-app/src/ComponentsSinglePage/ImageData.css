@@ -7,6 +7,20 @@
 
 /*  Media queries for single page -------------------------------------------- */
 
-@media  (min-width: 300px) and (max-width: 480px)  { 
+.SingleMagnify{
+    display: none;
+}
+.SingleImagesMagnify{
+    display: flex;
+}
+
+@media  (min-width: 300px) and (max-width: 776px)  { 
+    .SingleMagnify{
+        display: flex;
+    } 
+    .SingleImagesMagnify{
+        display: none;
+    }
     
- }
+
+ } 

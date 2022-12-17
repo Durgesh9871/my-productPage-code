@@ -49,7 +49,7 @@ const ProductLaptop = ({item}) => {
        {/*  Product description code is here ----------------------------- */}
 
 
-       <Accordion allowMultiple mt="36px">
+       <Accordion allowToggle mt="36px">
   <AccordionItem className='changeColor'>
     <h2>
       <AccordionButton>
