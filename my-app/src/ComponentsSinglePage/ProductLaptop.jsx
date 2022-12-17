@@ -67,7 +67,7 @@ const ProductLaptop = () => {
         <h2>
           <AccordionButton>
             <Box as="span" flex='1' textAlign='left'>
-            <Text fontWeight="500" fontSize="22px" pt="12px" pb="12px" pr="24px" >Product Details</Text> 
+            <Text fontWeight="500" fontSize="20px" pt="12px" pb="12px" pr="24px" >Product Details</Text> 
             </Box>
             {isExpanded ? (
               <MinusIcon fontSize='12px' />
@@ -78,39 +78,36 @@ const ProductLaptop = () => {
         </h2>
         <AccordionPanel pb={4}>
         <TableContainer>
-  <Table variant='simple'>
-    <TableCaption>Imperial to metric conversion factors</TableCaption>
-    <Thead>
-      <Tr>
-        <Th>To convert</Th>
-        <Th>into</Th>
-        <Th isNumeric>multiply by</Th>
-      </Tr>
-    </Thead>
+  <Table variant='simple' border="none">
+  
     <Tbody>
       <Tr>
-        <Td>inches</Td>
-        <Td>millimetres (mm)</Td>
-        <Td isNumeric>25.4</Td>
+        <Td>Brand</Td>
+        <Td>Macbook</Td>
+        
       </Tr>
       <Tr>
-        <Td>feet</Td>
-        <Td>centimetres (cm)</Td>
-        <Td isNumeric>30.48</Td>
+        <Td>Color</Td>
+        <Td>Grey</Td>
+       
       </Tr>
       <Tr>
-        <Td>yards</Td>
-        <Td>metres (m)</Td>
-        <Td isNumeric>0.91444</Td>
+        <Td>MRP</Td>
+        <Td>$322</Td>
+        
+      </Tr>
+      <Tr>
+        <Td>Save</Td>
+        <Td>32%</Td>
+        
+      </Tr>
+      <Tr>
+        <Td>Pay</Td>
+        <Td>$22</Td>
+        
       </Tr>
     </Tbody>
-    <Tfoot>
-      <Tr>
-        <Th>To convert</Th>
-        <Th>into</Th>
-        <Th isNumeric>multiply by</Th>
-      </Tr>
-    </Tfoot>
+   
   </Table>
 </TableContainer>
         </AccordionPanel>
