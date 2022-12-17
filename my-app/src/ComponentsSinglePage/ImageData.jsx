@@ -72,11 +72,11 @@ const ImageData = ({image ,allImageData}) => {
        {/*  diff images three----------------------------- */}
          <Box style={{ height:"10vh" , width:"60%" , display:"flex" ,justifyContent:"center", marginTop:"20px"}}>
            
-          { image?.map((item)=>{
+          { image?.map((item , i)=>{
       return (
         // console.log("item" ,item)
            
-        <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
+        <Box key={i} border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
         <Image onMouseOver={handleChange} cursor="pointer"  src={item.imageFront} alt="image"  width="100%" height="100%" />
         </Box>
       )
