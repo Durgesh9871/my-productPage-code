@@ -32,7 +32,7 @@ const ImageData = ({image ,allImageData}) => {
          
         
         
-         <Box className="SingleImagesMagnify" width={{base:"200%", sm: "85%", md: "84%", lg: "76%",xl: "76%",'2xl': "76%"}}  style={{border:"2px solid #eef0f3" ,height:"60vh" ,justifyContent:"center"  }}>
+         <Box className="SingleImagesMagnify" width={{base:"80%", sm: "85%", md: "84%", lg: "76%",xl: "76%",'2xl': "76%"}}  style={{border:"2px solid #eef0f3" ,height:"60vh" ,justifyContent:"center"  }}>
             
          <ReactImageMagnify style={{padding:"20px" }} {...{
     smallImage: {
@@ -64,7 +64,7 @@ const ImageData = ({image ,allImageData}) => {
 
          </Box>
          
-         <Box className="SingleMagnify" width={{base:"200%", sm: "100%", md: "84%", lg: "76%",xl: "76%",'2xl': "76%"}} height={{base:"60vh", sm: "auto", md: "60vh", lg: "60vh",xl: "60vh",'2xl': "60vh"}}  style={{border:"2px solid #eef0f3"   ,justifyContent:"center"  }}>
+         <Box className="SingleMagnify" width={{base:"100%", sm: "100%", md: "84%", lg: "76%",xl: "76%",'2xl': "76%"}} height={{base:"auto", sm: "auto", md: "60vh", lg: "60vh",xl: "60vh",'2xl': "60vh"}}  style={{border:"2px solid #eef0f3"   ,justifyContent:"center"  }}>
             
             <ReactImageMagnify style={{padding:"20px" }} {...{
        smallImage: {
@@ -104,7 +104,7 @@ const ImageData = ({image ,allImageData}) => {
       return (
         // console.log("item" ,item)
            
-        <Box key={i} border="1px solid #eef0f3" width={{base:"200%", sm: "35%", md: "30%", lg: "30%",xl: "30%",'2xl': "30%"}} className='ThreeImagesChange' padding="7px" >
+        <Box key={i} border="1px solid #eef0f3" width={{base:"35%", sm: "35%", md: "30%", lg: "30%",xl: "30%",'2xl': "30%"}} className='ThreeImagesChange' padding="7px" >
         <Image onMouseOver={handleChange} cursor="pointer"  src={item.imageFront} alt="image"  width="100%" height="100%" />
         </Box>
       )

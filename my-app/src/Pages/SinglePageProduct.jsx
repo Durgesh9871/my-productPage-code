@@ -31,10 +31,10 @@ useEffect(()=>{
         {/* <hr className='horizatalRule' style={{marginBottom: "10px"}} /> */}
         {/* <br /> */}
         {/*  Main Box of Single Page ------------------------------------------------ */}
-        <Box className='SingleProductMain' flexDirection={{base:"row", sm: "column", md: "row", lg: "row",xl: "row",'2xl': "row"}} shadow="2xl"  mt="10px" background='#ffffff' style={{border:"1px solid red" , height:"200vh"  , width:"90%" , margin:"auto" , display:"flex" ,justifyContent:"space-between"}}>
+        <Box className='SingleProductMain' flexDirection={{base:"column", sm: "column", md: "row", lg: "row",xl: "row",'2xl': "row"}} shadow="2xl"  mt="10px" background='#ffffff' style={{border:"1px solid red" , height:"200vh"  , width:"90%" , margin:"auto" , display:"flex" ,justifyContent:"space-between"}}>
 
         {/* Image Data Main box ---------------------------------------------------- */}
-        <Box className='SingleProductMainImage' mt={5}  width={{base:"none", sm: "62vw", md: "50vw", lg: "42vw",xl: "40vw",'2xl': "40vw"}} style={{border:"1px solid  yellow" , height:"auto"}}>
+        <Box className='SingleProductMainImage' mt={5}  width={{base:"96%", sm: "62vw", md: "50vw", lg: "42vw",xl: "40vw",'2xl': "40vw"}} style={{border:"1px solid  yellow" , height:"auto"}}>
         <ImageData  allImageData={singleData?.Images && singleData?.Images[0].imageFront} image={singleData?.Images} />
         </Box>
 
