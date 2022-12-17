@@ -1,9 +1,11 @@
 import "./ImageData.css"
-import { Box, Image} from '@chakra-ui/react'
+import { Box, Button, Image , Text} from '@chakra-ui/react'
 import React,{useEffect, useState} from 'react'
 import ReactImageMagnify from 'react-image-magnify' 
 import {AiFillHeart} from "react-icons/ai" ;
 import {FiHeart} from "react-icons/fi"
+import {MdShoppingCart} from "react-icons/md"
+import { AddIcon } from "@chakra-ui/icons";
 
 const ImageData = ({image ,allImageData}) => {
     //  console.log("image" ,allImageData)
@@ -98,7 +100,7 @@ const ImageData = ({image ,allImageData}) => {
        
 
        {/*  diff images three----------------------------- */}
-         <Box style={{ height:"10vh" , width:"60%" , display:"flex" ,justifyContent:"center", marginTop:"20px"}}>
+         <Box mb="40px" style={{ height:"10vh" , width:"60%" , display:"flex" ,justifyContent:"center", marginTop:"20px"}}>
            
           { image?.map((item , i)=>{
       return (
@@ -125,8 +127,14 @@ const ImageData = ({image ,allImageData}) => {
        <Box onClick={handle} cursor="pointer" position="absolute" top={{base:"12px" ,sm: "12px", md: "14px", lg: "10px",xl: "12px",'2xl': "12px"}} right={{base:"10px",sm: "20px", md: "50px" , lg: "65px",xl: "80px",'2xl': "80px" }} fontSize="25px">{wishlistColor ? <AiFillHeart color="ff5172"  /> : <FiHeart color="ff5172" />}
          </Box>  
        
-          
 
+          {/*  Add to cart button ---------------------------------------------  */} 
+
+          <Box border="2px  red" width="76%" height="auto"  display="flex" justifyContent="space-between" margin="auto" >
+          <Button display="flex"  backgroundColor='#ff9f00' variant='unstyled' width="210px" height="52px"  borderRadius="2px" > <MdShoppingCart  fontSize="22px" color="#fffcfa"/> <Text color="#fffcfa" ml="2"  fontSize="17px">ADD TO CART</Text></Button>
+          <Button display="flex" backgroundColor='#fb641b' variant='unstyled' width="210px" height="52px"  borderRadius="2px" > <AddIcon  fontSize="16px" color="#fffcfa"/> <Text color="#fffcfa" ml="2"  fontSize="17px">BUY NOW</Text></Button>
+          </Box>
+        
     </Box>
   )
 }
