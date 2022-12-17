@@ -4,7 +4,8 @@ import React from 'react'
 import "./ImageData.css"
 
 
-const ProductLaptop = () => {
+const ProductLaptop = ({item}) => {
+  console.log('item' , item)
   return (
     <Box padding="10px" textAlign="left">
         {/*  Main Heading ------------------------------------ */}

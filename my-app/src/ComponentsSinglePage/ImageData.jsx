@@ -12,12 +12,7 @@ const ImageData = ({image ,allImageData}) => {
     const url = ( allImageData !== undefined && allImageData || "" )
     // console.log("src" ,url)
      
-    // useEffect(()=>{
-    //     setSrc(url)
-    // },[src])
-
-
-    // console.log("src" , src)
+   
      
    const handleChange =(e)=>{
         setSrc(e.target.src )

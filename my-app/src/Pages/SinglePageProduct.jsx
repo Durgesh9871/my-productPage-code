@@ -19,10 +19,10 @@ useEffect(()=>{
   GetSinglePageData(id)
 },[id])  
      
-      if(singleData.Images != undefined){
+     
 
-        console.log(singleData?.Images[0].imageFront)
-      }
+        console.log(singleData)
+     
 
   return (
     <Box className="SingleProductMainDiv" background="#f1f3f6"  style={{border:"2px  green" , height:"200vh" ,}}>
@@ -38,7 +38,7 @@ useEffect(()=>{
 
         {/* Single Page Info Main Div ----------------------------------------------------- */}
         <Box className='SingleProductMainData' mt={5} width="55vw" style={{border:"1px solid  grey" ,height:"200vh"}}>
-         <ProductLaptop />
+         <ProductLaptop item={singleData} />
         </Box>
         </Box>
         
