@@ -1,17 +1,24 @@
 import "./ImageData.css"
 import { Box, Image} from '@chakra-ui/react'
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import ReactImageMagnify from 'react-image-magnify' 
 import {AiFillHeart} from "react-icons/ai" ;
 import {FiHeart} from "react-icons/fi"
 
-const ImageData = ({image}) => {
-    //  console.log("image" ,image)
-    const [src , setSrc ] = useState(false)
+const ImageData = ({image ,allImageData}) => {
+    //  console.log("image" ,allImageData)
+    const [src , setSrc ] = useState("")
     const [wishlistColor , setWishlistColor] = useState(false)
-      const url = src ? src :image 
+    const url = ( allImageData !== undefined && allImageData || "" )
+    // console.log("src" ,url)
+     
+    useEffect(()=>{
+        setSrc(url)
+    },[src])
     
- 
+
+    console.log("src" , src)
+     
    const handleChange =(e)=>{
         setSrc(e.target.src )
     }
@@ -22,11 +29,7 @@ const ImageData = ({image}) => {
       
     }
   
-    // { image?.map((item)=>{
-    //   return (
-    //     console.log("item" ,item)
-    //   )
-    // })}
+    
 
 
   return (
@@ -40,17 +43,17 @@ const ImageData = ({image}) => {
     smallImage: {
         alt: 'Wristwatch by Ted Baker London',
         isFluidWidth: true,
-        src:url  ,
+        src: url  ,
        
       },
+      largeImage: {
+          src : url ,
+          width: 1600,
+          height: 700 
+      } ,
      
          
    
-    largeImage: {
-        src :url ,
-        width: 1600,
-        height: 700 
-    } ,
     enlargedImagePosition :"beside" ,
     enlargedImageContainerDimensions: {
         width: "200%",
@@ -68,15 +71,26 @@ const ImageData = ({image}) => {
 
        {/*  diff images three----------------------------- */}
          <Box style={{ height:"10vh" , width:"60%" , display:"flex" ,justifyContent:"center", marginTop:"20px"}}>
-            <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
-                <Image onMouseOver={handleChange} cursor="pointer"
-                  src="https://rukminim1.flixcart.com/image/416/416/kp2y2kw0/computer/y/0/c/na-thin-and-light-laptop-asus-original-imag3ebnzawky4kn.jpeg?q=70" alt="image"  width="100%" height="100%" /></Box>
+           
+          {/* { allImageData?.map((item)=>{
+      return (
+        // console.log("item" ,item)
+           
+        <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
+        <Image onMouseOver={handleChange} cursor="pointer"  src="https://rukminim1.flixcart.com/image/416/416/kp2y2kw0/computer/y/0/c/na-thin-and-light-laptop-asus-original-imag3ebnzawky4kn.jpeg?q=70" alt="image"  width="100%" height="100%" />
+        </Box>
+      )
+    })} */}
+
+            {/* <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
+                <Image onMouseOver={handleChange} cursor="pointer"  src="https://rukminim1.flixcart.com/image/416/416/kp2y2kw0/computer/y/0/c/na-thin-and-light-laptop-asus-original-imag3ebnzawky4kn.jpeg?q=70" alt="image"  width="100%" height="100%" />
+                </Box>
             <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px"  >
             <Image onMouseOver={handleChange} cursor="pointer" src="https://rukminim1.flixcart.com/image/312/312/xif0q/computer/q/j/c/-original-imagh3wecapg5gqn.jpeg?q=70" alt="image"  width="100%" height="100%" />
             </Box>
             <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
             <Image onMouseOver={handleChange} cursor="pointer" src="https://rukminim1.flixcart.com/image/312/312/ksyz8280/computer/8/v/i/cb-11igl05-thin-and-light-laptop-lenovo-original-imag6fh8sqpuk3ts.jpeg?q=70" alt="image"  width="100%" height="100%" />
-            </Box>
+            </Box> */}
         </Box>
 
        {/*  Wish list --------------------------------------------------------- */}

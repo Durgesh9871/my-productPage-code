@@ -7,22 +7,22 @@ import { ProductLaptop } from '../ComponentsSinglePage/ProductLaptop'
 
 const SinglePageProduct = () => {
   const {id} = useParams()   
-  const [singleData , updateSingleData] = useState({})
+  const [singleData , updateSingleData] = useState([])
    
   const GetSinglePageData = (num) =>{
     axios.get(`https://long-pear-giraffe-gown.cyclic.app/api/Laptop/${num}`)
     .then((res)=> updateSingleData(res.data))
-    .catch((err)=> console.log(err))
+    
 }
   
 useEffect(()=>{
   GetSinglePageData(id)
 },[id])  
      
-      // if(singleData.Images != undefined){
+      if(singleData.Images != undefined){
 
-      //   console.log(singleData?.Images?.imageFront)
-      // }
+        console.log(singleData?.Images[0].imageFront)
+      }
 
   return (
     <Box className="SingleProductMainDiv" background="#f1f3f6"  style={{border:"2px  green" , height:"200vh" ,}}>
@@ -33,7 +33,7 @@ useEffect(()=>{
 
         {/* Image Data Main box ---------------------------------------------------- */}
         <Box className='SingleProductMainImage' mt={5} width="40vw" style={{border:"1px solid  yellow" , height:"auto"}}>
-        <ImageData image={singleData.Images != undefined && singleData?.Images[0].imageFront }   />
+        <ImageData  allImageData={singleData?.Images && singleData?.Images[0].imageFront}  />
         </Box>
 
         {/* Single Page Info Main Div ----------------------------------------------------- */}
