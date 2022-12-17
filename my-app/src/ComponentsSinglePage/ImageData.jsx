@@ -19,13 +19,15 @@ const ImageData = () => {
         
          <Box  style={{border:"2px solid #eef0f3" ,height:"60vh" , width:"76%" ,display:"flex"  ,justifyContent:"center"  }}>
             
-         <ReactImageMagnify style={{padding:"20px"}} {...{
+         <ReactImageMagnify style={{padding:"20px" }} {...{
     smallImage: {
         alt: 'Wristwatch by Ted Baker London',
         isFluidWidth: true,
-        src:src      ,
+        src:src  ,
+       
+      },
+     
          
-    },
    
     largeImage: {
         src :src ,
