@@ -1,14 +1,16 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Button } from '@chakra-ui/react'
 import React,{useState , useEffect} from 'react'  
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { ImageData } from '../ComponentsSinglePage/ImageData' 
 import { ProductLaptop } from '../ComponentsSinglePage/ProductLaptop' 
 import "./SinglePageProduct.css"
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
 
 const SinglePageProduct = () => {
   const {id} = useParams()   
+  const [num , changeNum] = useState(+(id))
   const [singleData , updateSingleData] = useState([])
    
   const GetSinglePageData = (num) =>{
@@ -17,19 +19,31 @@ const SinglePageProduct = () => {
     
 }
   
+const handleChangeAdd = ()=>{
+  changeNum(num+1)
+}
+
+const handleChangeRemove= ()=>{
+changeNum(num-1)
+}
+
 useEffect(()=>{
-  GetSinglePageData(id)
-},[id])  
-     
+GetSinglePageData(num)
+},[num])
      
 
         // console.log(singleData)
      
 
   return (
-    <Box className="SingleProductMainDiv" background="#f1f3f6"  style={{border:"2px  green" , height:"200vh" ,}}>
-        {/* <hr className='horizatalRule' style={{marginBottom: "10px"}} /> */}
-        {/* <br /> */}
+    <Box className="SingleProductMainDiv" background="#f1f3f6"  style={{border:"2px solid  green" , height:"200vh" , }}>
+      {/* Button -----left----------------------- */}
+        <ChevronLeftIcon onClick={handleChangeRemove} position="absolute" left="-4px" cursor="pointer" top="250px" w={{base:'32px',sm: "45px", md: "50px", lg: "50px" ,xl: "66px",'2xl': "66px",}} h={{base:'32px',sm: "45px", md: "50px", lg: "50px" ,xl: "66px",'2xl': "66px",}}/> 
+
+        {/* BUTTON RIGHT-------------------->----------- */}
+     <ChevronRightIcon onClick={handleChangeAdd} position="absolute" cursor="pointer" right="4px" top="250px" w={{base:'32px',sm: "45px", md: "50px", lg: "50px" ,xl: "66px",'2xl': "66px",}} h={{base:'32px',sm: "45px", md: "50px", lg: "50px" ,xl: "66px",'2xl': "66px",}} ml={{base:"-16px"}}/> 
+
+
         {/*  Main Box of Single Page ------------------------------------------------ */}
         <Box className='SingleProductMain' flexDirection={{base:"column", sm: "column", md: "row", lg: "row",xl: "row",'2xl': "row"}} shadow="2xl"  mt="10px" pb="20px" background='#ffffff' style={{border:"1px solid red" , height:"auto"  , width:"90%" , margin:"auto" , display:"flex" ,justifyContent:"space-between"}}>
 
