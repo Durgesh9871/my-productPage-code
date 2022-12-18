@@ -143,7 +143,7 @@ const ProductLaptop = ({item}) => {
              <Text fontSize='20px' fontWeight="700" color="#303030"><u> Top Reviews From Our Customers</u></Text>          
              {/* addind review --------------------------------- */}
              <Box display="flex" alignItems="center" >
-             <Input placeholder='Write a customer review' width="210px" mt="20px" mb="10px" value={review} onChange={(e)=> setReview(e.target.value)} /> 
+             <Input placeholder='Write a customer review' width="210px" mt="20px" mb="10px" value={review} onChange={(e)=> setReview(e.target.value)}  /> 
 
              <Button onClick={handleReview} display="flex" mb="10px" ml="2"  backgroundColor='#fb641b' variant='unstyled' width="60px" mt="20px"  borderRadius="10px" > <Text color="#fffcfa"   fontSize="17px">Share</Text></Button>
              </Box>
