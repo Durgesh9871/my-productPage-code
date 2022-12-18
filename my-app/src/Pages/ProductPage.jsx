@@ -9,7 +9,7 @@ import { Link, useLocation, useSearchParams } from 'react-router-dom'
 // import Carousel from "better-react-carousel" 
 import { DisplayProductMainData } from '../Components/DisplayProductMainData'
 import {shallowEqual, useDispatch , useSelector} from "react-redux"
-import { getDataProduct } from '../Redux/action'
+import { getDataProduct } from '../Redux/Laptop_reducer/action'
 import { useState } from 'react' 
 import axios from 'axios'
 import {ChevronLeftIcon, ChevronRightIcon} from "@chakra-ui/icons"
