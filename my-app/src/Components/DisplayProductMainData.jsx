@@ -86,7 +86,7 @@ const closeProductHover = ()=>{
       
       {/*  Corousel images are here --------------------------------------------------------- */}
      <Skeleton isLoaded={isLaptopLoading}    >
-     <Link to={`/productLaptop/${id}`}>   <div id='productDataImages' style={{ height:"auto",border:"2px solid red" }} onMouseOver={handleChange}  >
+     <Link to={`/productLaptop/${id}`}>   <div id='productDataImages' style={{ height:"auto",border:"1px  red" }} onMouseOver={handleChange}  >
         {/* <img src={src} alt={name}/> */}
 
         <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={value} dotColorActive="#266de8" >
