@@ -1,8 +1,9 @@
 
 .ThreeImagesChange:hover{
     border: 2px solid #2874f0 ;
-    width: 30%;
-    padding: 3px ;
+width:  90px;
+height:70px ; 
+padding: 3px ;
 }
 
 /*  Media queries for single page -------------------------------------------- */
@@ -24,6 +25,7 @@
     .ThreeImagesChange:hover{
         border: 2px solid #2874f0 ;
         width: 40%;
+        
         padding: 5px ;
     }
     

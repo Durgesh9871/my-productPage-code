@@ -7,18 +7,22 @@ import {FiHeart} from "react-icons/fi"
 import {MdShoppingCart} from "react-icons/md"
 import { AddIcon } from "@chakra-ui/icons";
 
-const ImageData = ({image ,allImageData}) => {
+const ImageData = ({image ,mainImage ,value ,setValue}) => {
     //  console.log("image" ,allImageData)
     const [src , setSrc ] = useState("")
     const [wishlistColor , setWishlistColor] = useState(false)
-    const url = ( allImageData !== undefined && allImageData || "" )
-    // console.log("src" ,url)
-     
+    // const url = ( allImageData !== undefined && allImageData || "" )
+
+    const url = (value == true ? src : mainImage)
+    
+   
    
      
    const handleChange =(e)=>{
         setSrc(e.target.src )
+        setValue(true)
     }
+    
 
     //  Wish list function ------------------------------------------------
     const handle = ()=>{
@@ -27,26 +31,29 @@ const ImageData = ({image ,allImageData}) => {
     }
   
     
-
+// border colour = #eef0f3
 
   return (
     <Box className="ImageMainBox" style={{display:"flex" , flexDirection:"column" , justifyContent:"center" , alignItems:"center" ,position:"relative"}} >
          
+        {/*  False the value of isfluid width and adjust the height and width of small image  */}
         
-        
-         <Box className="SingleImagesMagnify" width={{base:"80%", sm: "85%", md: "84%", lg: "76%",xl: "76%",'2xl': "76%"}}  style={{border:"2px solid #eef0f3" ,height:"60vh" ,justifyContent:"center"  }}>
+         <Box className="SingleImagesMagnify" width={{base:"80%", sm: "85%", md: "84%", lg: "76%",xl: "76%",'2xl': "76%"}} height={{base:"80%", sm: "65vh", md: "75vh", lg: "73vh",xl: "65vh",'2xl': "65vh"}}   style={{border:"2px solid #eef0f3"  ,justifyContent:"center"  }}>
             
          <ReactImageMagnify style={{padding:"20px" }} {...{
     smallImage: {
         alt: 'Wristwatch by Ted Baker London',
-        isFluidWidth: true,
-        src: (src || url)  ,
+        isFluidWidth: false ,
+        src: url ,
+        width: 600,
+        height: 420 
+        
        
       },
       largeImage: {
-          src : (src || url) ,
-          width: 1600,
-          height: 700 
+          src : url ,
+          width: 1800,
+          height: 1700 
       } ,
      
          
@@ -66,17 +73,19 @@ const ImageData = ({image ,allImageData}) => {
 
          </Box>
          
-         <Box className="SingleMagnify" width={{base:"100%", sm: "100%", md: "84%", lg: "76%",xl: "76%",'2xl': "76%"}} height={{base:"auto", sm: "auto", md: "60vh", lg: "60vh",xl: "60vh",'2xl': "60vh"}}  style={{border:"2px solid #eef0f3"   ,justifyContent:"center"  }}>
+         <Box className="SingleMagnify" width={{base:"100%", sm: "85%", md: "84%", lg: "76%",xl: "76%",'2xl': "76%"}} height={{base:"55vh", sm: "55vh", md: "60vh", lg: "60vh",xl: "60vh",'2xl': "60vh"}}  style={{border:"2px solid #eef0f3"   ,justifyContent:"center"  }}>
             
             <ReactImageMagnify style={{padding:"20px" }} {...{
        smallImage: {
            alt: 'Wristwatch by Ted Baker London',
-           isFluidWidth: true,
-           src: (src || url)  ,
+           isFluidWidth: false,
+           src: url  ,
+           width: 600,
+        height: 300 
           
          },
          largeImage: {
-             src : (src || url) ,
+             src : url ,
              width: 1600,
              height: 700 
          } ,
@@ -100,7 +109,7 @@ const ImageData = ({image ,allImageData}) => {
        
 
        {/*  diff images three----------------------------- */}
-         <Box mb="40px" style={{ height:"10vh" , width:"60%" , display:"flex" ,justifyContent:"center", marginTop:"20px"}}>
+         <Box mb="40px"  style={{ height:"10vh" , width:"60%" , display:"flex" ,justifyContent:"center", marginTop:"20px"}}>
            
           { image?.map((item , i)=>{
       return (
@@ -112,15 +121,7 @@ const ImageData = ({image ,allImageData}) => {
       )
     })}
 
-            {/* <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
-                <Image onMouseOver={handleChange} cursor="pointer"  src="https://rukminim1.flixcart.com/image/416/416/kp2y2kw0/computer/y/0/c/na-thin-and-light-laptop-asus-original-imag3ebnzawky4kn.jpeg?q=70" alt="image"  width="100%" height="100%" />
-                </Box>
-            <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px"  >
-            <Image onMouseOver={handleChange} cursor="pointer" src="https://rukminim1.flixcart.com/image/312/312/xif0q/computer/q/j/c/-original-imagh3wecapg5gqn.jpeg?q=70" alt="image"  width="100%" height="100%" />
-            </Box>
-            <Box border="1px solid #eef0f3" width="30%" className='ThreeImagesChange' padding="7px" >
-            <Image onMouseOver={handleChange} cursor="pointer" src="https://rukminim1.flixcart.com/image/312/312/ksyz8280/computer/8/v/i/cb-11igl05-thin-and-light-laptop-lenovo-original-imag6fh8sqpuk3ts.jpeg?q=70" alt="image"  width="100%" height="100%" />
-            </Box> */}
+           
         </Box>
 
        {/*  Wish list --------------------------------------------------------- */}
@@ -132,9 +133,9 @@ const ImageData = ({image ,allImageData}) => {
 
           <Box  border="2px  red" width="76%" height="auto"  display="flex" justifyContent="space-between" margin="auto" alignItems="center" flexDirection={{base:"column",sm: "column", md: "row" , lg: "row",xl: "row",'2xl': "row" }}>
 
-          <Button display="flex" mb="20px"  backgroundColor='#ff9f00' variant='unstyled' width={{base:"105%", sm: "100%", md: "53%", lg: "47%",xl: "47%",'2xl': "47%"}} height="52px"  borderRadius="2px" > <MdShoppingCart  fontSize="22px" color="#fffcfa"/> <Text color="#fffcfa" ml="2"  fontSize="17px">ADD TO CART</Text></Button>
+          <Button display="flex" mb="20px"  backgroundColor='#ff3e6c' variant='unstyled' width={{base:"105%", sm: "100%", md: "53%", lg: "47%",xl: "47%",'2xl': "47%"}} height="52px"  borderRadius="2px" > <MdShoppingCart  fontSize="22px" color="#fffcfa"/> <Text color="#fffcfa" ml="2"  fontSize="17px">ADD TO CART</Text></Button>
 
-          <Button display="flex" mb="20px"  backgroundColor='#fb641b' variant='unstyled' width={{base:"105%", sm: "100%", md: "43%", lg: "47%",xl: "47%",'2xl': "47%"}}  height="52px"  borderRadius="2px" > <AddIcon  fontSize="16px" color="#fffcfa"/> <Text color="#fffcfa" ml="2"  fontSize="17px">BUY NOW</Text></Button>
+          <Button display="flex" mb="20px"  backgroundColor='#ff3358' variant='unstyled' width={{base:"105%", sm: "100%", md: "43%", lg: "47%",xl: "47%",'2xl': "47%"}}  height="52px"  borderRadius="2px" > <AddIcon  fontSize="16px" color="#fffcfa"/> <Text color="#fffcfa" ml="2"  fontSize="17px">BUY NOW</Text></Button>
 
           </Box>
         

@@ -5,7 +5,6 @@ import {
   Checkbox,
   Text,
 } from "@chakra-ui/react";
-import { all } from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
@@ -134,77 +133,89 @@ const clearAllFilterItem = ()=>{
   const filterNameData = [
     {
       id: "1",
-      name: "Microsoft",
-      value: "Microsoft",
-      size: "5",
+      name: "Carbonn Cloth",
+      value: "CarbonnCloth",
+      size: "4",
     },
     {
       id: "2",
-      name: "HP",
-      value: "HP",
-      size: "5",
+      name: "Cave of Cloths",
+      value: "caveofcloths",
+      size: "2",
     },
     {
       id: "3",
-      name: "ASUS",
-      value: "ASUS",
-      size: "5",
+      name: "Lorex",
+      value: "lorex",
+      size: "6",
     },
     {
       id: "4",
-      name: "Dell",
-      value: "Dell",
-      size: "5",
+      name: "Red Cloth",
+      value: "redcloth",
+      size: "3",
+    },
+    {
+      id: "5",
+      name: "City Style",
+      value: "citystyle",
+      size: "3",
+    },
+    {
+      id: "6",
+      name: "Derbenny",
+      value: "derbenny",
+      size: "3",
     },
   ];
 
   const filterColorData = [
     {
       id: "1",
-      color: "Silver",
-      size: "7",
-      value:"Silver" ,
+      color: "Grey",
+      size: "3",
+      value:"grey" ,
     },
     {
       id: "2",
-      color: "Rose Gold",
-      size: "1",
-      value:"Rose Gold" ,
+      color: "Black",
+      size: "7",
+      value:"black" ,
 
     },
     {
       id: "3",
       color: "Blue",
-      size: "2",
-      value:"Blue" ,
+      size: "6",
+      value:"blue" ,
 
     },
     {
       id: "4",
-      color: "White",
+      color: "Red",
       size: "2",
-      value:"White" ,
+      value:"red" ,
 
     },
     {
       id: "5",
-      color: "Green",
+      color: "White",
       size: "3",
-      value:"Green" ,
+      value:"white" ,
 
     },
     {
       id: "6",
       color: "Tan",
-      size: "2",
+      size: "Out of stock",
       value:"Tan" ,
 
     },
     {
       id: "7",
-      color: "Black",
-      size: "3",
-      value:"Black" ,
+      color: "Green",
+      size: "Out of stock",
+      value:"green" ,
 
     },
   ];
@@ -213,7 +224,7 @@ const clearAllFilterItem = ()=>{
     {
       id: 1,
       value: "5",
-      size: 5,
+      size: 6 ,
 
     },
     {
@@ -224,12 +235,12 @@ const clearAllFilterItem = ()=>{
     {
       id: 3,
       value: "3",
-      size: 7,
+      size: 6,
     },
     {
       id: 4,
       value: "2",
-      size: 2,
+      size: 3 ,
     },
     {
       id: 5,

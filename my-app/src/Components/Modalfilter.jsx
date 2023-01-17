@@ -10,78 +10,78 @@ const Modalfilter = ({brand ,handleChange}) => {
     const filterNameData = [
         {
         id:"1"  ,   
-        name:"Microsoft" , 
-        size:"5" , 
+        name:"CarbonnCloth" , 
+        size:"4" , 
     },
     {
         id:"2"  ,   
-        name:"HP" , 
-        size:"5" , 
+        name:"caveofcloths" , 
+        size:"2" , 
     },
     {
         id:"3"  ,   
-        name:"ASUS" , 
-        size:"5" , 
+        name:"lorex" , 
+        size:"6" , 
     },
     {
         id:"4"  ,   
-        name:"Dell" , 
-        size:"5" , 
+        name:"redcloth" , 
+        size:"3" , 
     },
     {
         id:"5"  ,   
-        name:"Acer" , 
-        size:"Out of stock" , 
+        name:"citystyle" , 
+        size:"3" , 
     },
     {
         id:"6"  ,   
-        name:"Alienware" , 
-        size:"Out of stock" , 
+        name:"derbenny" , 
+        size:"3" , 
     },
     {
         id:"7"  ,   
-        name:"AOC" , 
+        name:"Woodsvally" , 
         size:"Out of stock" , 
     },
     {
         id:"8"  ,   
-        name:"APC" , 
+        name:"YOUFIT" , 
         size:"Out of stock" , 
     },  {
         id:"9"  ,   
-        name:"Apple" , 
+        name:"sesky" , 
         size:"Out of stock" , 
     },
     {
         id:"10"  ,   
-        name:"Belkin" , 
+        name:"GOLDBOX" , 
         size:"Out of stock" , 
     },
     {
         id:"11"  ,   
-        name:"Crucial" , 
+        name:"Printcomet" , 
         size:"Out of stock" , 
     },
     {
         id:"12"  ,   
-        name:"MSI" , 
+        name:"Strobine" , 
         size:"Out of stock" , 
     },
     {
         id:"13"  ,   
-        name:"Samsung" , 
+        name:"Sukhi" , 
         size:"Out of stock" , 
     },{
         id:"14"  ,   
-        name:"Lenovo" , 
+        name:"Kaushik" , 
         size:"Out of stock" , 
     },{
         id:"15"  ,   
-        name:"Edifier" , 
+        name:"Bridon" , 
         size:"Out of stock" , 
     },
 ] 
-
+  
 
  
   return (

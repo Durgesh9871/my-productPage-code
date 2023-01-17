@@ -82,18 +82,18 @@ const closeProductHover = ()=>{
  return (
       
 
-    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"320px", sm: "320px", md: "324px", lg: "324px" ,xl: "330px",'2xl': "365px",}}  style={style}  >
+    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"375px", sm: "375px", md: "385px", lg: "385px" ,xl: "385px",'2xl': "385px",}}  style={style} border="2px  red" >
       
       {/*  Corousel images are here --------------------------------------------------------- */}
      <Skeleton isLoaded={isLaptopLoading}    >
-     <Link to={`/productLaptop/${id}`}>   <div id='productDataImages' style={{ height:"auto",border:"1px  red" }} onMouseOver={handleChange}  >
+     <Link to={`/mens/${id}`}>   <div id='productDataImages' style={{ height:"auto",border:"1px  red" }} onMouseOver={handleChange}  >
         {/* <img src={src} alt={name}/> */}
 
-        <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={value} dotColorActive="#266de8" >
+        <Carousel hideArrow={true} loop={true} showDots={true} dot = {myDot}   autoplay={false} dotColorActive="#266de8" >
           {src.map((img,i) => (
             <Carousel.Item key={i}>
              
-                <Img w="full" src={img.imageFront}  height="200px"  width="260px" margin="auto"/>
+                <Img w="full" src={img.imageFront}  height="240px"  width="235px" margin="auto"/>
              
             </Carousel.Item>
           ))}

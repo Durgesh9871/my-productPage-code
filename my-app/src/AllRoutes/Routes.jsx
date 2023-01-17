@@ -9,8 +9,8 @@ const AllRoutes = () => {
     <div >
       <Routes >
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/productLaptop" element={<ProductPage />}></Route>
-        <Route path="/productLaptop/:id" element={<SinglePageProduct />}></Route>
+        <Route path="/mens" element={<ProductPage />}></Route>
+        <Route path="/mens/:id" element={<SinglePageProduct />}></Route>
         <Route path="/SinglePage" element={<SinglePageProduct />}></Route>
       </Routes>
 
