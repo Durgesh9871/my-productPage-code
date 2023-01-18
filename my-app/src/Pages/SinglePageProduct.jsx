@@ -7,6 +7,7 @@ import { ProductLaptop } from '../ComponentsSinglePage/ProductLaptop'
 import "./SinglePageProduct.css"
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons' 
 import { RecentBought } from '../ComponentsSinglePage/recentBought'
+import { Rating } from '../ComponentsSinglePage/rating'
 
 
 
@@ -87,7 +88,14 @@ GetSinglePageData(num)
          </Box>
 
         {/*  People also  bought end here -------------------------------------- */}
-   
+        
+   {/*  Rating and reviews are started from here -------------------------------------------- */}
+        <Box background='#ffffff' ml="auto" mr="auto" mt="8px"  style={{border:"1px   red" , height:"90vh"  , width:"90%" }}>
+         <Rating />
+        </Box>
+{/* Rating ends here ----------------------------------------------------------- */}
+
+
 
     </Box> 
     

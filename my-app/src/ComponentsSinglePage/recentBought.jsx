@@ -1,8 +1,10 @@
 import { Box ,Text ,Image} from '@chakra-ui/react'
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React  from 'react'
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import "react-multi-carousel/lib/styles.css"; 
+import "./recent.css"
+
 
 
 const RecentBought = () => {
@@ -90,10 +92,11 @@ const RecentBought = () => {
      <Box ml={{base:"2px", sm: "20px", md: "20px", lg: "20px",xl: "20px",'2xl': "20px"}} >
      <Carousel responsive={responsive} > 
     
-     {getData.length > 0 && getData.map((item)=>{
+     {getData.length > 0 && getData.map((item , i)=>{
        return (
-       <Image src={item.mainImage} alt={item.categories} boxSize={{base:"300px", sm: "300px", md: "300px", lg: "300px",xl: "300px",'2xl': "300px"}}  shadow="2xl" cursor="pointer" />
-        
+        <div className='image' key={i}>
+       <Image className='img' src={item.mainImage} alt={item.categories} boxSize={{base:"300px", sm: "300px", md: "300px", lg: "300px",xl: "300px",'2xl': "300px"}}  shadow="2xl" cursor="pointer" />
+       </div>
           )
      })}
     

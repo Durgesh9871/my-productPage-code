@@ -1,0 +1,17 @@
+
+.image{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.image > .img{
+  /* border: 2px solid green; */
+  /* width: 100%; */
+  transition: 0.9 s all ease-in-out;
+}
+.image>img:hover{
+    transform: scale(1.7);
+}

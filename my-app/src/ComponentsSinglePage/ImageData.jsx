@@ -12,10 +12,12 @@ const ImageData = ({image ,mainImage ,value ,setValue}) => {
     const [src , setSrc ] = useState("")
     const [wishlistColor , setWishlistColor] = useState(false)
     // const url = ( allImageData !== undefined && allImageData || "" )
-
+    // if(mainImage == undefined){
+    //   console.log("undefined image")
+    // }
     const url = (value == true ? src : mainImage)
-    
-   
+
+    // console.log("url" , url  ,"value" , value)
    
      
    const handleChange =(e)=>{
@@ -44,14 +46,14 @@ const ImageData = ({image ,mainImage ,value ,setValue}) => {
     smallImage: {
         alt: 'Wristwatch by Ted Baker London',
         isFluidWidth: false ,
-        src: url ,
+        src: url || src ,
         width: 600,
         height: 420 
         
        
       },
       largeImage: {
-          src : url ,
+          src : url || src ,
           width: 1800,
           height: 1700 
       } ,
@@ -79,13 +81,13 @@ const ImageData = ({image ,mainImage ,value ,setValue}) => {
        smallImage: {
            alt: 'Wristwatch by Ted Baker London',
            isFluidWidth: false,
-           src: url  ,
+           src: url || src  ,
            width: 600,
         height: 300 
           
          },
          largeImage: {
-             src : url ,
+             src : url || src ,
              width: 1600,
              height: 700 
          } ,
