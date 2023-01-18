@@ -69,7 +69,8 @@ style={{display:"flex" ,alignItems:"center" ,justifyContent:"space-evenly"}}>
    <Box>
     <Text textAlign="left" ml="20px" fontWeight={600} fontSize="16px" mt="20px" mb="15px">Images upload by our customers</Text>
     {/* Images of customer products-------------------------- */}
-    <Box display="flex" justifyContent="flex-start" ml="20px"  >
+    <Box display="flex" justifyContent="flex-start" ml="20px" position="relative" >
+    <Text position="absolute" left="232px" top="15px" fontSize="20px" fontWeight={800} color="#ffffff" backgroundColor="black" cursor="pointer">+ 407</Text>
      {getData.length > 0 && getData?.reverse().map((item ,i)=>{
       if(i < 4){
         return (
@@ -79,8 +80,9 @@ style={{display:"flex" ,alignItems:"center" ,justifyContent:"space-evenly"}}>
         )
       }
      
+    })}
+   
 
-     })}
      </Box>
 
    </Box>
