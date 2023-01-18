@@ -4,6 +4,7 @@ import { StarIcon } from '@chakra-ui/icons';
 import "./recent.css"
 
 const Rating = () => {
+ 
   
   
 
@@ -41,7 +42,8 @@ const Rating = () => {
         mainImage:"https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/j/h/9/10-rso246-red-tape-grey-original-imagk5jyfezgkvqm.jpeg?q=70"
       } ,
   ]
-
+ 
+ 
   return (
     <Box>
       <Box><u><Heading fontWeight={600}>Customer Rating & Reviews</Heading></u></Box>
@@ -65,10 +67,10 @@ style={{display:"flex" ,alignItems:"center" ,justifyContent:"space-evenly"}}>
 
 {/*  IMAGES UPLOADED BY OUR CUSTOMERS ---------------------------------------- */}
    <Box>
-    <Text textAlign="left" ml="20px">Images upload by our customers</Text>
+    <Text textAlign="left" ml="20px" fontWeight={600} fontSize="16px" mt="20px" mb="15px">Images upload by our customers</Text>
     {/* Images of customer products-------------------------- */}
     <Box display="flex" justifyContent="flex-start" ml="20px"  >
-     {getData.length > 0 && getData?.map((item ,i)=>{
+     {getData.length > 0 && getData?.reverse().map((item ,i)=>{
       if(i < 4){
         return (
           <Box  key={i} textAlign="left" border="2px  red" ml="5px">
